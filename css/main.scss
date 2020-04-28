@@ -178,7 +178,6 @@ button:hover {
 }
 
 header {
-
     .waveWrapper {
         height: 100vh;
         flex-direction: row;
@@ -268,12 +267,8 @@ header {
 	from   {  transform: rotate(360deg) translateX(200px); }
 }
 @keyframes rotation {
-    to{
-        transform: rotate(360deg);
-    }
-    from{
-        transform: rotate(0deg);
-    }
+    to{transform: rotate(360deg);}
+    from{transform: rotate(0deg);}
 }
 
 // @keyframes orbitFar {
@@ -285,7 +280,7 @@ header {
     // background-image: url(/img/image_two.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center right;
+    background-position: center center;
 }
 
 .caja {
@@ -335,15 +330,17 @@ header {
     }
 
     @include desktop {
-        width: 50%;
+        // width: 50%;
 
         &:nth-child(1),
         &:nth-child(4),
         &:nth-child(5),
         &:nth-child(8),
-        &:nth-child(9) {
+        &:nth-child(9),
+        &:nth-child(12),
+        &:nth-child(13) {
             background-color: $pink;
-            width: 65vw;
+            width: 60vw;
             min-width: 300px;
         }
 
@@ -351,9 +348,11 @@ header {
         &:nth-child(3),
         &:nth-child(6),
         &:nth-child(7),
-        &:nth-child(10) {
+        &:nth-child(10),
+        &:nth-child(11),
+        &:nth-child(14) {
             background-color: $whiteback;
-            width: 35vw;
+            width: 40vw;
             min-width: 300px;
         }
 
