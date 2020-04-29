@@ -36,11 +36,33 @@ $tablet: 666px;
     }
 }
 
+@mixin stroke-width($property) {
+    -webkit-text-stroke-width: $property;
+    -moz-text-stroke-width: $property;
+  }
+  
+  @mixin stroke-color($property) {
+    -webkit-text-stroke-color: $property;
+    -moz-text-stroke-color: $property;
+  }
+  
+  @mixin background-clip($property) {
+    -webkit-background-clip: $property;
+    -moz-background-clip: $property;
+    background-clip: $property;
+  }
+  
+  @mixin fill-color($property) {
+    -webkit-text-fill-color: $property;
+    -moz-text-fill-color: $property;
+  }
+
 $pink:#6E0270;
 $gray:#EFF1EF;
 $darkgray: #8e8e8e;
 $hotpink:#D80077;
 $black:#0D0D0D;
+$almostblack:#272727;
 $white:#f2f2f2;
 $whiteback: #fff;
 $morphshad: 9px 9px 16px rgba(163, 177, 198, 0.6),
@@ -106,6 +128,7 @@ footer {
     color: $white;
     padding: 30px 0;
     text-align: center;
+    overflow: hidden;
 
     a {
         color: $hotpink;
@@ -117,6 +140,11 @@ footer {
     a:hover {
         text-decoration: underline;
         cursor: pointer;
+    }
+    .hiddenmofo{
+        color:transparent;
+        font-size:16px;
+        line-height: 0;
     }
 }
 
@@ -276,98 +304,141 @@ header {
 // 	to { 	transform: rotate(0deg) translateX(800px); }
 // }
 
-.imagefiller {
-    // background-image: url(/img/image_two.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-}
+#servicios{
 
-.caja {
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-    background-color: $whiteback;
-
-    &:before {
-        content: "";
-        display: block;
-        padding-bottom: calc(100vw * #{$phi});
+    h1{
+        width: 100%;
+        text-align: center;
+        font-size: 6em;
+        margin: 2em;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        font-weight: 800;
+        text-shadow: 6px 6px $hotpink;
+        @include stroke-width(2px);
+        @include stroke-color($pink);
+        color: transparent;
+        transition: all 0.61s ease-in-out ;
+        &:hover{
+            text-shadow: 0px 0px $black;
+            @include stroke-color(transparent);
+            cursor: default;
+        }
     }
 
-    &-inner {
-        position: absolute;
-        width: 100%;
-        height: 100%;
+    .imagefiller {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+    .caja {
         display: flex;
+        position: relative;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-
-        img {
-            height: 50%;
-            width: auto;
-        }
-
-        h3 {
-            font-size: 2em;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        p {
-            margin: 0 5vw;
-            line-height: 22px;
-        }
-    }
-
-    &:nth-child(odd) {
-        background-color: $pink;
-    }
-
-    @include desktop {
-        // width: 50%;
-
-        &:nth-child(1),
-        &:nth-child(4),
-        &:nth-child(5),
-        &:nth-child(8),
-        &:nth-child(9),
-        &:nth-child(12),
-        &:nth-child(13) {
-            background-color: $pink;
-            width: 55vw;
-            min-width: 300px;
-        }
-
-        &:nth-child(2),
-        &:nth-child(3),
-        &:nth-child(6),
-        &:nth-child(7),
-        &:nth-child(10),
-        &:nth-child(11),
-        &:nth-child(14) {
-            background-color: $whiteback;
-            width: 45vw;
-            min-width: 300px;
-        }
-
-        p {
-            margin: 0 3vw;
-        }
+        text-align: center;
+        width: 100%;
+        background-color: $whiteback;
 
         &:before {
-            padding-bottom: 100%;
+            content: "";
+            display: block;
+            padding-bottom: calc(100vw * #{$phi});
+        }
+
+        &-inner {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            h3 {
+                font-size: 2em;
+                font-weight: 800;
+                text-transform: uppercase;
+                // color: $hotpink;
+                text-shadow: 6px 6px $hotpink;
+                @include stroke-width(2px);
+                @include stroke-color($pink);
+                color: transparent;
+                letter-spacing: 5px;
+                transition: all 0.61s ease-in-out ;
+
+                &:hover{
+                    text-shadow: 0px 0px $black;
+                    @include stroke-color(transparent);
+                    cursor: default;
+                }
+            }
+
+            p {
+                margin:30px 5vw;
+                line-height: 22px;
+
+            
+                &:nth-child(3){
+                    width: 80%;
+                    transform:scale(1.3);
+                    font-weight: 700;
+                    padding: 10px 20px;
+                    border-left: 5px solid $hotpink;
+                    font-style: oblique;
+                    color: $almostblack;
+                    @include desktop{
+                        width:50%;
+                    }
+                }
+            }
+        }
+
+        &:nth-child(*) {
+            background-color: $whiteback;
+        }
+
+        @include desktop {
+
+            &:nth-child(2),
+            &:nth-child(5),
+            &:nth-child(6),
+            &:nth-child(9),
+            &:nth-child(10),
+            &:nth-child(13),
+            &:nth-child(14),
+            &:nth-child(16) {
+                width: 55vw;
+                min-width: 300px;
+                background-color: $pink;
+            }
+
+            &:nth-child(3),
+            &:nth-child(4),
+            &:nth-child(7),
+            &:nth-child(8),
+            &:nth-child(11),
+            &:nth-child(12),
+            &:nth-child(15) {
+                width: 45vw;
+                min-width: 300px;
+            }
+
+            p {
+                margin: 5vh 3vw;
+            }
+
+            &:before {
+                padding-bottom: 90%;
+            }
         }
     }
-}
 
-.textbox {
-    padding: 1em;
+    .textbox {
+        padding: 1em;
+    }
 }
 
 #about {
@@ -631,6 +702,36 @@ header {
 .lazyloaded {
     opacity: 1;
     transition: opacity 300ms;
+}
+
+/******* nav *****/
+nav.mainNav{
+    z-index: 200;
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    
+    ul{
+        list-style: none;
+        text-align: right;
+        li{
+            color: transparent;
+            font-weight: 800;
+            font-size: 30px;
+            text-transform: uppercase;
+            cursor: pointer;
+            padding:3px 5px;
+            letter-spacing: 10px;
+
+        }
+        li:hover{
+            background-color: $black;
+            color: $whiteback;
+            font-weight:800;
+            filter: bla;
+
+        }
+    }
 }
 
 /******* GOOMENOO *****/
