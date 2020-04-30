@@ -35,6 +35,14 @@ $tablet: 666px;
         bottom: 0;
     }
 }
+@keyframes orbit {
+	to { 	transform: rotate(0deg) translateX(200px); }
+	from   {  transform: rotate(360deg) translateX(200px); }
+}
+@keyframes rotation {
+    to{transform: rotate(360deg);}
+    from{transform: rotate(0deg);}
+}
 
 @mixin stroke-width($property) {
     -webkit-text-stroke-width: $property;
@@ -62,6 +70,7 @@ $gray:#EFF1EF;
 $darkgray: #8e8e8e;
 $hotpink:#D80077;
 $black:#0D0D0D;
+$transblack: rgba(5, 5, 5, 0.7);
 $almostblack:#272727;
 $white:#f2f2f2;
 $whiteback: #fff;
@@ -74,6 +83,9 @@ $phi: 1.618;
 
 * {
     font: 16px/26px 'Raleway', sans-serif;
+    @include desktop{
+        font: 20/30px 'Raleway', sans-serif;
+    }
 }
 
 html {
@@ -290,14 +302,7 @@ header {
         }
     }
 }
-@keyframes orbit {
-	to { 	transform: rotate(0deg) translateX(200px); }
-	from   {  transform: rotate(360deg) translateX(200px); }
-}
-@keyframes rotation {
-    to{transform: rotate(360deg);}
-    from{transform: rotate(0deg);}
-}
+
 
 // @keyframes orbitFar {
 //     from   {  transform: rotate(360deg) translateX(800px); }
@@ -320,7 +325,7 @@ header {
         color: transparent;
         transition: all 0.61s ease-in-out ;
         &:hover{
-            text-shadow: 0px 0px $black;
+            text-shadow: 0px 0px $pink;
             @include stroke-color(transparent);
             cursor: default;
         }
@@ -373,7 +378,7 @@ header {
                 transition: all 0.61s ease-in-out ;
 
                 &:hover{
-                    text-shadow: 0px 0px $black;
+                    text-shadow: 0px 0px $pink;
                     @include stroke-color(transparent);
                     cursor: default;
                 }
@@ -385,15 +390,15 @@ header {
 
             
                 &:nth-child(3){
-                    width: 80%;
+                    width: 60%;
                     transform:scale(1.3);
                     font-weight: 700;
-                    padding: 10px 20px;
+                    padding: 0px 10px;
                     border-left: 5px solid $hotpink;
                     font-style: oblique;
                     color: $almostblack;
                     @include desktop{
-                        width:50%;
+                        width:60%;
                     }
                 }
             }
@@ -655,86 +660,187 @@ header {
         }
     }
 }
+.mauticform{
+    &-error {
+        margin-bottom: 10px;
+        color: red;
+    }
 
-.mauticform-error {
-    margin-bottom: 10px;
-    color: red;
+    &-message {
+        margin-bottom: 10px;
+        color: green;
+    }
+
+    &-row {
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    &-label {
+        font-size: 1.1em;
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+
+    &-helpmessage {
+        display: block;
+        font-size: 0.9em;
+        margin-bottom: 3px;
+    }
+
+    &-errormsg {
+        display: block;
+        color: red;
+        margin-top: 2px;
+    }
 }
-
-.mauticform-message {
-    margin-bottom: 10px;
-    color: green;
-}
-
-.mauticform-row {
-    display: block;
-    margin-bottom: 20px;
-}
-
-.mauticform-label {
-    font-size: 1.1em;
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
 .mauticform-row.mauticform-required .mauticform-label:after {
     color: $whiteback;
     content: " *";
     display: inline;
 }
 
-.mauticform-helpmessage {
-    display: block;
-    font-size: 0.9em;
-    margin-bottom: 3px;
-}
+/***** MAUTIC FORM END *****/
 
-.mauticform-errormsg {
-    display: block;
-    color: red;
-    margin-top: 2px;
-}
 
 /* fade image in after load */
 .lazyload,
 .lazyloading {
     opacity: 0;
 }
-
 .lazyloaded {
     opacity: 1;
     transition: opacity 300ms;
 }
 
-/******* nav *****/
+/******* MAIN NAV *****/
+
 nav.mainNav{
     z-index: 200;
     position: fixed;
     top: 10px;
     right: 20px;
+    text-align:right;
     
+
+
+    p{
+        color: $whiteback;
+        background-color: $black;
+        padding: 3px 5px;
+        cursor: default;
+    }
+    #navMenu{
+        // display:none;
+    }
     ul{
         list-style: none;
         text-align: right;
-        li{
-            color: transparent;
-            font-weight: 800;
-            font-size: 30px;
-            text-transform: uppercase;
-            cursor: pointer;
-            padding:3px 5px;
-            letter-spacing: 10px;
 
+        li{
+            color: $pink;
+            opacity: 0.8;
+            font-weight: 500;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 0px 5px;
+            transition: all 0.61s ease;
+            background: linear-gradient(to right, transparent 50%, $black 50%);
+            background-size: 200% 100%;
+            background-position:left bottom;
+
+            a{
+                text-decoration: none;
+            }
         }
         li:hover{
-            background-color: $black;
+            // background-color: $transblack;
             color: $whiteback;
-            font-weight:800;
-            filter: bla;
-
+            // font-weight:800;
+            background-position: right bottom;
         }
     }
+
+ 
+#nav-icon{
+    width: 60px;
+    height: 45px;
+    position: relative;
+    margin: 50px auto;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    cursor: pointer;
+
+  }
+  &:checked{
+
+  }
+  
+  #nav-icon span {
+    display: block;
+    position: absolute;
+    height: 9px;
+    width: 100%;
+    background: #d3531a;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .25s ease-in-out;
+    -moz-transition: .25s ease-in-out;
+    -o-transition: .25s ease-in-out;
+    transition: .25s ease-in-out;
+  }
+  
+  #nav-icon span:nth-child(1) {
+    top: 0px;
+  }
+  
+  #nav-icon span:nth-child(2),#nav-icon span:nth-child(3) {
+    top: 18px;
+  }
+  
+  #nav-icon span:nth-child(4) {
+    top: 36px;
+  }
+  
+  #nav-icon.open span:nth-child(1) {
+    top: 18px;
+    width: 0%;
+    left: 50%;
+  }
+  
+  #nav-icon.open span:nth-child(2) {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  
+  #nav-icon.open span:nth-child(3) {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+  
+  #nav-icon.open span:nth-child(4) {
+    top: 18px;
+    width: 0%;
+    left: 50%;
+  }
+  
 }
 
 /******* GOOMENOO *****/

@@ -1,4 +1,28 @@
 
+// $(document).ready(function(){
+// 	$('#nav-icon').click(function(){
+// 		$(this).toggleClass('open');
+// 	});
+// });
+
+
+
+
+// function menuToggle(){
+//     var x = document.getElementById("navMenu");
+//     if (x.style.display === "none") {
+//       x.style.display = "block";
+//     } else {
+//       x.style.display = "none";
+//     }
+
+//     var g = document.getElementById("nav-icon");
+
+
+//     console.log('clicked');
+// }
+
+
 
 
 // // this is the code that controlls the popup
