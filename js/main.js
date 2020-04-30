@@ -8,19 +8,19 @@
 
 
 
-// function menuToggle(){
-//     var x = document.getElementById("navMenu");
-//     if (x.style.display === "none") {
-//       x.style.display = "block";
-//     } else {
-//       x.style.display = "none";
-//     }
+function menuToggle(){
+    var x = document.getElementById("navMenu");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
 
-//     var g = document.getElementById("nav-icon");
+    var g = document.getElementById("nav-icon");
 
 
-//     console.log('clicked');
-// }
+    console.log('clicked');
+}
 
 
 

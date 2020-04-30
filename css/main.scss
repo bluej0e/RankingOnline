@@ -315,11 +315,12 @@ header {
         width: 100%;
         text-align: center;
         font-size: 3em;
-        margin: 2em auto;
+        margin: 1em auto 5px auto;
+        z-index: 99;
         letter-spacing: 0.1em;
         text-transform: uppercase;
         font-weight: 800;
-        text-shadow: 6px 6px $hotpink;
+        text-shadow: 8px 8px $hotpink;
         @include stroke-width(2px);
         @include stroke-color($pink);
         color: transparent;
@@ -366,22 +367,22 @@ header {
             align-items: center;
 
             h3 {
-                font-size: 2em;
+                font-size: 3em;
                 font-weight: 800;
                 text-transform: uppercase;
                 // color: $hotpink;
-                text-shadow: 6px 6px $hotpink;
+                text-shadow: 3px 3px $hotpink;
                 @include stroke-width(2px);
                 @include stroke-color($pink);
                 color: transparent;
                 letter-spacing: 5px;
                 transition: all 0.61s ease-in-out ;
 
-                &:hover{
-                    text-shadow: 0px 0px $pink;
-                    @include stroke-color(transparent);
-                    cursor: default;
-                }
+                // &:hover{
+                //     text-shadow: 0px 0px $pink;
+                //     @include stroke-color(transparent);
+                //     cursor: default;
+                // }
             }
 
             p {
@@ -723,6 +724,7 @@ nav.mainNav{
     top: 10px;
     right: 20px;
     text-align:right;
+    float:right;
     
 
 
