@@ -98,6 +98,10 @@ html {
     scrollbar-width: 0px;
 }
 
+::-webkit-scrollbar{
+    display: none;
+}
+
 ::-moz-selection {
     background: #b3d4fc;
     text-shadow: none;
