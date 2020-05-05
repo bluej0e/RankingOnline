@@ -5,22 +5,55 @@
 // 	});
 // });
 
+$('#wave').wavify({
+	height: 60,
+	bones: 3,
+	amplitude: 40,
+	color: '#0bd',
+	speed: .25
+  });
+
+$(document).ready(function () {
+
+	$(function() {
+		var header = $(".start-style");
+		$(window).scroll(function() {    
+			var scroll = $(window).scrollTop();
+		
+			if (scroll >= 10) {
+				header.removeClass('start-style').addClass("scroll-on");
+			} else {
+				header.removeClass("scroll-on").addClass('start-style');
+			}
+		});
+	});		
+
+	//Menu On Hover
+		
+	$('body').on('mouseenter mouseleave','.nav-item',function(e){
+			if ($(window).width() > 750) {
+				var _d=$(e.target).closest('.nav-item');_d.addClass('show');
+				setTimeout(function(){
+				_d[_d.is(':hover')?'addClass':'removeClass']('show');
+				},1);
+			}
+	});	
+	
+});
+
+// function menuToggle(){
+//     var x = document.getElementById("navMenu");
+//     if (x.style.display === "none") {
+//       x.style.display = "block";
+//     } else {
+//       x.style.display = "none";
+//     }
+
+//     var g = document.getElementById("nav-icon");
 
 
-
-function menuToggle(){
-    var x = document.getElementById("navMenu");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
-
-    var g = document.getElementById("nav-icon");
-
-
-    console.log('clicked');
-}
+//     console.log('clicked');
+// }
 
 
 

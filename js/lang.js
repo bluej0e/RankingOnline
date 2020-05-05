@@ -8,10 +8,12 @@ const langEs = {
       about: "Nosotros",
       portfolio: "Portfolio",
       services: "Servicios",
+      blog:"Artículos",
       contact: "Contacto",
       lang: "Español"
   },
   services:{
+    title: "Servicios",
     serv1:{
         title: "Diseño Web",
         text1: "Ranking Online te ofrece el servicio de diseño web que mejor se adapte a tu marca, a través de una navegación atractiva rápida e intuitiva. Digitalizamos tu negocio para poder llegar así un mayor número de clientes.",
@@ -81,14 +83,17 @@ const langEn = {
   opLang: "ES",
   title: "Digital Marketing Agency | Ranking Online",
   navBar: {
-      home: "Bienvenido",
-      about: "Nosotros",
+      home: "Welcome",
+      about: "About us",
       portfolio: "Portfolio",
-      services: "Servicios",
-      contact: "Contacto",
+      services: "Services",
+      blog:"Articles",
+      contact: "Contact",
       lang: "Español"
   },
   services:{
+    title: "Services",
+
     serv1:{
         title: "Web Design",
         text1: "Ranking Online te ofrece el servicio de diseño web que mejor se adapte a tu marca, a través de una navegación atractiva rápida e intuitiva. Digitalizamos tu negocio para poder llegar así un mayor número de clientes.",
