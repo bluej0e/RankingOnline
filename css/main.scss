@@ -17,6 +17,25 @@ $tablet: 666px;
     }
 }
 
+@mixin for-size($range) {
+    $phone-upper-boundary: 600px;
+    $tablet-portrait-upper-boundary: 900px;
+    $tablet-landscape-upper-boundary: 1200px;
+    $desktop-upper-boundary: 1800px;
+  
+    @if $range == phone-only {
+      @media (max-width: #{$phone-upper-boundary - 1}) { @content; }
+    } @else if $range == tablet-portrait-up {
+      @media (min-width: $phone-upper-boundary) { @content; }
+    } @else if $range == tablet-landscape-up {
+      @media (min-width: $tablet-portrait-upper-boundary) { @content; }
+    } @else if $range == desktop-up {
+      @media (min-width: $tablet-landscape-upper-boundary) { @content; }
+    } @else if $range == big-desktop-up {
+      @media (min-width: $desktop-upper-boundary) { @content; }
+    }
+}
+
 @mixin aspect-ratio($width, $height) {
     position: relative;
 
@@ -35,7 +54,6 @@ $tablet: 666px;
         bottom: 0;
     }
 }
-
 
 @keyframes orbit {
 	to { 	transform: rotate(0deg) translateX(150px); }
@@ -150,29 +168,45 @@ textarea {
 }
 
 footer {
-    background-color: $black;
+    // background-color: $black;
     width: 100%;
     margin: 0;
     color: $white;
     padding: 30px 0;
     text-align: center;
     overflow: hidden;
+    z-index: 3;
+
+    p{
+        z-index: 4;
+    }
 
     a {
         color: $hotpink;
         font-weight: 600;
         font-size: 1.1em;
         text-decoration: none;
+        z-index: 4;
+
+        &:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
     }
 
-    a:hover {
-        text-decoration: underline;
-        cursor: pointer;
-    }
     .hiddenmofo{
         color:transparent;
         font-size:16px;
         line-height: 0;
+    }
+
+    svg{
+        height: 350px;
+        width: 100vw;
+        position: absolute;
+        left: 0;
+        z-index: 3;
+        margin-top:-80px;
     }
 }
 
@@ -227,12 +261,83 @@ section {
     flex-wrap: wrap;
 }
 
-
 button:hover {
     transform: scale(1.2);
     font-weight: 600;
 }
 
+/* ==========================================================================
+   MAIN NAV
+   ========================================================================== */
+
+
+.container {
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+
+    
+   svg {
+        height: 100px;
+        width: 100vw;
+        position: absolute;
+        top: 0;
+        left: 0;
+        rotate: 180deg;
+
+    }
+}
+
+
+nav.mainNav{
+    display: flex;
+    z-index: 4;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: 100%;
+
+    ul{
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        width:100%;
+
+        li{
+            color: $whiteback;
+            font-weight: 500;
+            cursor: pointer;
+            padding: 2px 20px;
+            border: solid;
+            border-width: 1px;
+            border-color: rgba(255,255,255,0);
+            border-radius: 20px;
+            transition: all 0.161s ease;
+
+            a{
+                text-decoration: none;
+                color: $whiteback;
+                cursor: default;
+            }
+        }
+
+        li:hover{
+            border-color: rgba(255,255,255,1);
+        }
+    }
+}
+
+
+/* ==========================================================================
+    HEADER
+    ========================================================================= */
 header {
     .waveWrapper {
         height: 100vh;
@@ -280,12 +385,14 @@ header {
         #logo{
             animation: rotation 30s linear infinite;
         }
+
         #rocket{
             animation: orbit 8s linear infinite;
             @include tablet{
                 animation: orbitfar 10s linear infinite;
             }
         }
+
         #bars{
             z-index: 10;
             width:54px;
@@ -298,6 +405,7 @@ header {
         // #rocket2{
         //     animation: orbitFar 15s linear reverse infinite;
         // }
+
         #vid-holder {
             min-width: 330px;
 
@@ -322,12 +430,9 @@ header {
     }
 }
 
-
-// @keyframes orbitFar {
-//     from   {  transform: rotate(360deg) translateX(800px); }
-// 	to { 	transform: rotate(0deg) translateX(800px); }
-// }
-
+/* ==========================================================================
+    SERVICIOS SECTION
+    ========================================================================= */
 #servicios{
     margin-top:90vh;
     display: flex;
@@ -338,7 +443,7 @@ header {
         text-align: center;
         font-size: 3.5em;
         margin: 2em auto;
-        z-index: 99;
+        z-index: 2;
         letter-spacing: 0.1em;
         text-transform: uppercase;
         font-weight: 800;
@@ -355,7 +460,7 @@ header {
         }
         @include desktop{
             font-size: 6em;
-            margin: 1em auto 10px auto;
+            margin: 2.5em auto 15px auto;
         }
     }
 
@@ -369,17 +474,23 @@ header {
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center center;
-            height: 80vh;
+            // height: 100vw;
+            width: 100%;
             min-width: 300px;
             order: 1;
            
             &:before {
                 content: "";
                 display: block;
-                padding-bottom: calc(100vw  #{$phi});
+                padding-bottom: 85vw;
+
+                @include desktop{
+                padding-bottom: 45vw;
+                }
             }
             @include tablet{
                 // height: auto;
+                // width: 55vw;
             }
             @include desktop{
                 width: 55vw;
@@ -401,6 +512,10 @@ header {
                 content: "";
                 display: block;
                 padding-bottom: calc(100vw * #{$phi});
+
+                @include tablet{
+                    padding-bottom: 100vw;
+                }
             }
 
             &-inner {
@@ -413,7 +528,7 @@ header {
                 align-items: center;
 
                 h3 {
-                    font-size: 3em;
+                    font-size: 2.8em;
                     font-weight: 800;
                     text-transform: uppercase;
                     // color: $hotpink;
@@ -424,13 +539,14 @@ header {
                     letter-spacing: 5px;
                     transition: all 0.61s ease-in-out ;
                     line-height: 1em;
-                    margin: -15px 5px;
+                    margin: -15px 5px 15px 5px;
 
-                    // &:hover{
-                    //     text-shadow: 0px 0px $pink;
-                    //     @include stroke-color(transparent);
-                    //     cursor: default;
-                    // }
+                   @include tablet{
+                       font-size: 3em;
+                   }
+                   @include desktop{
+                       font-size: 3.3em;
+                   }
                 }
 
                 p {
@@ -468,6 +584,12 @@ header {
                     padding-bottom: 90%;
                 }
             }
+
+            @include tablet{
+                p{
+                    margin: 3vh 2vw;
+                }
+            }
         }
 
         @include desktop{
@@ -483,6 +605,9 @@ header {
     }
 }
 
+/* ==========================================================================
+    ABOUT SECTION
+    ========================================================================= */
 #about {
     background-color: $whiteback;
     color: $black;
@@ -576,7 +701,9 @@ header {
     }
 }
 
-/* MAUTIC FORM STYLE */
+/* ==========================================================================
+   MAUTIC FORM STYLES
+   ========================================================================== */
 #contacto {
     background-position: center bottom;
     background-size: cover;
@@ -739,7 +866,9 @@ header {
 /***** MAUTIC FORM END *****/
 
 
-/* fade image in after load */
+/* ==========================================================================
+   LAZYLOAD STYLES
+   ========================================================================== */
 .lazyload,
 .lazyloading {
     opacity: 0;
@@ -749,135 +878,9 @@ header {
     transition: opacity 300ms;
 }
 
-/******* MAIN NAV *****/
-
-// nav.mainNav{
-//     z-index: 200;
-//     position: fixed;
-//     top: 10px;
-//     right: 20px;
-//     text-align:right;
-//     float:right;
-
-//     p{
-//         color: $whiteback;
-//         background-color: $black;
-//         padding: 3px 5px;
-//         cursor: default;
-//     }
-//     #navMenu{
-//         // display:none;
-//     }
-//     ul{
-//         list-style: none;
-//         text-align: right;
-
-//         li{
-//             color: $pink;
-//             opacity: 0.8;
-//             font-weight: 500;
-//             font-size: 16px;
-//             cursor: pointer;
-//             padding: 0px 5px;
-//             transition: all 0.61s ease;
-//             background: linear-gradient(to right, transparent 50%, $black 50%);
-//             background-size: 200% 100%;
-//             background-position:left bottom;
-
-//             a{
-//                 text-decoration: none;
-//             }
-//         }
-//         li:hover{
-//             // background-color: $transblack;
-//             color: $whiteback;
-//             // font-weight:800;
-//             background-position: right bottom;
-//         }
-//     }
-
- 
-// #nav-icon{
-//     width: 60px;
-//     height: 45px;
-//     position: relative;
-//     margin: 50px auto;
-//     -webkit-transform: rotate(0deg);
-//     -moz-transform: rotate(0deg);
-//     -o-transform: rotate(0deg);
-//     transform: rotate(0deg);
-//     -webkit-transition: .5s ease-in-out;
-//     -moz-transition: .5s ease-in-out;
-//     -o-transition: .5s ease-in-out;
-//     transition: .5s ease-in-out;
-//     cursor: pointer;
-
-//   }
-//   &:checked{
-
-//   }
-  
-//   #nav-icon span {
-//     display: block;
-//     position: absolute;
-//     height: 9px;
-//     width: 100%;
-//     background: #d3531a;
-//     border-radius: 9px;
-//     opacity: 1;
-//     left: 0;
-//     -webkit-transform: rotate(0deg);
-//     -moz-transform: rotate(0deg);
-//     -o-transform: rotate(0deg);
-//     transform: rotate(0deg);
-//     -webkit-transition: .25s ease-in-out;
-//     -moz-transition: .25s ease-in-out;
-//     -o-transition: .25s ease-in-out;
-//     transition: .25s ease-in-out;
-//   }
-  
-//   #nav-icon span:nth-child(1) {
-//     top: 0px;
-//   }
-  
-//   #nav-icon span:nth-child(2),#nav-icon span:nth-child(3) {
-//     top: 18px;
-//   }
-  
-//   #nav-icon span:nth-child(4) {
-//     top: 36px;
-//   }
-  
-//   #nav-icon.open span:nth-child(1) {
-//     top: 18px;
-//     width: 0%;
-//     left: 50%;
-//   }
-  
-//   #nav-icon.open span:nth-child(2) {
-//     -webkit-transform: rotate(45deg);
-//     -moz-transform: rotate(45deg);
-//     -o-transform: rotate(45deg);
-//     transform: rotate(45deg);
-//   }
-  
-//   #nav-icon.open span:nth-child(3) {
-//     -webkit-transform: rotate(-45deg);
-//     -moz-transform: rotate(-45deg);
-//     -o-transform: rotate(-45deg);
-//     transform: rotate(-45deg);
-//   }
-  
-//   #nav-icon.open span:nth-child(4) {
-//     top: 18px;
-//     width: 0%;
-//     left: 50%;
-//   }
-  
-// }
-
-/******* GOOMENOO *****/
-
+/* ==========================================================================
+    GOO MENU 
+    ========================================================================= */
 nav.goobutt {
     z-index: 9999;
     position: fixed;
@@ -1028,112 +1031,109 @@ nav.goobutt {
 /* ==========================================================================
     Popup styles start
     ========================================================================= */
-
-
 #popup {
     display: none;
     z-index: 9;
-}
 
-.popup__wrapper {
-    background: rgba(0, 0, 0, .75);
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    z-index: 10;
-
-    .popup__container {
-        background: url(/img/hex.svg) no-repeat;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        font-size: 18px;
-        margin: 20px;
-        width: 100%;
-        height: 100%;
-        z-index: 9;
-        max-width: 440px;
-        max-height: 500px;
-        text-align: center;
-    }
-
-    p {
-        font-weight: 600;
-    }
-
-    .h1 {
-        font-size: 26px;
-        margin-bottom: 15px;
-    }
-
-    button[type="discount"] {
+    .popup__wrapper {
+        background: rgba(0, 0, 0, .75);
+        position: fixed;
         display: flex;
         justify-content: center;
-        align-items: center;
-        padding: 0 20px;
-        min-width: 244px;
-        width: 50%;
-        height: 50px;
-        font-family: Raleway, sans-serif;
-        font-size: 16px;
-        color: #fff;
-        line-height: 1.2;
-        background-color: #6E0270;
-        border-radius: 25px;
-        transition: all .26s ease;
-        // animation: wiggle 800ms infinite linear;
-        font-weight: 600;
-    }
-
-    .popup__container:hover button[type="discount"] {
-        bottom: 0;
-        background-color: #D80077;
-        animation: none;
-        animation: pulse 1s infinite;
-        font-weight: 800;
-        box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.35);
-    }
-
-    &:hover .st0 {
-        stroke: #6E0270;
-    }
-
-    // @keyframes wiggle {
-    //     0% {transform: rotate(1deg);}
-    //     25% {transform: rotate(-1deg);}
-    //     50% {transform: rotate(2deg);}
-    //     75% {transform: rotate(-1deg);}
-    //     100% {transform: rotate(0deg);}
-    // }
-
-    @keyframes pulse {
-        0% {
-            transform: scale(1);
-        }
-
-        50% {
-            transform: scale(1.1);
-        }
-
-        100% {
-            transform: scale(1);
-        }
-    }
-
-    i {
-        position: relative;
-        top: -100px;
-        right: 0;
+        top: 0;
         left: 0;
-        cursor: pointer;
+        bottom: 0;
+        right: 0;
+        z-index: 10;
+
+        .popup__container {
+            background: url(/img/hex.svg) no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            margin: 20px;
+            width: 100%;
+            height: 100%;
+            z-index: 9;
+            max-width: 440px;
+            max-height: 500px;
+            text-align: center;
+        }
+
+        p {
+            font-weight: 600;
+        }
+
+        .h1 {
+            font-size: 26px;
+            margin-bottom: 15px;
+        }
+
+        button[type="discount"] {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+            min-width: 244px;
+            width: 50%;
+            height: 50px;
+            font-family: Raleway, sans-serif;
+            font-size: 16px;
+            color: #fff;
+            line-height: 1.2;
+            background-color: #6E0270;
+            border-radius: 25px;
+            transition: all .26s ease;
+            // animation: wiggle 800ms infinite linear;
+            font-weight: 600;
+        }
+
+        .popup__container:hover button[type="discount"] {
+            bottom: 0;
+            background-color: #D80077;
+            animation: none;
+            animation: pulse 1s infinite;
+            font-weight: 800;
+            box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.35);
+        }
+
+        &:hover .st0 {
+            stroke: #6E0270;
+        }
+
+        // @keyframes wiggle {
+        //     0% {transform: rotate(1deg);}
+        //     25% {transform: rotate(-1deg);}
+        //     50% {transform: rotate(2deg);}
+        //     75% {transform: rotate(-1deg);}
+        //     100% {transform: rotate(0deg);}
+        // }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        i {
+            position: relative;
+            top: -100px;
+            right: 0;
+            left: 0;
+            cursor: pointer;
+        }
     }
 }
-
 
 
 /* ==========================================================================
@@ -1258,6 +1258,36 @@ nav.goobutt {
     }
 }
 
+$desktop: 1140px;
+$tablet: 768px;
+$small: 480px;
+
+@mixin desktop {
+    @media (min-width: #{$desktop}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: #{$tablet}) {
+        @content;
+    }
+}
+
+@mixin small {
+    @media (min-width: #{$small}) {
+        @content;
+    }
+}
+
+@include desktop{
+    .wrapper {
+        width: 1026px;
+        /* 1140px - 10% for margins */
+        margin: 0 auto;
+    }
+}
+
 /* ==========================================================================
        Helper classes
        ========================================================================== */
@@ -1276,39 +1306,41 @@ nav.goobutt {
     padding: 0;
     position: absolute;
     width: 1px;
-}
 
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
-    clip: auto;
-    height: auto;
-    margin: 0;
-    overflow: visible;
-    position: static;
-    width: auto;
+
+    .focusable:active,
+    .focusable:focus {
+        clip: auto;
+        height: auto;
+        margin: 0;
+        overflow: visible;
+        position: static;
+        width: auto;
+    }
 }
 
 .invisible {
     visibility: hidden;
 }
 
-.clearfix:before,
-.clearfix:after {
-    content: " ";
-    display: table;
-}
-
-.clearfix:after {
-    clear: both;
-}
 
 .clearfix {
     *zoom: 1;
+
+    &:before{    
+        content: " ";
+        display: table;
+    }
+    &:after{
+        content: " ";
+        display: table;
+        clear: both;
+    }
 }
 
 
 
-
+/////////
 
 .waveWrapperInner {
     background: linear-gradient(-45deg, $pink, #4E0052);
@@ -1412,7 +1444,9 @@ nav.goobutt {
 
 
 
-
+/* ==========================================================================
+    Star effect
+    ========================================================================== */
 
 @function box-shadow($stars) {
 	$bxshadow: ();
@@ -1426,83 +1460,91 @@ $bxshadow-large: box-shadow(300);
 $bxshadow-medium: box-shadow(500);
 $bxshadow-small: box-shadow(800);
 
-.stars{
-    top:0;
-    left:0;
-    position: absolute;
-}
-.stars.large {
-	height: 3px;
-	width: 3px;
-	background: transparent;
-	box-shadow: $bxshadow-large;
-	animation: blink-large 7s infinite;
-}
-.stars.medium {
-	height: 2px;
-	width: 2px;
-	background: transparent;
-	box-shadow: $bxshadow-medium;
-	animation: blink-medium 5s infinite;
-}
-.stars.small {
-	height: 1px;
-	width: 1px;
-	background: transparent;
-	box-shadow: $bxshadow-small;
-	animation: blink-small 3s infinite;
+.stars{ 
+    &-large {
+        top:0;
+        left:0;
+        position: absolute;
+        height: 3px;
+        width: 3px;
+        background: transparent;
+        box-shadow: $bxshadow-large;
+        animation: blink-large 7s infinite;
+    }
+    &-medium {
+        top:0;
+        left:0;
+        position: absolute;
+        height: 2px;
+        width: 2px;
+        background: transparent;
+        box-shadow: $bxshadow-medium;
+        animation: blink-medium 5s infinite;
+    }
+    &-small {
+        top:0;
+        left:0;
+        position: absolute;
+        height: 1px;
+        width: 1px;
+        background: transparent;
+        box-shadow: $bxshadow-small;
+        animation: blink-small 3s infinite;
+    }
 }
 
 @keyframes blink-large {
-	0% {
-		box-shadow: $bxshadow-large;
-	}	
-	70% {
-		$colors: '#fff', 'transparent';
-		$stars: $bxshadow-large;
-		@for $i from 1 to length($stars) {
-			$star: set-nth(nth($stars, $i), 3, unquote(nth($colors, random(length($colors)))));
-			$stars: set-nth($stars, $i, $star);
-		}
-		box-shadow: $stars;
-	}
-	100% {
-		box-shadow: $bxshadow-large;
-	}
+    0% {
+        box-shadow: $bxshadow-large;
+    }	
+    70% {
+        $colors: '#fff', 'transparent';
+        $stars: $bxshadow-large;
+        @for $i from 1 to length($stars) {
+            $star: set-nth(nth($stars, $i), 3, unquote(nth($colors, random(length($colors)))));
+            $stars: set-nth($stars, $i, $star);
+        }
+        box-shadow: $stars;
+    }
+    100% {
+        box-shadow: $bxshadow-large;
+    }
 }
+
 @keyframes blink-medium {
-	0% {
-		box-shadow: $bxshadow-medium;
-	}	
-	70% {
-		$colors: '#fff', 'transparent';
-		$stars: $bxshadow-medium;
-		@for $i from 1 to length($stars) {
-			$star: set-nth(nth($stars, $i), 3, unquote(nth($colors, random(length($colors)))));
-			$stars: set-nth($stars, $i, $star);
-		}
-		box-shadow: $stars;
-	}
-	100% {
-		box-shadow: $bxshadow-medium;
-	}
+    0% {
+        box-shadow: $bxshadow-medium;
+    }	
+    70% {
+        $colors: '#fff', 'transparent';
+        $stars: $bxshadow-medium;
+        @for $i from 1 to length($stars) {
+            $star: set-nth(nth($stars, $i), 3, unquote(nth($colors, random(length($colors)))));
+            $stars: set-nth($stars, $i, $star);
+        }
+        box-shadow: $stars;
+    }
+    100% {
+        box-shadow: $bxshadow-medium;
+    }
 }
+
 @keyframes blink-small {
-	0% {
-		box-shadow: $bxshadow-small;
-	}	
-	70% {
-		$colors: '#fff', 'transparent';
-		$stars: $bxshadow-small;
-		@for $i from 1 to length($stars) {
-			$star: set-nth(nth($stars, $i), 3, unquote(nth($colors, random(length($colors)))));
-			$stars: set-nth($stars, $i, $star);
-		}
-		box-shadow: $stars;
-	}
-	100% {
-		box-shadow: $bxshadow-small;
-	}
+    0% {
+        box-shadow: $bxshadow-small;
+    }	
+    70% {
+        $colors: '#fff', 'transparent';
+        $stars: $bxshadow-small;
+        @for $i from 1 to length($stars) {
+            $star: set-nth(nth($stars, $i), 3, unquote(nth($colors, random(length($colors)))));
+            $stars: set-nth($stars, $i, $star);
+        }
+        box-shadow: $stars;
+    }
+    100% {
+        box-shadow: $bxshadow-small;
+    }
 }
 
 
