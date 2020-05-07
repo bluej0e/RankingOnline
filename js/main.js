@@ -44,13 +44,16 @@ $(document).ready(function () {
 
 
 
-		if (percentageOfHeight > 12) {
-			$('.mainNav').fadeOut();
+		if (percentageOfHeight > 11) {
+			$('.mainNav').fadeOut(200);
 			animations.css("animation-play-state", "running");
+			$('#scroll').fadeIn(200);
 		}
 		else {
-			$('.mainNav').fadeIn(); 		
+			$('.mainNav').fadeIn(200); 		
 			animations.css("animation-play-state", "paused");
+			$('#scroll').fadeOut(200);
+
 		}
 	});
 });

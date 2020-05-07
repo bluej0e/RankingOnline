@@ -164,6 +164,11 @@ $bxshadow-small: box-shadow(800);
 }
 
 
+@keyframes slow-blink {
+    from{ opacity: 0.9 ;}
+    to{ opacity: 0.1 ;}
+}
+
 
 $pink:#6E0270;
 $gray:#EFF1EF;
@@ -351,17 +356,19 @@ button:hover {
     flex-wrap: wrap;
 }
 
-
-
 /* ==========================================================================
     HEADER
     ========================================================================= */
 header {
     position: -webkit-sticky;
     position: sticky; 
-    top: -88vh;
+    top: -89vh;
     z-index: 8;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 
     .animation-div {
         display: flex;
@@ -398,6 +405,15 @@ header {
             transform: translate(23px, 30px)
         }
 
+        #scroll{
+            height:50px;
+            z-index: 10;
+            top: 88vh;
+            opacity: 0.9;
+            animation: slow-blink 2s infinite alternate;
+    
+        } 
+
         .stars{ 
             top:0;
             left:0;
@@ -433,7 +449,6 @@ header {
         z-index: 3;
         height: 100vh;
         width: 100%;
-
         svg {
             height: 100%;
             width: 100vw;
@@ -441,10 +456,10 @@ header {
             top: 0;
             left: 0;
             transition: all ease;
-            rotate: 180deg;
-        }
-    }
+            transform: rotate( 180deg);
 
+        }
+    }   
 }
 
     
