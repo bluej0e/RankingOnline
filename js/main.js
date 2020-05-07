@@ -40,16 +40,17 @@ $(document).ready(function () {
 		var totalHeight = $(window).height();
 		var percentageOfHeight = (((scrollTop / totalHeight) * 100) - 100) * -1;
 		
-		var animations = $('.animation-div');
+		var animations = $('.animations');
+
 
 
 		if (percentageOfHeight > 12) {
 			$('.mainNav').fadeOut();
-
+			animations.css("animation-play-state", "running");
 		}
 		else {
 			$('.mainNav').fadeIn(); 		
-
+			animations.css("animation-play-state", "paused");
 		}
 	});
 });

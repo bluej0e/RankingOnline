@@ -452,8 +452,7 @@ nav.mainNav{
     z-index: 115;
     width: 100vw;
     display: none;
-    position: -webkit-sticky;
-    position: sticky; 
+    position: fixed; 
     top: 0px;
     overflow: hidden;
    
