@@ -3,23 +3,16 @@ $(document).ready(function () {
 		var scrollTop = $(window).scrollTop();
 		var waves = $('.container svg');
 		var totalHeight = $(window).height();
-
 		var percentageOfHeight = (((scrollTop / totalHeight) * 100) - 100) * -1;
-		// waves.css({height: percentageOfHeight + 'vh'})
-	
-		// $('.container svg').css({height: "100vh" - scrollTop});
 
 		if (percentageOfHeight > 12) {
 			$('.mainNav').fadeOut();
-			waves.css({height: percentageOfHeight + 'vh'})
+			// waves.css({height: percentageOfHeight + 'vh'})
 		}
 		else {
 			$('.mainNav').fadeIn(); 		
-			waves.css({height: '10vh'})
-
+			// waves.css({height: '10vh'})
 		}
-		// console.log(percentageOfHeight);
-
 	});
 });
 
