@@ -37,8 +37,8 @@ $(document).ready(function () {
 
 	$(window).on('scroll', function () {
 		var scrollTop = $(window).scrollTop();
-		// var totalHeight = $(window).height();
-		// var percentageOfHeight = (((scrollTop / totalHeight) * 100) - 100) * -1;
+		var totalHeight = $(window).height();
+		var percentageOfHeight = (((scrollTop / totalHeight) * 100) - 100) * -1;
 		
 		var animations = $('.animation-div');
 

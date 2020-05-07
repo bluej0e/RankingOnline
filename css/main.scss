@@ -361,6 +361,7 @@ header {
     position: sticky; 
     top: -88vh;
     z-index: 8;
+    overflow: hidden;
 
     .animation-div {
         display: flex;
@@ -432,7 +433,6 @@ header {
         z-index: 3;
         height: 100vh;
         width: 100%;
-        overflow: hidden;
 
         svg {
             height: 100%;
@@ -451,7 +451,7 @@ header {
 nav.mainNav{
     z-index: 115;
     width: 100vw;
-    // display: none;
+    display: none;
     position: -webkit-sticky;
     position: sticky; 
     top: 0px;
@@ -501,15 +501,15 @@ nav.mainNav{
     SERVICIOS SECTION
     ========================================================================= */
 #servicios{
-    // margin-top:90vh;
     display: flex;
     flex-direction: column;
-    
+    margin-top: -50px;
+
     h1{
         width: 100%;
         text-align: center;
         font-size: 3.5em;
-        margin: 2em auto;
+        // margin: 2em auto;
         z-index: 2;
         letter-spacing: 0.1em;
         text-transform: uppercase;
@@ -527,7 +527,7 @@ nav.mainNav{
         }
         @include desktop{
             font-size: 6em;
-            margin: 2.5em auto 15px auto;
+            // margin: 2.5em auto 15px auto;
         }
     }
 
