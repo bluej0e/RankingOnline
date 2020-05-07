@@ -1,55 +1,27 @@
-
-// $(document).ready(function(){
-// 	$('#nav-icon').click(function(){
-// 		$(this).toggleClass('open');
-// 	});
-// });
-
-
-
 $(document).ready(function () {
+	$(window).on('scroll', function () {
+		var scrollTop = $(window).scrollTop();
+		var waves = $('.container svg');
+		var totalHeight = $(window).height();
 
-
-
-	$(function() {
-		var header = $(".start-style");
-		$(window).scroll(function() {    
-			var scroll = $(window).scrollTop();
-		
-			if (scroll >= 10) {
-				header.removeClass('start-style').addClass("scroll-on");
-			} else {
-				header.removeClass("scroll-on").addClass('start-style');
-			}
-		});
-	});		
-
-	//Menu On Hover
-		
-	$('body').on('mouseenter mouseleave','.nav-item',function(e){
-			if ($(window).width() > 750) {
-				var _d=$(e.target).closest('.nav-item');_d.addClass('show');
-				setTimeout(function(){
-				_d[_d.is(':hover')?'addClass':'removeClass']('show');
-				},1);
-			}
-	});	
+		var percentageOfHeight = (((scrollTop / totalHeight) * 100) - 100) * -1;
+		// waves.css({height: percentageOfHeight + 'vh'})
 	
+		// $('.container svg').css({height: "100vh" - scrollTop});
+
+		if (percentageOfHeight > 12) {
+			$('.mainNav').fadeOut();
+			waves.css({height: percentageOfHeight + 'vh'})
+		}
+		else {
+			$('.mainNav').fadeIn(); 		
+			waves.css({height: '10vh'})
+
+		}
+		// console.log(percentageOfHeight);
+
+	});
 });
-
-// function menuToggle(){
-//     var x = document.getElementById("navMenu");
-//     if (x.style.display === "none") {
-//       x.style.display = "block";
-//     } else {
-//       x.style.display = "none";
-//     }
-
-//     var g = document.getElementById("nav-icon");
-
-
-//     console.log('clicked');
-// }
 
 
 

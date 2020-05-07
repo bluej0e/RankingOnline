@@ -270,7 +270,6 @@ button:hover {
    MAIN NAV
    ========================================================================== */
 
-
 .container {
     position: fixed;
     z-index: 3;
@@ -281,27 +280,38 @@ button:hover {
     height: 100px;
     width: 100%;
 
-    
    svg {
-        height: 100px;
+       // min-height: 10vh;
+       // max-height: 100vh;
+        // height: 100vh;
         width: 100vw;
         position: absolute;
         top: 0;
         left: 0;
         rotate: 180deg;
-
+        transition: all ease;
+   
     }
 }
 
-
 nav.mainNav{
-    display: flex;
-    z-index: 4;
-    position: fixed;
+    position: -webkit-sticky;
+    position: sticky; 
     top: 0px;
-    right: 0px;
-    width: 100%;
+    // display: flex;
+    z-index: 10;
+    width: 100vw;
+    display: none;
+    padding:0;
+    margin:0;
 
+    img{
+        height:50px;
+        margin: 0;
+        padding: 0;
+
+    }    
+    
     ul{
         list-style: none;
         display: flex;

@@ -22,12 +22,14 @@
         <meta property="og:site_name" content="RankingOnline.es" />
         <meta name="twitter:card" content="summary_large_image" />
         <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
         <link rel="stylesheet" href="css/normalize.min.css" />
         <link rel="stylesheet" href="css/main.css" />
-        <script type="text/javascript" src="/js/main.js"></script>
+       
+        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <!-- <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script> -->
-        <script src="/js/vendor/lazysizes.min.js" async=""></script>
+        <script src="js/vendor/lazysizes.min.js" async=""></script>
         <script type="text/javascript">
           document.addEventListener('lazybeforeunveil', function(e){
             var bg = e.target.getAttribute('data-bg');
@@ -36,30 +38,19 @@
               }
           });
         </script> 
+        <script type="text/javascript" src="js/main.js"></script>
+
     </head>
     <body>
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-
       <div class="main-container">
+        
         <div class="container">
           <svg version="1.1" xmlns="http://www.w3.org/2000/svg"><path id="wave2" d=""/></svg>
           <svg version="1.1" xmlns="http://www.w3.org/2000/svg"><path id="wave" d=""/></svg>
-         
-          <nav class="mainNav">
-          <a id="logo" href="#"><img src="/img/logo_white.svg" alt="Ranking Online"></img></a>
-          <ul id="navMenu" role="menu">
-            <li><a href="#" data-lang="navBar.home"></a></li>
-            <li><a href="#" data-lang="navBar.about"></a></li>
-            <li><a href="#" data-lang="navBar.portfolio"></a></li>
-            <li><a href="#" data-lang="navBar.services"></a></li>
-            <li><a href="#" data-lang="navBar.blog"></a></li>
-            <li><a href="#" data-lang="navBar.contact"></a></li>
-            <li><a href="#" onClick="chosenLang();" lang="es" data-lang='opLang' class="langBox"></a></li>
-          </ul>
-        </nav> 
         </div>
         
         <header>
@@ -105,7 +96,7 @@
                     <input type="hidden" name="mauticform[formName]" id="mauticform_rositio_name" value="rositio">
                 </form>
             </div> -->
-            <div class="waveWrapperInner bgTop">
+            <!-- <div class="waveWrapperInner bgTop">
               <div class="wave waveTop" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png')"></div>
             </div>
             <div class="waveWrapperInner bgMiddle">
@@ -113,10 +104,23 @@
             </div>
             <div class="waveWrapperInner bgBottom">
               <div class="wave waveBottom" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-bot.png')"></div>
-            </div>
+            </div> -->
           </div>
         </header>
-          
+        
+        <nav class="mainNav">
+          <ul id="navMenu" role="menu">
+            <a id="logo" href="#"><img src="/img/logo_white.svg" alt="Ranking Online"></img></a>
+            <li><a href="#" data-lang="navBar.home"></a></li>
+            <li><a href="#" data-lang="navBar.about"></a></li>
+            <li><a href="#" data-lang="navBar.portfolio"></a></li>
+            <li><a href="#" data-lang="navBar.services"></a></li>
+            <li><a href="#" data-lang="navBar.blog"></a></li>
+            <li><a href="#" data-lang="navBar.contact"></a></li>
+            <li><a href="#" onClick="chosenLang();" lang="es" data-lang='opLang' class="langBox"></a></li>
+          </ul>
+        </nav> 
+        
         <section id="servicios" >
           <h1 data-lang="services.title"></h1>
           <div> 
@@ -308,6 +312,7 @@
             color: '#6E0270',
             speed: .25
           });
+
 
 
           $('#footwave').wavify({
