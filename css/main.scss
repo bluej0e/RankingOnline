@@ -351,88 +351,12 @@ button:hover {
     flex-wrap: wrap;
 }
 
-.container {
-    // position: fixed;
-    z-index: 3;
-    top: 0;
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-    height: 100vh;
-    width: 100%;
-    position: -webkit-sticky;
-    position: sticky; 
-    top: -88vh;
-   
-    svg {
-       // min-height: 10vh;
-       // max-height: 100vh;
-        height: 100%;
-        width: 100vw;
-        position: absolute;
-        top: 0;
-        left: 0;
-        transition: all ease;
-        rotate: 180deg;
-    }
-}
-
-nav.mainNav{
-    z-index: 10;
-    width: 100vw;
-    display: none;
-    position: -webkit-sticky;
-    position: sticky; 
-    top: 0px;
-    overflow: hidden;
-
-   
-    img{
-        height:50px;
-        margin: 0;
-        padding: 0;
-
-    }    
-    
-    ul{
-        list-style: none;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        align-items: center;
-        width:100%;
-        padding:0;
-
-        li{
-            color: $whiteback;
-            font-weight: 500;
-            cursor: pointer;
-            padding: 2px 20px;
-            border: solid;
-            border-width: 1px;
-            border-color: rgba(255,255,255,0);
-            border-radius: 20px;
-            transition: all 0.161s ease;
-
-            a{
-                text-decoration: none;
-                color: $whiteback;
-                cursor: default;
-            }
-        }
-
-        li:hover{
-            border-color: rgba(255,255,255,1);
-        }
-    }
-}
 
 
 /* ==========================================================================
     HEADER
     ========================================================================= */
 header {
-    
     .animation-div {
         display: flex;
         flex-direction: column;
@@ -442,7 +366,6 @@ header {
         min-width: 45%;
         max-width: 400px;
         height: 100vh;
-        top: 0;
 
         img {
             width: 100px;
@@ -499,6 +422,79 @@ header {
                 box-shadow: $bxshadow-small;
                 animation: blink-small 3s infinite;
             }
+        }
+    }
+    
+    .container {
+        z-index: 3;
+        top: 0;
+        height: 100vh;
+        width: 100%;
+        position: -webkit-sticky;
+        position: sticky; 
+        top: -88vh;
+       
+        svg {
+           // min-height: 10vh;
+           // max-height: 100vh;
+            height: 100%;
+            width: 100vw;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all ease;
+            rotate: 180deg;
+        }
+    }
+
+}
+
+    
+nav.mainNav{
+    z-index: 115;
+    width: 100vw;
+    display: none;
+    position: -webkit-sticky;
+    position: sticky; 
+    top: 0px;
+    overflow: hidden;
+   
+    img{
+        height:50px;
+        margin: 0;
+        padding: 0;
+
+    }    
+    
+    ul{
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        width:100%;
+        padding:0;
+
+        li{
+            color: $whiteback;
+            font-weight: 500;
+            cursor: pointer;
+            padding: 2px 20px;
+            border: solid;
+            border-width: 1px;
+            border-color: rgba(255,255,255,0);
+            border-radius: 20px;
+            transition: all 0.161s ease;
+
+            a{
+                text-decoration: none;
+                color: $whiteback;
+                cursor: default;
+            }
+        }
+
+        li:hover{
+            border-color: rgba(255,255,255,1);
         }
     }
 }
