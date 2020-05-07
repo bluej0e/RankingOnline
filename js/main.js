@@ -1,9 +1,46 @@
 $(document).ready(function () {
+
+	$('#wave').wavify({
+		height: 40,
+		bones: 6,
+		amplitude: 10,
+		// color: 'url(#grad)',
+		speed: 0.25
+	  });
+
+	  $('#wave2').wavify({
+		height: 20,
+		bones: 5,
+		amplitude: 10,
+		color: '#6E0270',
+		speed: .25
+	  });
+
+
+
+	  $('#footwave').wavify({
+		height: 20,
+		bones: 9,
+		amplitude: 20,
+		color: '#272727',
+		speed: .25
+	  });
+
+	  $('#footwave2').wavify({
+		height: 60,
+		bones: 8,
+		amplitude: 20,
+		color: '#0d0d0d',
+		speed: .25
+	  });
+
+
 	$(window).on('scroll', function () {
 		var scrollTop = $(window).scrollTop();
-		var waves = $('.container svg');
-		var totalHeight = $(window).height();
-		var percentageOfHeight = (((scrollTop / totalHeight) * 100) - 100) * -1;
+		
+		var animations = $('.animation-div');
+		// var totalHeight = $(window).height();
+		// var percentageOfHeight = (((scrollTop / totalHeight) * 100) - 100) * -1;
 
 		if (percentageOfHeight > 12) {
 			$('.mainNav').fadeOut();
