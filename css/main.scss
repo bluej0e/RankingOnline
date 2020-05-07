@@ -357,14 +357,17 @@ button:hover {
     HEADER
     ========================================================================= */
 header {
+    position: -webkit-sticky;
+    position: sticky; 
+    top: -88vh;
+    z-index: 8;
+
     .animation-div {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
         flex-wrap: nowrap;
-        min-width: 45%;
-        max-width: 400px;
         height: 100vh;
 
         img {
@@ -427,16 +430,11 @@ header {
     
     .container {
         z-index: 3;
-        top: 0;
         height: 100vh;
         width: 100%;
-        position: -webkit-sticky;
-        position: sticky; 
-        top: -88vh;
-       
+        overflow: hidden;
+
         svg {
-           // min-height: 10vh;
-           // max-height: 100vh;
             height: 100%;
             width: 100vw;
             position: absolute;
@@ -453,7 +451,7 @@ header {
 nav.mainNav{
     z-index: 115;
     width: 100vw;
-    display: none;
+    // display: none;
     position: -webkit-sticky;
     position: sticky; 
     top: 0px;

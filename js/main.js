@@ -37,18 +37,19 @@ $(document).ready(function () {
 
 	$(window).on('scroll', function () {
 		var scrollTop = $(window).scrollTop();
-		
-		var animations = $('.animation-div');
 		// var totalHeight = $(window).height();
 		// var percentageOfHeight = (((scrollTop / totalHeight) * 100) - 100) * -1;
+		
+		var animations = $('.animation-div');
+
 
 		if (percentageOfHeight > 12) {
 			$('.mainNav').fadeOut();
-			// waves.css({height: percentageOfHeight + 'vh'})
+
 		}
 		else {
 			$('.mainNav').fadeIn(); 		
-			// waves.css({height: '10vh'})
+
 		}
 	});
 });
