@@ -1,10 +1,32 @@
 $(document).ready(function () {
+	var totalHeight = $(window).height();
+	var totalWidth = $(window).width();
+	var animations = $('.animations');
+	var mainNav = $('.mainNav');
+	var mainNavUl = $('.mainNav ul');
+	var container = $('.container');
+	var hamburger = $('.icon-three');
+	var navLink = $('.mainNav ul li');
+
+	mainNav.css({'display':'none'});
+
+	hamburger.click(function() {
+		hamburger.toggleClass('active-three');
+		mainNavUl.fadeToggle(400);
+		container.toggleClass('container-tall');
+	});
+
+	navLink.click(function(){
+		hamburger.toggleClass('active-three');
+		mainNavUl.fadeToggle(400);
+		container.toggleClass('container-tall');
+	});
 
 	$('#wave').wavify({
 		height: 40,
 		bones: 6,
 		amplitude: 10,
-		// color: 'url(#grad)',
+		color: '#6E0270',
 		speed: 0.25
 	  });
 
@@ -12,10 +34,9 @@ $(document).ready(function () {
 		height: 20,
 		bones: 5,
 		amplitude: 10,
-		color: '#6E0270',
+		color: '#973697',
 		speed: .25
 	  });
-
 
 
 	  $('#footwave').wavify({
@@ -34,28 +55,54 @@ $(document).ready(function () {
 		speed: .25
 	  });
 
-
-	$(window).on('scroll', function () {
+	$(window).on('scroll', function () {	
 		var scrollTop = $(window).scrollTop();
-		var totalHeight = $(window).height();
 		var percentageOfHeight = (((scrollTop / totalHeight) * 100) - 100) * -1;
-		
-		var animations = $('.animations');
 
+		$('#scroll').css("opacity" , ((percentageOfHeight / 100) - 0.5) );
 
 
 		if (percentageOfHeight > 11) {
-			$('.mainNav').fadeOut(200);
+			mainNav.fadeOut(400);
 			animations.css("animation-play-state", "running");
-			$('#scroll').fadeIn(200);
-		}
-		else {
-			$('.mainNav').fadeIn(200); 		
+			container.removeClass('container-tall');
+		
+		} else {
 			animations.css("animation-play-state", "paused");
-			$('#scroll').fadeOut(200);
 
+			if(container.hasClass('container-tall') === false && totalWidth > '1200px'){
+				mainNav.fadeIn(400);
+			}else if(container.hasClass('container-tall') === false && totalWidth < '1200px'){
+				mainNavUl.fadeOut(400); 	
+			}else{
+				mainNav.fadeIn(400); 
+			}
+
+			
 		}
+	
+
 	});
+
+
+
+	// $('.icon-three').on('click', function(){
+		// $('.container').fadeToggle(top, 400).css('height', '170vh');
+		// $('.mainNav ul').toggle(400);
+		
+		// $('.container').toggleClass('container-tall');
+		
+		
+		// 	$('#menuico').toggleClass(
+		// 	function(){
+		// 		$('.container').css({"height": "170vh"});
+		// 	},
+		// 	function(){
+		// 		$('.container').css({"height": "100vh"});
+		// 	}
+		// );
+	// });
+
 });
 
 
