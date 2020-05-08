@@ -21,7 +21,7 @@ $(document).ready(function () {
 	navLink.click(function(){
 		hamburger.toggleClass('active-three');
 		mainNavUl.fadeToggle(400);
-		container.toggleClass('container-tall');
+		container.removeClass('container-tall');
 	});
 
 	$('#wave').wavify({
