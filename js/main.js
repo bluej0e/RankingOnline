@@ -7,10 +7,20 @@ $(document).ready(function () {
 	var container = $('.container');
 	var hamburger = $('.icon-three');
 	var navLink = $('.mainNav ul li');
-
-	let snag = 0;
+	var body = $('#servicios');
+	console.log(totalWidth);
 
 	mainNav.css({'display':'none'});
+
+	body.click(function(){
+		if(container.hasClass('container-tall') === true){
+			mainNavUl.fadeToggle(400);
+			container.toggleClass('container-tall');
+			hamburger.toggleClass('active-three');
+		} else {
+			null;
+		}
+	});
 
 	hamburger.click(function() {
 		hamburger.toggleClass('active-three');
@@ -19,9 +29,11 @@ $(document).ready(function () {
 	});
 
 	navLink.click(function(){
+		if(totalWidth < 1024){
 		hamburger.toggleClass('active-three');
 		mainNavUl.fadeToggle(400);
 		container.removeClass('container-tall');
+		}else{}
 	});
 
 	$('#wave').wavify({
@@ -42,7 +54,7 @@ $(document).ready(function () {
 
 	$('#footwave').wavify({
 	height: 20,
-	bones: 9,
+	bones: 5,
 	amplitude: 20,
 	color: '#272727',
 	speed: .25
@@ -50,7 +62,7 @@ $(document).ready(function () {
 
 	$('#footwave2').wavify({
 	height: 60,
-	bones: 8,
+	bones: 3,
 	amplitude: 20,
 	color: '#0d0d0d',
 	speed: .25
