@@ -8,6 +8,8 @@ $(document).ready(function () {
 	var hamburger = $('.icon-three');
 	var navLink = $('.mainNav ul li');
 
+	let snag = 0;
+
 	mainNav.css({'display':'none'});
 
 	hamburger.click(function() {
@@ -28,32 +30,31 @@ $(document).ready(function () {
 		amplitude: 10,
 		color: '#6E0270',
 		speed: 0.25
-	  });
+	});
 
-	  $('#wave2').wavify({
-		height: 20,
-		bones: 5,
-		amplitude: 10,
-		color: '#973697',
-		speed: .25
-	  });
+	$('#wave2').wavify({
+	height: 20,
+	bones: 5,
+	amplitude: 10,
+	color: '#973697',
+	speed: .25
+	});
 
+	$('#footwave').wavify({
+	height: 20,
+	bones: 9,
+	amplitude: 20,
+	color: '#272727',
+	speed: .25
+	});
 
-	  $('#footwave').wavify({
-		height: 20,
-		bones: 9,
-		amplitude: 20,
-		color: '#272727',
-		speed: .25
-	  });
-
-	  $('#footwave2').wavify({
-		height: 60,
-		bones: 8,
-		amplitude: 20,
-		color: '#0d0d0d',
-		speed: .25
-	  });
+	$('#footwave2').wavify({
+	height: 60,
+	bones: 8,
+	amplitude: 20,
+	color: '#0d0d0d',
+	speed: .25
+	});
 
 	$(window).on('scroll', function () {	
 		var scrollTop = $(window).scrollTop();
@@ -65,23 +66,21 @@ $(document).ready(function () {
 		if (percentageOfHeight > 11) {
 			mainNav.fadeOut(400);
 			animations.css("animation-play-state", "running");
-			container.removeClass('container-tall');
-		
-		} else {
-			animations.css("animation-play-state", "paused");
 
-			if(container.hasClass('container-tall') === false && totalWidth > '1200px'){
-				mainNav.fadeIn(400);
-			}else if(container.hasClass('container-tall') === false && totalWidth < '1200px'){
-				mainNavUl.fadeOut(400); 	
+			if(container.hasClass('container-tall') === false){
+				container.removeClass('container-tall');
+			}else if(container.hasClass('container-tall') === true ){
+				mainNavUl.fadeOut(400);
+				container.removeClass('container-tall');
+				hamburger.toggleClass('active-three');
 			}else{
-				mainNav.fadeIn(400); 
+				container.removeClass('container-tall');
 			}
 
-			
+		} else {
+			animations.css("animation-play-state", "paused");
+			mainNav.fadeIn(400); 
 		}
-	
-
 	});
 
 

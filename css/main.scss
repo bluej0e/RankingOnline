@@ -362,13 +362,17 @@ button:hover {
 header {
     position: -webkit-sticky;
     position: sticky; 
-    top: -89vh;
+    top: -87vh;
     z-index: 8;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+
+    @include for-size(desktop-old-up){
+        top: -89vh;
+    }
 
     .animation-div {
         display: flex;
@@ -450,7 +454,7 @@ header {
         transition: all 0.161s ease;
 
         &-tall{
-            height:150vh;
+            height:170vh;
         }
         
         svg {
@@ -489,8 +493,6 @@ nav.mainNav{
         margin: 0;
         padding: 5px 5vw;
     }    
-
-
 
     .icon-three {
         position: absolute;
@@ -562,26 +564,22 @@ nav.mainNav{
         justify-content: center;
         align-items: space-between;
         top:200px;
+        padding:0;
 
         li{
             color: $whiteback;
-            font-weight: 500;
             cursor: pointer;
-            padding: 2px 20px;
-            border: solid;
-            border-width: 1px;
-            border-color: rgba(255,255,255,0);
-            border-radius: 20px;
+            margin: 4vh auto;
+            text-align: center;
+            text-transform: uppercase;
             transition: all 0.161s ease;
-            
-            &:hover{
-                border-color: rgba(255,255,255,1);
-            }
 
             a{
                 text-decoration: none;
                 color: $whiteback;
                 cursor: default;
+                font-size: 2em;
+                font-weight: 900;
             }
         }
 
@@ -595,29 +593,25 @@ nav.mainNav{
             display: flex;
 
             li{
-                color: $whiteback;
-                font-weight: 500;
-                cursor: pointer;
                 padding: 2px 20px;
+                margin:0;
                 border: solid;
                 border-width: 1px;
                 border-color: rgba(255,255,255,0);
                 border-radius: 20px;
-                transition: all 0.161s ease;
                 
                 &:hover{
                     border-color: rgba(255,255,255,1);
                 }
-    
+            
                 a{
                     text-decoration: none;
                     color: $whiteback;
                     cursor: default;
+                    font-size: 1em;
+                    font-weight: 600;
                 }
             }
-
-
-
         }
     }
 }
