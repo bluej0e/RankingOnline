@@ -12,6 +12,7 @@ $(document).ready(function () {
 	console.log(totalWidth);
 
 	mainNav.css({'display' : 'none'});
+	// hamburger.css({'display' : 'none'});
 
 
 	body.click(function(){
