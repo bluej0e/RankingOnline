@@ -346,6 +346,16 @@ button:hover {
     font-weight: 600;
 }
 
+/////// dark mode stuff
+@media screen and (prefers-color-scheme: dark) {
+    #servicios{
+        h1{
+            border-color: $hotpink;
+        }
+    }
+}
+
+
 /* ==========================================================================
    MAIN NAV
    ========================================================================== */
