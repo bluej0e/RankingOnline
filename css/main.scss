@@ -297,9 +297,9 @@ footer {
     padding: 0.2em 0;
 }
 
-/* ===== Initializr Styles ==================================================
-   Author: Jonathan Verrecchia - verekia.com/initializr/responsive-template
-   ========================================================================== */
+/* =======================================================
+    Initializr Styles
+    ========================================================================== */
 body {
     font: 16px/26px 'Raleway', sans-serif;
 }
@@ -454,7 +454,7 @@ header {
         transition: all 0.161s ease;
 
         &-tall{
-            height:170vh;
+            height:160vh;
         }
         
         svg {
@@ -508,7 +508,7 @@ nav.mainNav{
         }
 
         .hamburger {
-            top:36%;
+            top:50%;
             // left:10%;
             width: 25px;
             height: 3px;

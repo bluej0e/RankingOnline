@@ -28,9 +28,9 @@ const langEs = {
     },
     serv3:{
         title: "Producción Multimedia",
-        text1: "En Ranking Online te ayudamos a posicionar tu página web a través de los motores de búsqueda. El Posicionamiento SEO es la herramienta más recomendable para tener una buena presencia en internet, ya que a medio y largo plazo será más rentable y económica.",
-        text2: "Obtener el primer resultado de búsqueda en Internet, equivale a ocupar el local físico mejor posicionado en el centro de la ciudad.",
-        text3: "Conocemos cuáles son las técnicas de posicionamiento que tanto gusta a Google y que pondremos en marcha adaptándolas a tu negocio."
+        text1: "Contar con un buen contenido audiovisual hace poder diferenciarte de tu competencia y llegar más rápido a tu cliente, con un estilo más cercano y profesional.",
+        text2: "Las personas recuerdan un 20% de lo que leen, un 60% de lo que escuchan y un 80% de lo que ven.",
+        text3: "Disponemos de un equipo experto en contenido audiovisual que trabaja en crear el mejor contenido para tu negocio. Ranking Online te ayuda a mejorar tu imagen corporativa y diferenciarte de la competencia. Luces, cámara y... ¡ACCIÓN!"
     },
     serv4:{
         title: "Branding",

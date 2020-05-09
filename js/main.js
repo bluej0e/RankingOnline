@@ -8,32 +8,46 @@ $(document).ready(function () {
 	var hamburger = $('.icon-three');
 	var navLink = $('.mainNav ul li');
 	var body = $('#servicios');
+	var gooButt = $('.goobutt');
 	console.log(totalWidth);
 
-	mainNav.css({'display':'none'});
+	mainNav.css({'display' : 'none'});
+
 
 	body.click(function(){
-		if(container.hasClass('container-tall') === true){
+		console.log('clicked the body');
+		if(container.hasClass('container-tall') === true && totalWidth < 1024){
 			mainNavUl.fadeToggle(400);
 			container.toggleClass('container-tall');
 			hamburger.toggleClass('active-three');
 		} else {
-			null;
+		}
+	});
+
+	gooButt.click(function(){
+		console.log('clicked the body');
+		if(container.hasClass('container-tall') === true && totalWidth < 1024){
+			mainNavUl.fadeToggle(400);
+			container.toggleClass('container-tall');
+			hamburger.toggleClass('active-three');
+		} else {
 		}
 	});
 
 	hamburger.click(function() {
-		hamburger.toggleClass('active-three');
 		mainNavUl.fadeToggle(400);
+		hamburger.toggleClass('active-three');
 		container.toggleClass('container-tall');
 	});
 
 	navLink.click(function(){
 		if(totalWidth < 1024){
-		hamburger.toggleClass('active-three');
-		mainNavUl.fadeToggle(400);
-		container.removeClass('container-tall');
-		}else{}
+			mainNavUl.fadeToggle(400);
+			hamburger.toggleClass('active-three');
+			container.removeClass('container-tall');
+		}else if(totalWidth > 1023){
+			null;
+		}
 	});
 
 	$('#wave').wavify({
@@ -96,8 +110,12 @@ $(document).ready(function () {
 	});
 
 
+});
+	
 
-	// $('.icon-three').on('click', function(){
+
+
+// $('.icon-three').on('click', function(){
 		// $('.container').fadeToggle(top, 400).css('height', '170vh');
 		// $('.mainNav ul').toggle(400);
 		
@@ -114,7 +132,7 @@ $(document).ready(function () {
 		// );
 	// });
 
-});
+
 
 
 
