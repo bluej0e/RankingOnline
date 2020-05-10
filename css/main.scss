@@ -302,6 +302,7 @@ footer {
     ========================================================================== */
 body {
     font: 16px/26px 'Raleway', sans-serif;
+    background-color: $pink;
 }
 
 .wrapper {
@@ -348,11 +349,7 @@ button:hover {
 
 /////// dark mode stuff
 @media screen and (prefers-color-scheme: dark) {
-    #servicios{
-        h1{
-            border-color: $hotpink;
-        }
-    }
+ 
 }
 
 
