@@ -74,7 +74,20 @@ const langEs = {
         text2: "",
         text3: ""
     }
-  }
+  },
+  contact:{
+    title: "¿Listo para hacer crecer tú negocio?",
+    subtitle: "¿Que servicios te interesarían?",
+    price: "Price",
+    name: "Nombre",
+    email: "Email",
+    phone: "Telefono",
+    msg: "Mensaje",
+    success: "Bien",
+    error: "Error",
+    missing: "Falta",
+    submit: "Enviar"
+  },
 };
 
 
@@ -154,7 +167,20 @@ const langEn = {
         text2: "",
         text3: ""
     }
-  }
+  },
+  contact:{
+    title: "Ready to grow your business?",
+    subtitle: "Which services are you interested in?",
+    price: "Price",
+    name: "Name",
+    email: "Email",
+    phone: "Phone",
+    msg: "Message",
+    success: "Success",
+    error: "Error",
+    missing: "Missing",
+    submit: "Send"
+  },
 }
 
 var langBox = document.querySelector('.langBox');

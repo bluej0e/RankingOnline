@@ -1,6 +1,7 @@
 /*! HTML5 Boilerplate v5.0 | MIT License | http://h5bp.com/ */
 /* VARIABLES */
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;600;900&display=swap');
+// @import "compass/css3";
 
 $desktop: 840px;
 $tablet: 666px;
@@ -179,6 +180,8 @@ $transblack: rgba(5, 5, 5, 0.7);
 $almostblack:#272727;
 $white:#f2f2f2;
 $whiteback: #fff;
+$success: #1BBEB9;
+$error: #F74162;
 $morphshad: 9px 9px 16px rgba(163, 177, 198, 0.6),
 -9px -9px 16px rgba(255, 255, 255, 0.5);
 $buttshad: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
@@ -192,6 +195,12 @@ $phi: 1.618;
         font: 20/30px 'Raleway', sans-serif;
     }
 }
+
+*, *:before, *:after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
 
 html {
     color: #222;
@@ -456,14 +465,17 @@ header {
     
     .container {
         z-index: 3;
-        height: 100vh;
+        height: 12vh;
         width: 100%;
         transition: all 0.161s ease;
-
+        overflow: hidden;
+        display: flex;
+        
         &-tall{
             height:165vh;
+            // position: fixed;
         }
-        
+
         svg {
             height: 100%;
             width: 100vw;
@@ -496,7 +508,7 @@ nav.mainNav{
     }
    
     img{
-        height:45px;
+        height:50px;
         margin: 0;
         padding: 5px 5vw;
     }    
@@ -908,102 +920,183 @@ nav.mainNav{
 }
 
 /* ==========================================================================
-   MAUTIC FORM STYLES
+  CONTACT STYLES
    ========================================================================== */
 #contacto {
-    background-position: center bottom;
-    background-size: cover;
-    background-repeat: no-repeat;
     min-height: 100vh;
     display: flex;
-    position: relative;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-evenly;
-    align-items: flex-start;
-    text-align: center;
+    align-items: center;
     color: $whiteback;
+    padding: 0 5vw 5vh ;
 
-    h2 {
+    h1 {
         text-align: center;
-        font-size: 1.8em;
+        font-size: 2em;
         font-weight: 600;
         clear: both;
-        margin: 30px auto;
+        margin: 2em auto 2em auto;
         width: 100%;
         line-height: 1em;
+        text-transform: uppercase;
     }
 
     form {
-        width: 95%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
 
-        .inner-form {
+        .mauticform-innerform {
             width: 100%;
             display: flex;
             flex-direction: column;
             flex-wrap: wrap;
             justify-content: space-around;
             align-items: center;
-            text-align: center;
+            // text-align: center;
             color: $white;
 
-            div {
-                width: 100%;
-                display: flex;
+            @include for-size(desktop-old-up){
                 flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: space-evenly;
-                align-items: center;
-                text-align: center;
+                flex-wrap: nowrap;
+                align-items: space-between;
+                justify-content: space-around;
 
-                div {
-                    width: 100%;
+
+            }
+
+            .mauticform-label{
+                text-align: left;
+                font-size: 22px;
+            }
+
+            .radios,
+            .textboxes{
+                width: 95%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+
+                @include for-size(desktop-old-up){
+                    width: 48%;
                     max-width: 500px;
-                    display: flex;
-                    flex-direction: column;
-                    flex-wrap: wrap;
-                    justify-content: space-evenly;
-                    align-items: center;
-                    text-align: center;
+                    height: 100%;
+
+                }
+            }
+            
+            .mauticform-checkboxgrp-row{
+                margin:1em;
+                width:100%;
+                display:flex;
+                align-items: center;
+                justify-content: space-between;
+
+                span{
+                    font-size: 1.3em;
+                    line-height: 1.3em;
+                }
+                
+                .slider {
+                position: relative; display: block;
+                width: 7em; height: 3em;
+                cursor: pointer;
+                border-radius: 1.5em;
+                transition: 350ms;
+                background: #ddd;
+                transform: scale(0.8);
+                
+                    &:after {
+                    position: absolute; content:'';
+                    width: 2em; height: 2em;
+                    top: 0.5em; left: 0.5em;
+                    border-radius: 1.5em;
+                    transition:
+                        width 200ms ease-out,
+                        height 300ms 50ms ease-in,
+                        top 300ms 50ms ease-in,
+                        left 250ms 50ms ease-in,
+                        background 300ms ease-in,
+                        box-shadow 300ms ease-in;
+                    background: #f2f2f2;
+                    box-shadow: 0 0 0 1.5em #f2f2f2 inset;
+                    }
+                }
+
+                input:checked + .slider:after {
+                width: 4em; height: 3em;
+                    top: 0; left: 3em;
+                background: $hotpink;
+                box-shadow: 0 0 0 0 #f2f2f2 inset;
+                }
+               
+                input { 
+                    position:absolute; 
+                    left:-9999px; 
                 }
             }
         }
 
-        input,
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+
+        input:not([type='checkbox']),
         textarea {
             border: none;
-            border-bottom: 2px solid $whiteback;
+            border-bottom: 2px solid $whiteback !important;
             width: 100%;
-            max-width: 500px;
+            height: 2em;
+            // max-width: 500px;
             min-width: 300px;
-            padding: 0 0 8px 4px;
+            padding: 5px;
             margin: 20px auto;
             background: transparent;
             font-size: 1.2em;
             outline: none;
-            color: $white;
+            color: $whiteback;
             transition: 0.16s ease-in-out;
             -webkit-appearance: none;
             -moz-appearance: textfield;
 
             &:focus {
-                color: $whiteback;
-                border-bottom: solid $whiteback 2px;
+                // border-bottom: solid $whiteback 2px !important;
+                background: rgba(255, 255, 255, 0.05);
             }
 
             &:valid {
-                border-bottom: solid $whiteback 2px;
-                color: $whiteback;
-                font-size: 1.6em;
+                border-bottom: solid $success 2px !important;
+                // font-size: 1.6em;
+                background:rgba(255, 255, 255, 0.1) ;
                 font-weight: 600;
             }
 
             &:invalid {
-                border-bottom: solid $white 2px;
-                color: $white;
+                border-bottom: solid $error 2px !important;
             }
-        }
+            
+            &:valid + span:after {
+                position: absolute;
+                content: '✓';
+                padding-left: 5px;
+                color: #009000;
+              }
 
-        #mauticform_rogmb_submit {
+        }
+        textarea{
+            height: 5em;
+        }
+    }
+        #mauticform_rositio_submit {
             align-self: flex-end;
             margin: 30px auto;
         }
@@ -1018,52 +1111,58 @@ nav.mainNav{
             font-size: 1.7em;
             color: $hotpink;
             transition: 0.16s ease-in-out;
+        
+
+            &:hover {
+                transform: scale(1.1);
+                font-weight: 600;
+                transition: 0.16s ease-in-out;
+            }
         }
 
-        button:hover {
-            transform: scale(1.1);
-            font-weight: 600;
-            transition: 0.16s ease-in-out;
+
+
+    .mauticform{
+        &-error {
+            margin-bottom: 10px;
+            color: red;
+        }
+
+        &-message {
+            margin-bottom: 10px;
+            color: green;
+        }
+
+        &-row {
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        &-label {
+            font-size: 1.1em;
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+
+        &-helpmessage {
+            display: block;
+            font-size: 0.9em;
+            margin-bottom: 3px;
+        }
+
+        &-errormsg {
+            display: block;
+            color: red;
+            margin-top: 2px;
         }
     }
+
 }
-.mauticform{
-    &-error {
-        margin-bottom: 10px;
-        color: red;
-    }
-
-    &-message {
-        margin-bottom: 10px;
-        color: green;
-    }
-
-    &-row {
-        display: block;
-        margin-bottom: 20px;
-    }
-
-    &-label {
-        font-size: 1.1em;
-        display: block;
-        font-weight: bold;
-        margin-bottom: 5px;
-    }
 
 
-    &-helpmessage {
-        display: block;
-        font-size: 0.9em;
-        margin-bottom: 3px;
-    }
-
-    &-errormsg {
-        display: block;
-        color: red;
-        margin-top: 2px;
-    }
-}
-.mauticform-row.mauticform-required .mauticform-label:after {
+.mauticform-input:required  label:before{
     color: $whiteback;
     content: " *";
     display: inline;
@@ -1088,7 +1187,7 @@ nav.mainNav{
     GOO MENU 
     ========================================================================= */
 nav.goobutt {
-    z-index: 9999;
+    z-index: 113;
     position: fixed;
     right: 0px;
     bottom: 0px;
@@ -1543,110 +1642,4 @@ $small: 480px;
         clear: both;
     }
 }
-
-
-
-/////////
-
-.waveWrapperInner {
-    background: linear-gradient(-45deg, $pink, #4E0052);
-    background-size: 100% 100%;
-    // animation: gradient 10s ease infinite;
-}
-
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-@keyframes move_wave {
-    0% {
-        transform: translateX(0) translateZ(0) scaleY(1)
-    }
-
-    50% {
-        transform: translateX(-25%) translateZ(0) scaleY(0.55)
-    }
-
-    100% {
-        transform: translateX(-50%) translateZ(0) scaleY(1)
-    }
-}
-
-.waveWrapper {
-    overflow: hidden;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    margin: auto;
-}
-
-.waveWrapperInner {
-    position: absolute;
-    width: 100%;
-    overflow: hidden;
-    height: 101%;
-    // bottom: -1px;
-}
-
-.bgTop {
-    z-index: 15;
-    opacity: 0.5;
-}
-
-.bgMiddle {
-    z-index: 10;
-    opacity: 0.75;
-}
-
-.bgBottom {
-    z-index: 5;
-}
-
-.wave {
-    position: absolute;
-    left: 0;
-    width: 200%;
-    height: 100%;
-    background-repeat: repeat no-repeat;
-    background-position: 0 bottom;
-    transform-origin: center bottom;
-}
-
-.waveTop {
-    background-size: 50% 100px;
-}
-
-.waveAnimation .waveTop {
-    animation: move_wave 15s linear infinite;
-}
-
-.waveMiddle {
-    background-size: 50% 120px;
-}
-
-.waveAnimation .waveMiddle {
-    animation: move_wave 45s linear infinite;
-}
-
-.waveBottom {
-    background-size: 50% 100px;
-}
-
-.waveAnimation .waveBottom {
-    animation: move_wave 120s linear infinite;
-}
-
-
 

@@ -39,13 +39,60 @@
           });
         </script> 
         <script type="text/javascript" src="js/main.js"></script>
+        <script>
+            $(document).ready(function () {
+              var totalHeight = $(window).height();
+              var totalWidth = $(window).width();
+              var animations = $('.animations');
+              var mainNav = $('.mainNav');
+              var mainNavUl = $('.mainNav ul');
+              var container = $('.container');
+              var hamburger = $('.icon-three');
+              var navLink = $('.mainNav ul li');
 
+              mainNav.css({'display' : 'none'});
+
+              $(window).on('scroll', function () {	
+                var scrollTop = $(window).scrollTop();
+                var percentageOfHeight = (((scrollTop / totalHeight) * 100) - 100) * -1;
+
+                $('#scroll').css("opacity" , ((percentageOfHeight / 100) - 0.5) );
+
+
+                if (percentageOfHeight > 11) {
+                  mainNav.fadeOut(400);
+                  animations.css("animation-play-state", "running");
+
+                  if(container.hasClass('container-tall') === false){
+                    container.removeClass('container-tall');
+                  }else if(container.hasClass('container-tall') === true ){
+                    mainNavUl.fadeOut(400);
+                    container.removeClass('container-tall');
+                    hamburger.toggleClass('active-three');
+                  }else{
+                    container.removeClass('container-tall');
+                  }
+
+                } else {
+                  animations.css("animation-play-state", "paused");
+                  mainNav.fadeIn(400); 
+                }
+            });
+          });
+        </script>
     </head>
     <body>
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-
+      <style>
+      .container{
+        height:100vh!important;
+      }
+      .container-tall{
+        height: 165vh!important;
+      }
+        </style>
       <div class="main-container">
         <header>
           <div class="container">
@@ -82,10 +129,87 @@
         </nav> 
         
         <section id="servicios" >
-          <h1>home</h1>
+          <!-- <h1 data-lang="services.title"></h1> -->
+          <div> 
+            <div style="background-image: url('/img/web.jpg')"  class="imagefiller" data-bg></div>
+            <div class="caja">
+              <div class="caja-inner">
+                <h3 data-lang='services.serv1.title'></h3>
+                <p data-lang='services.serv1.text1'></p>
+                <p data-lang='services.serv1.text2'></p>
+                <p data-lang='services.serv1.text3'></p>
+              </div>
+            </div> 
+          </div>
+          <div> 
+            <div class="caja">
+              <div class="caja-inner">
+                <h3 data-lang='services.serv2.title'></h3>
+                <p data-lang='services.serv2.text1'></p>
+                <p data-lang='services.serv2.text2'></p>
+                <p data-lang='services.serv2.text3'></p>
+              </div>
+            </div>
+            <div style="background-image: url('/img/seo.jpg')"  class="imagefiller" data-bg></div>
+          </div>
+          <div> 
+            <div style="background-image: url('/img/video.jpg')"  class="imagefiller" data-bg></div>
+            <div class="caja">
+              <div class="caja-inner">
+                <h3 data-lang='services.serv3.title'></h3>
+                <p data-lang='services.serv3.text1'></p>
+                <p data-lang='services.serv3.text2'></p>
+                <p data-lang='services.serv3.text3'></p>
+              </div>
+            </div>
+          </div>
+          <div> 
+            <div class="caja">
+              <div class="caja-inner">
+                <h3 data-lang='services.serv4.title'></h3>
+                <p data-lang='services.serv4.text1'></p>
+                <p data-lang='services.serv4.text2'></p>
+                <p data-lang='services.serv4.text3'></p>
+              </div>
+            </div>
+            <div style="background-image: url('/img/branding.jpg')"  class="imagefiller" data-bg></div>
+          </div>
+          <div> 
+            <div style="background-image: url('/img/map.jpg')"  class="imagefiller" data-bg></div>
+            <div class="caja">
+              <div class="caja-inner">
+                <h3 data-lang='services.serv5.title'></h3>
+                <p data-lang='services.serv5.text1'></p>
+                <p data-lang='services.serv5.text2'></p>
+                <p data-lang='services.serv5.text3'></p>
+              </div>
+            </div>
+          </div>
+          <div> 
+            <div class="caja">
+              <div class="caja-inner">
+                <h3 data-lang='services.serv6.title'></h3>
+                <p data-lang='services.serv6.text1'></p>
+                <p data-lang='services.serv6.text2'></p>
+                <p data-lang='services.serv6.text3'></p>
+              </div>
+            </div>
+            <div style="background-image: url('/img/sem.jpg')"  class="imagefiller" data-bg></div>
+          </div>
+          <div> 
+            <div style="background-image: url('/img/social.jpg')"  class="imagefiller" data-bg></div>
+            <div class="caja">
+              <div class="caja-inner">
+                <h3 data-lang='services.serv7.title'></h3>
+                <p data-lang='services.serv7.text1'></p>
+                <p data-lang='services.serv7.text2'></p>
+                <p data-lang='services.serv7.text3'></p>
+              </div>
+          </div>
+          </div>
         </section>
 
-        <!-- <section style="height:100vh"></section> -->
+        <!-- <section style="height:100vh"></section>
         <section id="about">
           <div>
             <h3>CÓMO TRABAJAMOS CONTIGO</h3>
@@ -104,7 +228,7 @@
               <p>Una vez analizada la estrategia, se inician nuestro plan de Marketing y realizamos un seguimiento para observar si los resultados coinciden con los objetivos marcados, paso indispensable para optimizar tu peluquería a corto y largo plazo.</p>
             </div>
           </div>
-        </section>
+        </section> -->
 
         <footer>
           <div class="wrapper">
@@ -130,15 +254,6 @@
         <a class="goobutt-item" href="#"><i class="fas fa-envelope"></i></a>
       </nav>
 
-      <!-- <div id="popup" class="popup__wrapper">
-        <div class="popup__container">
-          <i class="fas fa-times" id="close" ></i>
-          <h1>¡No pierdas esta oportunidad!</h1>
-          <p>¡Aumenta tus clientes por 99€!</p>
-          <button id="popup__btn" type="discount" href="#contacto">CONTÁCTANOS</button>
-        </div>
-      </div> -->
-
       <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js" defer></script>
       <script src="https://kit.fontawesome.com/4b977b2858.js" crossorigin="anonymous"></script>
       <link href="https://calendly.com/assets/external/widget.css" rel="stylesheet" defer />
@@ -148,25 +263,6 @@
       
       <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
       <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/85188/jquery.wavify.js"></script>
-
-      <script type="text/javascript">
-        /** This section is only needed once per page if manually copying **/
-        if (typeof MauticSDKLoaded == 'undefined') {
-            var MauticSDKLoaded = true;
-            var head            = document.getElementsByTagName('head')[0];
-            var script          = document.createElement('script');
-            script.type         = 'text/javascript';
-            script.src          = 'https://phpstack-365445-1147909.cloudwaysapps.com/media/js/mautic-form.js';
-            script.onload       = function() {
-                MauticSDK.onLoad();
-            };
-            head.appendChild(script);
-            var MauticDomain = 'https://phpstack-365445-1147909.cloudwaysapps.com/index.php';
-            var MauticLang   = {
-                'submittingMessage': "Espere por favor..."
-            }
-        }
-      </script>
 
       <!-- Google Analytics -->
       <script>
