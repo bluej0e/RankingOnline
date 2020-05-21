@@ -23,7 +23,6 @@ $(document).ready(function () {
 	});
 
 	gooButt.click(function(){
-		// console.log('clicked the body');
 		if(container.hasClass('container-tall') === true && totalWidth < 1024){
 			mainNavUl.fadeToggle(400);
 			container.toggleClass('container-tall');
@@ -66,21 +65,30 @@ $(document).ready(function () {
 		speed: .25
 	});
 
+	$('#wave3').wavify({
+		height: 1,
+		bones: 4,
+		amplitude: 10,
+		color: '#6E0270',
+		speed: .45
+	});
+
 	$('#footwave').wavify({
-	height: 20,
-	bones: 5,
-	amplitude: 20,
-	color: '#272727',
-	speed: .25
+		height: 20,
+		bones: 5,
+		amplitude: 20,
+		color: '#272727',
+		speed: .25
 	});
 
 	$('#footwave2').wavify({
-	height: 60,
-	bones: 3,
-	amplitude: 20,
-	color: '#0d0d0d',
-	speed: .25
+		height: 60,
+		bones: 3,
+		amplitude: 20,
+		color: '#0d0d0d',
+		speed: .25
 	});
+
 
 	// $(window).on('scroll', function () {	
 	// 	var scrollTop = $(window).scrollTop();

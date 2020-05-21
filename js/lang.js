@@ -77,17 +77,65 @@ const langEs = {
   },
   contact:{
     title: "¿Listo para hacer crecer tú negocio?",
-    subtitle: "¿Que servicios te interesarían?",
+    subtitle: "¿Que servicios te interesan?",
     price: "Price",
     name: "Nombre",
     email: "Email",
-    phone: "Telefono",
+    phone: "Teléfono",
     msg: "Mensaje",
     success: "Bien",
     error: "Error",
     missing: "Falta",
     submit: "Enviar"
   },
+  reasons:{
+    title: "<span>9</span> Razones para elegir Ranking Online",
+    one:{
+      i: "<img src='/img/i/accessory.svg' />",
+      t:"Fiabilidad",
+      p:"No hay mejor forma para captar la atención de tus clientes que con el contenido audiovisual, realizamos videos para explicar tus servicios, sintetizando la información con el objetivo."
+    },
+    two:{
+      i: "<img src='/img/i/handshake.svg' />",
+      t:"Te Escuchamos",
+      p:"No hay mejor forma para captar la atención de tus clientes que con el contenido audiovisual, realizamos videos para explicar tus servicios, sintetizando la información con el objetivo."
+    }, 
+    three:{
+      i: "<img src='/img/i/rocket-launch.svg' />",
+      t:"3, 2, 1... Despegamos!",
+      p:"No hay mejor forma para captar la atención de tus clientes que con el contenido audiovisual, realizamos videos para explicar tus servicios, sintetizando la información con el objetivo."
+    },
+    four:{
+      i: "<img src='/img/i/maps-and-flags.svg' />",
+      t:"Calidad Garantizada",
+      p:"No hay mejor forma para captar la atención de tus clientes que con el contenido audiovisual, realizamos videos para explicar tus servicios, sintetizando la información con el objetivo."
+    },
+    five:{
+      i: "<img src='/img/i/invention.svg' />",
+      t:"Ideas Innovadoras",
+      p:"No hay mejor forma para captar la atención de tus clientes que con el contenido audiovisual, realizamos videos para explicar tus servicios, sintetizando la información con el objetivo."
+    },
+    six:{
+      i: "<img src='/img/i/banking.svg' />",
+      t:"Presupuestos a tu cartera",
+      p:"No hay mejor forma para captar la atención de tus clientes que con el contenido audiovisual, realizamos videos para explicar tus servicios, sintetizando la información con el objetivo."
+    },
+    seven:{
+      i: "<img src='/img/i/salvation.svg' />",
+      t:"Disparamos en el cnetro",
+      p:"No hay mejor forma para captar la atención de tus clientes que con el contenido audiovisual, realizamos videos para explicar tus servicios, sintetizando la información con el objetivo."
+    },
+    eight:{
+      i: "<img src='/img/i/bars-graphic.svg' />",
+      t:"Crecimiento Continue",
+      p:"No hay mejor forma para captar la atención de tus clientes que con el contenido audiovisual, realizamos videos para explicar tus servicios, sintetizando la información con el objetivo."
+    },
+    nine: {
+      i: "<img src='/img/i/door-key.svg' />",
+      t:"Algo mas que no se me ocurre ahora",
+      p:"No hay mejor forma para captar la atención de tus clientes que con el contenido audiovisual, realizamos videos para explicar tus servicios, sintetizando la información con el objetivo."
+    },
+  }
 };
 
 
@@ -181,6 +229,45 @@ const langEn = {
     missing: "Missing",
     submit: "Send"
   },
+  reasons:{
+    title: "<span>9</span> Razones para elegir Ranking Online",
+    one:{
+      t:"Fiabilidad",
+      p:"No hay mejor forma para captar la atención de tus clientes que con el contenido audiovisual, realizamos videos para explicar tus servicios, sintetizando la información con el objetivo."
+    },
+    two:{
+      t:"Te Escuchamos",
+      p:"No hay mejor forma para captar la atención de tus clientes que con el contenido audiovisual, realizamos videos para explicar tus servicios, sintetizando la información con el objetivo."
+    }, 
+    three:{
+      t:"3, 2, 1... Despegamos!",
+      p:"No hay mejor forma para captar la atención de tus clientes que con el contenido audiovisual, realizamos videos para explicar tus servicios, sintetizando la información con el objetivo."
+    },
+    four:{
+      t:"Calidad Garantizada",
+      p:"No hay mejor forma para captar la atención de tus clientes que con el contenido audiovisual, realizamos videos para explicar tus servicios, sintetizando la información con el objetivo."
+    },
+    five:{
+      t:"Ideas Innovadoras",
+      p:"No hay mejor forma para captar la atención de tus clientes que con el contenido audiovisual, realizamos videos para explicar tus servicios, sintetizando la información con el objetivo."
+    },
+    six:{
+      t:"Presupuestos a tu cartera",
+      p:"No hay mejor forma para captar la atención de tus clientes que con el contenido audiovisual, realizamos videos para explicar tus servicios, sintetizando la información con el objetivo."
+    },
+    seven:{
+      t:"Disparamos en el cnetro",
+      p:"No hay mejor forma para captar la atención de tus clientes que con el contenido audiovisual, realizamos videos para explicar tus servicios, sintetizando la información con el objetivo."
+    },
+    eight:{
+      t:"Crecimiento Continue",
+      p:"No hay mejor forma para captar la atención de tus clientes que con el contenido audiovisual, realizamos videos para explicar tus servicios, sintetizando la información con el objetivo."
+    },
+    nine: {
+      t:"Algo mas que no se me ocurre ahora",
+      p:"No hay mejor forma para captar la atención de tus clientes que con el contenido audiovisual, realizamos videos para explicar tus servicios, sintetizando la información con el objetivo."
+    },
+  }
 }
 
 var langBox = document.querySelector('.langBox');
