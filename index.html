@@ -3,314 +3,334 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!--> 
-  <html class="no-js" lang="es ES"> 
+<html class="no-js" lang="es ES"> 
 <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-        <title data-lang='title'></title>
-        <meta name="description" content="" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="robots" content="index, follow" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="keywords" content="Ranking Online, Ranking, Online, Agencia, marketing, digital, digital marketing, media, seo, sem, web design, google ads, google mybusiness, google my business" />
-        <meta name="revised" content="Thursday, April 2nd, 2020, 5:15 pm" />
-        <meta name="language" content="ES">
-        <meta property="og:title" content="Agencia Marketing Digital | Ranking Online" />
-        <meta property="og:description" content="" />
-        <meta property="og:url" content="https://rankingonline.es/" />
-        <meta property="og:site_name" content="RankingOnline.es" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+      <title data-lang='title'></title>
+      <meta name="description" content="" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="robots" content="index, follow" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="keywords" content="Ranking Online, Ranking, Online, Agencia, marketing, digital, digital marketing, media, seo, sem, web design, google ads, google mybusiness, google my business" />
+      <meta name="revised" content="Thursday, April 2nd, 2020, 5:15 pm" />
+      <meta name="language" content="ES">
+      <meta property="og:title" content="Agencia Marketing Digital | Ranking Online" />
+      <meta property="og:description" content="" />
+      <meta property="og:url" content="https://rankingonline.es/" />
+      <meta property="og:site_name" content="RankingOnline.es" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 
-        <link rel="stylesheet" href="css/normalize.min.css" />
-        <link rel="stylesheet" href="css/main.css" />
-       
-        
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <!-- <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script> -->
-        <script src="js/vendor/lazysizes.min.js" async=""></script>
-        <script type="text/javascript">
-          document.addEventListener('lazybeforeunveil', function(e){
-            var bg = e.target.getAttribute('data-bg');
-              if(bg){
-                e.target.style.backgroundImage = 'url(' + bg + ')';
+      <link rel="stylesheet" href="css/normalize.min.css" />
+      <link rel="stylesheet" href="css/main.css" />
+      
+      
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <!-- <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script> -->
+      <script src="js/vendor/lazysizes.min.js" async=""></script>
+      <script type="text/javascript">
+        document.addEventListener('lazybeforeunveil', function(e){
+          var bg = e.target.getAttribute('data-bg');
+            if(bg){
+              e.target.style.backgroundImage = 'url(' + bg + ')';
+            }
+        });
+      </script> 
+      <script type="text/javascript" src="js/main.js"></script>
+      <script>
+          $(document).ready(function () {
+            var totalHeight = $(window).height();
+            var totalWidth = $(window).width();
+            var animations = $('.animations');
+            var mainNav = $('.mainNav');
+            var mainNavUl = $('.mainNav ul');
+            var container = $('.container');
+            var hamburger = $('.icon-three');
+            var navLink = $('.mainNav ul li');
+
+            mainNav.css({'display' : 'none'});
+
+            $(window).on('scroll', function () {	
+              var scrollTop = $(window).scrollTop();
+              var percentageOfHeight = (((scrollTop / totalHeight) * 100) - 100) * -1;
+
+              $('#scroll').css("opacity" , ((percentageOfHeight / 100) - 0.5) );
+
+
+              if (percentageOfHeight > 11) {
+                mainNav.fadeOut(400);
+                animations.css("animation-play-state", "running");
+
+                if(container.hasClass('container-tall') === false){
+                  container.removeClass('container-tall');
+                }else if(container.hasClass('container-tall') === true ){
+                  mainNavUl.fadeOut(400);
+                  container.removeClass('container-tall');
+                  hamburger.toggleClass('active-three');
+                }else{
+                  container.removeClass('container-tall');
+                }
+
+              } else {
+                animations.css("animation-play-state", "paused");
+                mainNav.fadeIn(400); 
               }
           });
-        </script> 
-        <script type="text/javascript" src="js/main.js"></script>
-        <script>
-            $(document).ready(function () {
-              var totalHeight = $(window).height();
-              var totalWidth = $(window).width();
-              var animations = $('.animations');
-              var mainNav = $('.mainNav');
-              var mainNavUl = $('.mainNav ul');
-              var container = $('.container');
-              var hamburger = $('.icon-three');
-              var navLink = $('.mainNav ul li');
-
-              mainNav.css({'display' : 'none'});
-
-              $(window).on('scroll', function () {	
-                var scrollTop = $(window).scrollTop();
-                var percentageOfHeight = (((scrollTop / totalHeight) * 100) - 100) * -1;
-
-                $('#scroll').css("opacity" , ((percentageOfHeight / 100) - 0.5) );
-
-
-                if (percentageOfHeight > 11) {
-                  mainNav.fadeOut(400);
-                  animations.css("animation-play-state", "running");
-
-                  if(container.hasClass('container-tall') === false){
-                    container.removeClass('container-tall');
-                  }else if(container.hasClass('container-tall') === true ){
-                    mainNavUl.fadeOut(400);
-                    container.removeClass('container-tall');
-                    hamburger.toggleClass('active-three');
-                  }else{
-                    container.removeClass('container-tall');
-                  }
-
-                } else {
-                  animations.css("animation-play-state", "paused");
-                  mainNav.fadeIn(400); 
-                }
-            });
-          });
-        </script>
-    </head>
-    <body>
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-      <style>
-        .container{
-          height:100vh!important;
-        }
-        .container-tall{
-          height: 165vh!important;
-        }
-      </style>
-      <div class="main-container">
-        <header>
-          <div class="container">
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg"><path id="wave2" d=""/></svg>
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg"><path id="wave" d=""/></svg>
-            
-            <div class="animation-div">
-              <div class="animations stars stars-small"></div>
-              <div class="animations stars stars-medium"></div>
-              <div class="animations stars stars-large"></div>
-              <img class="animations" id="bars" src="img/bars.svg" alt="Bars" />
-              <img class="animations" id="logo" src="img/hex.svg" alt="Logo" />
-              <img class="animations" id="rocket" src="img/rocket.png" alt="Rocket" />
-              <img class="animations" src="img/scroll-down.svg" id="scroll" alt="Scroll Down" />
-            </div>
-
-          </div>
-        </header>
-       
-        <nav role="navigation" class="mainNav">
-          <a id="logo" href="#"><img src="/img/logo_white.svg" alt="Ranking Online"></img></a>
-          <ul role="menu">
-            <li><a href="/index.html" data-lang="navBar.home"></a></li>
-          <!-- <li><a href="/about.html" data-lang="navBar.about"></a></li> -->
-          <!-- <li><a href="/services.html" data-lang="navBar.services"></a></li> -->
-          <li><a href="/portfolio.html" data-lang="navBar.portfolio"></a></li>
-          <!-- <li><a href="/articles.html" data-lang="navBar.blog"></a></li> -->
-          <li><a href="/contact.html" data-lang="navBar.contact"></a></li>
-          <li><a onClick="chosenLang();" lang="es" data-lang='opLang' class="langBox"></a></li>
-          </ul>
-          <div class="icon-three">
-            <div class="hamburger hamburger-three"></div>
-          </div>
-        </nav> 
-        
-        <section id="servicios" >
-          <!-- <h1 data-lang="services.title"></h1> -->
-          <div> 
-            <div style="background-image: url('/img/web.jpg')"  class="imagefiller" data-bg></div>
-            <div class="caja">
-              <div class="caja-inner">
-                <h3 data-lang='services.serv1.title'></h3>
-                <p data-lang='services.serv1.text1'></p>
-                <p data-lang='services.serv1.text2'></p>
-                <p data-lang='services.serv1.text3'></p>
-              </div>
-            </div> 
-          </div>
-          <div> 
-            <div class="caja">
-              <div class="caja-inner">
-                <h3 data-lang='services.serv2.title'></h3>
-                <p data-lang='services.serv2.text1'></p>
-                <p data-lang='services.serv2.text2'></p>
-                <p data-lang='services.serv2.text3'></p>
-              </div>
-            </div>
-            <div style="background-image: url('/img/seo.jpg')"  class="imagefiller" data-bg></div>
-          </div>
-          <div> 
-            <div style="background-image: url('/img/video.jpg')"  class="imagefiller" data-bg></div>
-            <div class="caja">
-              <div class="caja-inner">
-                <h3 data-lang='services.serv3.title'></h3>
-                <p data-lang='services.serv3.text1'></p>
-                <p data-lang='services.serv3.text2'></p>
-                <p data-lang='services.serv3.text3'></p>
-              </div>
-            </div>
-          </div>
-          <div> 
-            <div class="caja">
-              <div class="caja-inner">
-                <h3 data-lang='services.serv4.title'></h3>
-                <p data-lang='services.serv4.text1'></p>
-                <p data-lang='services.serv4.text2'></p>
-                <p data-lang='services.serv4.text3'></p>
-              </div>
-            </div>
-            <div style="background-image: url('/img/branding.jpg')"  class="imagefiller" data-bg></div>
-          </div>
-          <div> 
-            <div style="background-image: url('/img/map.jpg')"  class="imagefiller" data-bg></div>
-            <div class="caja">
-              <div class="caja-inner">
-                <h3 data-lang='services.serv5.title'></h3>
-                <p data-lang='services.serv5.text1'></p>
-                <p data-lang='services.serv5.text2'></p>
-                <p data-lang='services.serv5.text3'></p>
-              </div>
-            </div>
-          </div>
-          <div> 
-            <div class="caja">
-              <div class="caja-inner">
-                <h3 data-lang='services.serv6.title'></h3>
-                <p data-lang='services.serv6.text1'></p>
-                <p data-lang='services.serv6.text2'></p>
-                <p data-lang='services.serv6.text3'></p>
-              </div>
-            </div>
-            <div style="background-image: url('/img/sem.jpg')"  class="imagefiller" data-bg></div>
-          </div>
-          <div> 
-            <div style="background-image: url('/img/social.jpg')"  class="imagefiller" data-bg></div>
-            <div class="caja">
-              <div class="caja-inner">
-                <h3 data-lang='services.serv7.title'></h3>
-                <p data-lang='services.serv7.text1'></p>
-                <p data-lang='services.serv7.text2'></p>
-                <p data-lang='services.serv7.text3'></p>
-              </div>
-          </div>
-          </div>
-        </section>
-        
-
-        <section id="reasons">
-          <div id="randomDiv">
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-              <path id="wave3" d=""/>
-            </svg>
-            <h3 data-lang="reasons.title"></h3>
-          </div>
-          <div id="three">
-            <div id="boxoutline">
-              <div data-lang="reasons.one.i"></div>
-              <h4 data-lang="reasons.one.t"></h4>
-              <p data-lang="reasons.one.p"></p>
-            </div>
-            <div id="boxoutline">
-              <div data-lang="reasons.two.i"></div>
-              <h4 data-lang="reasons.two.t"></h4>
-              <p data-lang="reasons.two.p"></p>
-            </div>
-            <div id="boxoutline">
-              <div data-lang="reasons.three.i"></div>
-              <h4 data-lang="reasons.three.t"></h4>
-              <p data-lang="reasons.three.p"></p>
-            </div>
-            <div id="boxoutline">
-              <div data-lang="reasons.four.i"></div>
-              <h4 data-lang="reasons.four.t"></h4>
-              <p data-lang="reasons.four.p"></p>
-            </div>
-            <div id="boxoutline">
-              <div data-lang="reasons.five.i"></div>
-              <h4 data-lang="reasons.five.t"></h4>
-              <p data-lang="reasons.five.p"></p>
-            </div>
-            <div id="boxoutline">
-              <div data-lang="reasons.six.i"></div>
-              <h4 data-lang="reasons.six.t"></h4>
-              <p data-lang="reasons.six.p"></p>            
-            </div>
-            <div id="boxoutline">
-              <div data-lang="reasons.seven.i"></div>
-              <h4 data-lang="reasons.seven.t"></h4>
-              <p data-lang="reasons.seven.p"></p>            
-            </div>
-            <div id="boxoutline">
-              <div data-lang="reasons.eight.i"></div>
-              <h4 data-lang="reasons.eight.t"></h4>
-              <p data-lang="reasons.eight.p"></p>            
-            </div>
-            <div id="boxoutline">
-              <div data-lang="reasons.nine.i"></div>
-              <h4 data-lang="reasons.nine.t"></h4>
-              <p data-lang="reasons.nine.p"></p>            
-            </div>
-          </div>
-        </section>
-
-        <section style="height:100vh"></section>
-
-        <footer>
-          <div class="wrapper">
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg"><path id="footwave" d=""/></svg>
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg"><path id="footwave2" d=""/></svg>
-            <div style="z-index: 999; position: relative;padding-top: 50px;">
-              <address><a href="mailto:hola@rankingonline.es">hola@rankingonline.es</a> </address> 
-              <p data-lang="title"></p>
-              <p>RankingOnline.com © 2020 </br> Todos los derechos reservados.</p>
-              <p class="hiddenmofo">¡HAZZAH! ¡Has descubierto un secreto! Este es el inicio en una serie de puzzles. Cada uno te ayudara a resolver el próximo. La primer clave es: SW5jcmXDrWJsZeKApiBBaG9yYSBzZSBwb25lIGludGVyZXNhbnRlLiBTaSBoYXMgbG9ncmFkbyBkZXNjaWZyYXIgZWwgcHJpbWVyIGPDs2RpZ28sIHNlZ3VyYW1lbnRlIGVsIHByw7N4aW1vIHRlIGZydXN0cmFyYeKApiBMYSBzZWd1bmRhIGNsYXZlIGVzOiBodHRwczovL2JpdC5seS8yeU56U1U5</p>
-            </div>
-          </div>
-        </footer>
-
-      </div> <!-- #main-container -->
-
-      <nav class="goobutt">
-        <input type="checkbox" href="#" class="goobutt-open" name="goobutt-open" id="goobutt-open" />
-        <label class="goobutt-open-button" for="goobutt-open"><i class="fas fa-comments"></i></label>
-        <a class="goobutt-item" href="tel:+3444616039"><i class="fas fa-phone-alt"></i></a>
-        <a class="goobutt-item" onclick="Calendly.showPopupWidget('https://calendly.com/ranking-online/llamada');return false;"><i class="fas fa-calendar-alt"></i></a>
-        <a class="goobutt-item" href="https://api.whatsapp.com/send?phone=+34644616039"><i class="fab fa-whatsapp"></i></a>
-        <a class="goobutt-item" href="#"><i class="fas fa-envelope"></i></a>
-      </nav>
-
-      <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js" defer></script>
-      <script src="https://kit.fontawesome.com/4b977b2858.js" crossorigin="anonymous"></script>
-      <link href="https://calendly.com/assets/external/widget.css" rel="stylesheet" defer />
-      <script src="https://calendly.com/assets/external/widget.js" type="text/javascript" defer></script>
-      
-      <script src="js/lang.js" type="text/javascript" defer></script>
-      
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
-      <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/85188/jquery.wavify.js"></script>
-
-      <!-- Google Analytics -->
-      <script>
-          (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-          function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-          e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-          e.src='//www.google-analytics.com/analytics.js';
-          r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-          ga('create','UA-xxxxxxxxx-x','auto');ga('send','pageview');
+        });
       </script>
-      
-    </body>
+  </head>
+  <body>
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+  <style>
+    .container{
+      height:100vh!important;
+    }
+    .container-tall{
+      height: 165vh!important;
+    }
+  </style>
+  <div class="main-container">
+   
+    <header>
+      <div class="container">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg"><path id="wave2" d=""/></svg>
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg"><path id="wave" d=""/></svg>
+        <div class="animation-div">
+          <div class="animations stars stars-small"></div>
+          <div class="animations stars stars-medium"></div>
+          <div class="animations stars stars-large"></div>
+          <img class="animations" id="bars" src="img/bars.svg" alt="Bars" />
+          <img class="animations" id="logo" src="img/hex.svg" alt="Logo" />
+          <img class="animations" id="rocket" src="img/rocket.png" alt="Rocket" />
+          <img class="animations" src="img/scroll-down.svg" id="scroll" alt="Scroll Down" />
+        </div>
+      </div>
+    </header>
+    
+    <nav role="navigation" class="mainNav">
+      <a id="logo" href="#"><img src="/img/logo_white.svg" alt="Ranking Online"></img></a>
+      <ul role="menu">
+        <li><a href="/index.html" data-lang="navBar.home"></a></li>
+      <!-- <li><a href="/about.html" data-lang="navBar.about"></a></li> -->
+      <!-- <li><a href="/services.html" data-lang="navBar.services"></a></li> -->
+      <li><a href="/portfolio.html" data-lang="navBar.portfolio"></a></li>
+      <!-- <li><a href="/articles.html" data-lang="navBar.blog"></a></li> -->
+      <li><a href="/contact.html" data-lang="navBar.contact"></a></li>
+      <li><a onClick="chosenLang();" lang="es" data-lang='opLang' class="langBox"></a></li>
+      </ul>
+      <div class="icon-three">
+        <div class="hamburger hamburger-three"></div>
+      </div>
+    </nav> 
+    
+    <section id="servicios" >
+      <!-- <h1 data-lang="services.title"></h1> -->
+      <div> 
+        <div style="background-image: url('/img/web.jpg')"  class="imagefiller" data-bg></div>
+        <div class="caja">
+          <div class="caja-inner">
+            <h3 data-lang='services.serv1.title'></h3>
+            <p data-lang='services.serv1.text1'></p>
+            <p data-lang='services.serv1.text2'></p>
+            <p data-lang='services.serv1.text3'></p>
+          </div>
+        </div> 
+      </div>
+      <div> 
+        <div class="caja">
+          <div class="caja-inner">
+            <h3 data-lang='services.serv2.title'></h3>
+            <p data-lang='services.serv2.text1'></p>
+            <p data-lang='services.serv2.text2'></p>
+            <p data-lang='services.serv2.text3'></p>
+          </div>
+        </div>
+        <div style="background-image: url('/img/seo.jpg')"  class="imagefiller" data-bg></div>
+      </div>
+      <div> 
+        <div style="background-image: url('/img/video.jpg')"  class="imagefiller" data-bg></div>
+        <div class="caja">
+          <div class="caja-inner">
+            <h3 data-lang='services.serv3.title'></h3>
+            <p data-lang='services.serv3.text1'></p>
+            <p data-lang='services.serv3.text2'></p>
+            <p data-lang='services.serv3.text3'></p>
+          </div>
+        </div>
+      </div>
+      <div> 
+        <div class="caja">
+          <div class="caja-inner">
+            <h3 data-lang='services.serv4.title'></h3>
+            <p data-lang='services.serv4.text1'></p>
+            <p data-lang='services.serv4.text2'></p>
+            <p data-lang='services.serv4.text3'></p>
+          </div>
+        </div>
+        <div style="background-image: url('/img/branding.jpg')"  class="imagefiller" data-bg></div>
+      </div>
+      <div> 
+        <div style="background-image: url('/img/map.jpg')"  class="imagefiller" data-bg></div>
+        <div class="caja">
+          <div class="caja-inner">
+            <h3 data-lang='services.serv5.title'></h3>
+            <p data-lang='services.serv5.text1'></p>
+            <p data-lang='services.serv5.text2'></p>
+            <p data-lang='services.serv5.text3'></p>
+          </div>
+        </div>
+      </div>
+      <div> 
+        <div class="caja">
+          <div class="caja-inner">
+            <h3 data-lang='services.serv6.title'></h3>
+            <p data-lang='services.serv6.text1'></p>
+            <p data-lang='services.serv6.text2'></p>
+            <p data-lang='services.serv6.text3'></p>
+          </div>
+        </div>
+        <div style="background-image: url('/img/sem.jpg')"  class="imagefiller" data-bg></div>
+      </div>
+      <div> 
+        <div style="background-image: url('/img/social.jpg')"  class="imagefiller" data-bg></div>
+        <div class="caja">
+          <div class="caja-inner">
+            <h3 data-lang='services.serv7.title'></h3>
+            <p data-lang='services.serv7.text1'></p>
+            <p data-lang='services.serv7.text2'></p>
+            <p data-lang='services.serv7.text3'></p>
+          </div>
+      </div>
+      </div>
+    </section>
+    
+    <section id="reasons">
+      <div id="randomDiv">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <path id="wave3" d=""/>
+        </svg>
+        <h3 data-lang="reasons.title"></h3>
+      </div>
+      <div id="three">
+        <div class="boxoutline">
+          <div data-lang="reasons.one.i"></div>
+          <h4 data-lang="reasons.one.t"></h4>
+          <p data-lang="reasons.one.p"></p>
+        </div>
+        <div class="boxoutline">
+          <div data-lang="reasons.two.i"></div>
+          <h4 data-lang="reasons.two.t"></h4>
+          <p data-lang="reasons.two.p"></p>
+        </div>
+        <div class="boxoutline">
+          <div data-lang="reasons.three.i"></div>
+          <h4 data-lang="reasons.three.t"></h4>
+          <p data-lang="reasons.three.p"></p>
+        </div>
+        <div class="boxoutline">
+          <div data-lang="reasons.four.i"></div>
+          <h4 data-lang="reasons.four.t"></h4>
+          <p data-lang="reasons.four.p"></p>
+        </div>
+        <div class="boxoutline">
+          <div data-lang="reasons.five.i"></div>
+          <h4 data-lang="reasons.five.t"></h4>
+          <p data-lang="reasons.five.p"></p>
+        </div>
+        <div class="boxoutline">
+          <div data-lang="reasons.six.i"></div>
+          <h4 data-lang="reasons.six.t"></h4>
+          <p data-lang="reasons.six.p"></p>            
+        </div>
+        <div class="boxoutline">
+          <div data-lang="reasons.seven.i"></div>
+          <h4 data-lang="reasons.seven.t"></h4>
+          <p data-lang="reasons.seven.p"></p>            
+        </div>
+        <div class="boxoutline">
+          <div data-lang="reasons.eight.i"></div>
+          <h4 data-lang="reasons.eight.t"></h4>
+          <p data-lang="reasons.eight.p"></p>            
+        </div>
+        <div class="boxoutline">
+          <div data-lang="reasons.nine.i"></div>
+          <h4 data-lang="reasons.nine.t"></h4>
+          <p data-lang="reasons.nine.p"></p>            
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <h3>ETAPAS  DE TRABAJO</h3>
+
+      <div id="floatyMan"> </div>
+      <div id="blobSlob">
+        <img src="/img/lampara.png" alt="Ideas"/> 
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrapper">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg"><path id="footwave" d=""/></svg>
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg"><path id="footwave2" d=""/></svg>
+        <div style="z-index: 999; position: relative;padding-top: 50px;">
+          <address><a href="mailto:hola@rankingonline.es">hola@rankingonline.es</a> </address> 
+          <p data-lang="title"></p>
+          <p>RankingOnline.com © 2020 </br> Todos los derechos reservados.</p>
+          <p class="hiddenmofo">¡HAZZAH! ¡Has descubierto un secreto! Este es el inicio en una serie de puzzles. Cada uno te ayudara a resolver el próximo. La primer clave es: SW5jcmXDrWJsZeKApiBBaG9yYSBzZSBwb25lIGludGVyZXNhbnRlLiBTaSBoYXMgbG9ncmFkbyBkZXNjaWZyYXIgZWwgcHJpbWVyIGPDs2RpZ28sIHNlZ3VyYW1lbnRlIGVsIHByw7N4aW1vIHRlIGZydXN0cmFyYeKApiBMYSBzZWd1bmRhIGNsYXZlIGVzOiBodHRwczovL2JpdC5seS8yeU56U1U5</p>
+        </div>
+      </div>
+    </footer>
+
+  </div> <!-- #main-container -->
+
+  <nav class="goobutt">
+    <input type="checkbox" href="#" class="goobutt-open" name="goobutt-open" id="goobutt-open" />
+    <label class="goobutt-open-button" for="goobutt-open"><i class="fas fa-comments"></i></label>
+    <a class="goobutt-item" href="tel:+3444616039"><i class="fas fa-phone-alt"></i></a>
+    <a class="goobutt-item" onclick="Calendly.showPopupWidget('https://calendly.com/ranking-online/llamada');return false;"><i class="fas fa-calendar-alt"></i></a>
+    <a class="goobutt-item" href="https://api.whatsapp.com/send?phone=+34644616039"><i class="fab fa-whatsapp"></i></a>
+    <a class="goobutt-item" href="#"><i class="fas fa-envelope"></i></a>
+  </nav>
+
+  <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;">
+    <defs>
+      <clipPath id="blob1">
+        <path d="M40.4,-61.2C55.2,-53.3,72,-46.9,71.5,-36.1C70.9,-25.3,53.1,-10.1,46.5,3.8C40,17.7,44.7,30.3,42,40.2C39.3,50.2,29.2,57.5,18.6,58.4C8,59.3,-3.1,53.7,-10.9,46.9C-18.6,40.1,-23.2,32,-34.1,25.9C-45.1,19.8,-62.6,15.7,-66.2,7.9C-69.9,0.1,-59.7,-11.3,-50.3,-19.3C-40.9,-27.2,-32.1,-31.9,-23.9,-42.7C-15.6,-53.6,-7.8,-70.7,2.5,-74.6C12.8,-78.4,25.6,-69.1,40.4,-61.2Z" transform="translate(100 100)" />
+      </clipPath>
+    </defs>
+  </svg> 
+
+  <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;">
+    <defs>
+      <clipPath id="blob2">
+        <path d="M48.2,-71.4C60.4,-67.2,66.8,-50.3,64.9,-35.3C63,-20.2,52.7,-7.1,51.2,7.8C49.7,22.6,56.9,39,52.7,48C48.6,57,33.1,58.4,18.7,61.6C4.4,64.8,-8.8,69.8,-18.1,65.4C-27.4,61,-32.9,47.1,-38,35.9C-43,24.7,-47.7,16.1,-46.5,8.1C-45.4,0.2,-38.5,-7.1,-35.9,-17.9C-33.3,-28.6,-34.9,-42.7,-29.6,-50C-24.3,-57.3,-12.2,-57.9,2.9,-62.5C18,-67,36,-75.5,48.2,-71.4Z" transform="translate(100 100)" />
+      </clipPath>
+    </defs>
+  </svg>
+
+  <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js" defer></script>
+  <script src="https://kit.fontawesome.com/4b977b2858.js" crossorigin="anonymous"></script>
+  <link href="https://calendly.com/assets/external/widget.css" rel="stylesheet" defer />
+  <script src="https://calendly.com/assets/external/widget.js" type="text/javascript" defer></script>
+  
+  <script src="js/lang.js" type="text/javascript" defer></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/85188/jquery.wavify.js"></script>
+
+  <!-- Google Analytics -->
+  <script>
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='//www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-xxxxxxxxx-x','auto');ga('send','pageview');
+  </script>
+  </body>    
 </html>

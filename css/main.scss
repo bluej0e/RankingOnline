@@ -170,9 +170,28 @@ $bxshadow-small: box-shadow(800);
     to{ opacity: 0.1 ;}
 }
 
+@keyframes float {
+	0% {
+		transform: translatey(0px);
+    }
+    // 25% {
+    //     transform: translatey(-15px);
+    // }
+	50% {
+		transform: translatey(-20px);
+    }
+    // 75% {
+    //     transform: translatey(-5px);
+    // }
+	100% {
+		transform: translatey(0px);
+	}
+}
+
 $pink:#6E0270;
 $hotpink:#D80077;
 $lightpink:#FF97FB;
+$gradiend: #973697;
 $gray:#EFF1EF;
 $darkgray: #8e8e8e;
 $black:#0D0D0D;
@@ -182,6 +201,7 @@ $white:#f2f2f2;
 $whiteback: #fff;
 $success: #4BB543;
 $error: #F74162;
+$blobSize: '200px';
 $morphshad: 9px 9px 16px rgba(163, 177, 198, 0.6),
 -9px -9px 16px rgba(255, 255, 255, 0.5);
 $buttshad: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
@@ -211,7 +231,8 @@ html {
     padding:0;
     scrollbar-width: 0px;
     scrollbar-width: none;
-    // overflow-x: hidden;
+
+    // overflow-y: hidden;
 }
 
 ::-webkit-scrollbar{
@@ -290,7 +311,7 @@ footer {
     }
 
     svg{
-        height: 350px;
+        height: 300px;
         width: 100vw;
         position: absolute;
         left: 0;
@@ -311,7 +332,7 @@ footer {
     ========================================================================== */
 body {
     font: 16px/26px 'Raleway', sans-serif;
-    background-color: $pink;
+    background-color: $gradiend;
 }
 
 .wrapper {
@@ -823,16 +844,18 @@ nav.mainNav{
 }
 
 /* ==========================================================================
-    ABOUT SECTION
+    9 REASONS SECTION
     ========================================================================= */
 #reasons {
-    background-image: linear-gradient(to bottom,$pink, $pink, #822083, #8d2b8d, #973697);
-    color: $black;
+    background-image: linear-gradient(to bottom,$pink, $pink, #822083, #8d2b8d, $gradiend);
+    clip-path: polygon(0 -60px, 100% -60px, 100% 100%, 0% calc(100% - 10vw));    
+    margin-bottom: -10vw;
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
     text-align: center;
-    padding: 80px 0;
+    padding-bottom: 10vw;
+    padding-top: 80px;
 
     #randomDiv{
         background-color: transparent;
@@ -843,41 +866,41 @@ nav.mainNav{
         svg{
             width: 100%;
         }
-    }
+    
+        h3 {
+            font-size: 2em;
+            font-weight: 600;
+            text-transform: uppercase;
+            z-index: 10;
+            line-height: 1.2em;
+            transform: translateY(-60px);
+            color: $hotpink;
 
-    h3 {
-        font-size: 2em;
-        font-weight: 600;
-        text-transform: uppercase;
-        z-index: 10;
-        line-height: 1.2em;
-        transform: translateY(-60px);
-        color: $hotpink;
+            span{
+                font-weight: 900;
+                font-size: 1.5em;
+                color: $lightpink;
+            }
 
-        span{
-            font-weight: 900;
-            font-size: 1.5em;
-            color: $lightpink;
-        }
+            &:before {
+                content: "[";
+                position: absolute;
+                color: $whiteback;
+                // font-weight: 900;
+                z-index: -1;
+                font-size: 2.5em;
+                transform: translate(-0.3em,0) rotate(5deg);
+            }
 
-        &:before {
-            content: "[";
-            position: absolute;
-            color: $whiteback;
-            // font-weight: 900;
-            z-index: -1;
-            font-size: 2.5em;
-            transform: translate(-0.3em,0) rotate(5deg);
-        }
-
-        &:after {
-            content: "]";
-            position: absolute;
-            color: $whiteback;
-            // font-weight: 900;
-            z-index: -1;
-            font-size: 2.5em;
-            transform: rotate(-5deg);
+            &:after {
+                content: "]";
+                position: absolute;
+                color: $whiteback;
+                // font-weight: 900;
+                z-index: -1;
+                font-size: 2.5em;
+                transform: rotate(-5deg);
+            }
         }
     }
 
@@ -896,18 +919,20 @@ nav.mainNav{
 
     #three {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: space-evenly;
-        align-items: flex-start;
+        align-items:center;
         flex-wrap: wrap;
         // padding: 50px 0;
+        width: 100%;
 
-        div {
-            width: 100%;
+        .boxoutline{
+            width: 30%;
+            min-width: 350px;
             margin: 20px 0;
-
+            
             div{
-                width: 100px;
+                width: 60px;
             }
 
             h4 {
@@ -918,7 +943,7 @@ nav.mainNav{
                 text-transform: uppercase;
                 text-align: center;
                 color: $lightpink;
-                margin-bottom: 0.5em;
+                margin: 0.5em 0;
             }
 
             p {
@@ -929,24 +954,174 @@ nav.mainNav{
     }
 
     @include desktop {
-        min-height: calc(50vw - 160px);
         flex-direction: row;
         justify-content: space-around;
         align-content: space-evenly;
 
         #three {
-            flex-direction: row;
             padding: 0;
+            width: 80vw;
 
-            div {
-                width: 30vw;
-            }
+        
         }
     }
 }
 
 /* ==========================================================================
-  CONTACT STYLES
+  PROCESS SECTION
+   ========================================================================== */
+#process{
+    height:150vh;
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    width:100vw;
+    overflow: hidden;
+
+    h3{
+        transform: rotate(6deg) skewX(6deg);
+        font-size: 3em;
+        letter-spacing: 1px;
+        line-height: 1em;
+        text-align: right;
+        margin-right: 10px;
+        margin-top: 6vw;
+        font-weight: 800;
+        text-shadow: 3px 3px $hotpink;
+        @include stroke-width(2px);
+        @include stroke-color($pink);
+        color: transparent;
+
+        @include desktop{
+            letter-spacing: 15px;
+            font-size: 4.5em;
+        }
+    }
+
+    #blobSlob{
+        position: relative;
+        top: calc(30% * -#{$blobSize});
+        right:-100px;
+        animation: float ease-in-out 3s infinite;
+        align-self: flex-end;
+        z-index: 2;
+        width: calc(#{$blobSize} + 30px);
+        transform: scale(0.2);
+
+        @include desktop {
+            top:calc(30% + 50px);
+        }
+
+        &:before, &:after{
+            display: flex;
+            position: relative;
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: #{$blobSize};
+            height: #{$blobSize};
+            transform: scale(2);
+            content:"";
+
+            @include desktop{
+                transform: scale(3);
+            }
+        }
+
+        &:before{
+            clip-path: url(#blob1);            
+            z-index: -4;
+            background-color: $hotpink;
+            opacity: 0.9;
+            margin-top: calc(#{$blobSize} * 2);
+            
+            @include desktop {
+                // width: calc(#{$blobSize} * 1.5);
+                // height: calc(#{$blobSize} * 1.5);
+            }
+        }
+
+        &:after{
+            clip-path: url(#blob2);            
+            background-color: $pink;
+            opacity: 0.9;
+            margin-top: calc(#{$blobSize} * -2.5);
+            z-index: -5;
+
+            @include desktop {
+                // width: calc(#{$blobSize} * 1.5);
+                // height: calc(#{$blobSize} * 1.5);
+            }
+        }
+
+        img{
+            height: #{$blobSize};
+            width: #{$blobSize};
+            display: flex;
+            position: relative;
+            z-index: -3;
+            // margin-top: calc(#{$blobSize} * -2);
+            transform: scale(0.7) translateY( calc(#{$blobSize} * -2));
+
+            @include desktop{
+                height: calc(#{$blobSize} * 1.5);
+                width: calc(#{$blobSize} * 1.5);
+            }
+        }
+    }
+
+    #floatyMan{
+        height:1px;
+        position: relative;
+        top:calc(35% - #{$blobSize});
+        left:0;
+        animation: float ease-in-out 3s infinite;
+
+        @include desktop {
+            top:calc(35% - 400px);
+        }
+
+        &:before, &:after{
+            display: flex;
+            position: relative;
+            background-repeat: no-repeat;
+            background-size: contain;
+            content:"";
+        }
+
+        &:before{
+            background-image: url("/img/man-before.png");
+            width: 100px;
+            height: 190PX;
+            z-index: 1;
+            margin-left: -4px;
+            transform: rotate(-5deg);            
+            
+            @include desktop {
+                width: 100px;
+                height: 380PX;
+                margin-left: -10px;
+            }
+        }
+
+        &:after{
+            background-image: url("/img/man-after.png");
+            width: 100px;
+            height: 100px;
+            margin-top: -75px;
+            margin-left: -30px;
+            
+            @include desktop {
+                margin-top: -140px;
+                margin-left: -30px;
+                width: 200px;
+                height: 200px;
+            }
+        }
+    }
+}
+  
+/* ==========================================================================
+  CONTACT SECTION
    ========================================================================== */
 #contacto {
     min-height: 100vh;
@@ -1220,8 +1395,8 @@ nav.goobutt {
     margin-left: -175px;
     padding-top: 20px;
     padding-left: 175px;
-    width: 350px;
-    height: 250px;
+    // width: 350px;
+    // height: 250px;
     box-sizing: border-box;
     font-size: 20px;
     text-align: left;
