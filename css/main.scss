@@ -2,7 +2,7 @@
 /* VARIABLES */
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;600;900&display=swap');
 
-$desktop: 840px;
+$desktop: 900px;
 $tablet: 666px;
 
 @mixin desktop {
@@ -58,6 +58,10 @@ $tablet: 666px;
     }
 }
 
+$imgKey: random(2);
+$imgKey2: random(2);
+$spaces:(start, center, end);
+
 @keyframes orbit {
 	to { 	transform: rotate(0deg) translateX(150px); }
     from   {  transform: rotate(360deg) translateX(150px); }
@@ -75,7 +79,7 @@ $tablet: 666px;
     -webkit-text-stroke-width: $property;
     -moz-text-stroke-width: $property;
   }
-  
+
 @mixin stroke-color($property) {
     -webkit-text-stroke-color: $property;
     -moz-text-stroke-color: $property;
@@ -91,12 +95,25 @@ $tablet: 666px;
     -webkit-text-fill-color: $property;
     -moz-text-fill-color: $property;
   }
+  
 
-  
-  
+@function random-mover() {
+    $n:random(1000) - 500px;
+    $x:random(1000) - 500px;
+    $r:random(359) + 1deg;
+    $s:(random(100) / 100) +1.5;
+    $t:translate($n, $x) rotate($r) scale($s);
+
+
+
+    @return $t;
+}
+    
+
 /* ==========================================================================
     Star effect
     ========================================================================== */
+
 
 @function box-shadow($stars) {
     $bxshadow: ();
@@ -188,6 +205,8 @@ $bxshadow-small: box-shadow(800);
 	}
 }
 
+
+
 $pink:#6E0270;
 $hotpink:#D80077;
 $lightpink:#FF97FB;
@@ -201,13 +220,24 @@ $white:#f2f2f2;
 $whiteback: #fff;
 $success: #4BB543;
 $error: #F74162;
-$blobSize: '200px';
+$blobSize: 400px;
+$blobBoxSize: 400px;
 $morphshad: 9px 9px 16px rgba(163, 177, 198, 0.6),
 -9px -9px 16px rgba(255, 255, 255, 0.5);
 $buttshad: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
 0px 6px 10px 0px rgba(0, 0, 0, 0.14),
 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
 $phi: 1.618;
+$maskSize: 104%;
+
+////blob colors
+$colBlob1: #f74162;
+$colBlob2: #af45ba;
+$colBlob3: #456de5;
+$colBlob4: #009793;
+$colBlob5: #ff7250;
+
+
 
 * {
     font: 16px/26px 'Raleway', sans-serif;
@@ -523,8 +553,6 @@ nav.mainNav{
    
     @include for-size(desktop-old-up){
         flex-direction: row;
-        // display: flex;
-        // display: none;
     }
    
     img{
@@ -548,7 +576,6 @@ nav.mainNav{
 
         .hamburger {
             top:50%;
-            // left:10%;
             width: 25px;
             height: 3px;
             background: #FCFCFC;
@@ -856,6 +883,7 @@ nav.mainNav{
     text-align: center;
     padding-bottom: 10vw;
     padding-top: 80px;
+    z-index: 1;
 
     #randomDiv{
         background-color: transparent;
@@ -971,7 +999,6 @@ nav.mainNav{
   PROCESS SECTION
    ========================================================================== */
 #process{
-    height:150vh;
     background-color: $white;
     display: flex;
     flex-direction: column;
@@ -985,141 +1012,321 @@ nav.mainNav{
         line-height: 1em;
         text-align: right;
         margin-right: 10px;
-        margin-top: 6vw;
         font-weight: 800;
         text-shadow: 3px 3px $hotpink;
         @include stroke-width(2px);
         @include stroke-color($pink);
         color: transparent;
+        width: 100%;
+        grid-area: h3; 
+        // height: 100px;
+        align-self: flex-start;
+        z-index: 2;
 
         @include desktop{
-            letter-spacing: 15px;
+            letter-spacing: 5px;
             font-size: 4.5em;
         }
     }
 
-    #blobSlob{
-        position: relative;
-        top: calc(30% * -#{$blobSize});
-        right:-100px;
-        animation: float ease-in-out 3s infinite;
-        align-self: flex-end;
-        z-index: 2;
-        width: calc(#{$blobSize} + 30px);
-        transform: scale(0.2);
+   
 
-        @include desktop {
-            top:calc(30% + 50px);
-        }
+    .grid-container {
+        display: grid;
+        grid-template-columns:100vw;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-areas: "blob-1" "blob-2" "blob-3" "blob-4" "blob-5";        
+        align-items: center;
+        justify-items: center;
+        overflow: visible;
+        margin-top:3vw;
+        width: 100%;
 
-        &:before, &:after{
-            display: flex;
-            position: relative;
-            background-repeat: no-repeat;
-            background-size: contain;
-            width: #{$blobSize};
+            @include for-size(tablet-landscape-up){
+                grid-template-columns: 1fr 1fr;
+                grid-template-areas: "blob-1 filler-1" "filler-2 blob-2" "blob-3 filler-3" "filler-4 blob-4" "blob-5 filler-5";
+
+                // .filler-1, .filler-2, .filler-3, .filler-4, .filler-5{
+                //     display: block;
+                // }
+            }
+            
+            @include for-size(desktop-up){
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-areas: "blob-1 filler-1 filler-2" "filler-3 blob-2 filler-4" "man filler-5 blob-3" "filler-6 blob-4 filler-7" "blob-5 filler-8 idea";
+
+                // .filler-1, .filler-2, .filler-3, .filler-4, .filler-5, .filler-6, .filler-7{
+                //     display: block;
+                // }
+            }
+
+
+    
+        #blobSlob{
+            animation: float ease-in-out 3s infinite;
+            align-self: flex-end;
+            z-index: 2;
+            width: calc(#{$blobSize} + 30px);
             height: #{$blobSize};
+    
+            @include desktop {
+                // top:calc(30% + 50px);
+            }
+    
+            &:before, &:after{
+                display: flex;
+                // position: relative;
+                background-repeat: no-repeat;
+                background-size: contain;
+                justify-content: center;
+                align-items: center;
+                width: calc(#{$blobSize} * 2);
+                height: calc(#{$blobSize} * 2);
+                // transform: scale(2);
+                content:"";
+    
+                @include desktop{
+                    // transform: scale(3);
+                }
+            }
+    
+            &:before{
+                clip-path: url(#blob1);            
+                z-index: 1;
+                background-color: $hotpink;
+                opacity: 0.9;
+                // transform: translateY(calc(#{$blobSize} * 3)) scale(3);
+                
+                @include desktop {
+                    // width: calc(#{$blobSize} * 1.5);
+                    // height: calc(#{$blobSize} * 1.5);
+                }
+            }
+    
+            &:after{
+                clip-path: url(#blob2);            
+                background-color: $pink;
+                opacity: 0.9;
+                // margin-top: calc(#{$blobSize} * -2.5);
+                z-index: 2;
+                // transform: translateY(calc(#{$blobSize} / -2 )) scale(3);
+
+    
+                // @include desktop {
+                    // width: calc(#{$blobSize} * 1.5);
+                    // height: calc(#{$blobSize} * 1.5);
+                // }
+            }
+    
+            img{
+                height: #{$blobSize};
+                width: #{$blobSize};
+                // display: flex;
+                // position: relative;
+                z-index: -3;
+                // transform: scale(0.7) translateY( calc(#{$blobSize} * -2));
+    
+                // @include desktop{
+                    // height: calc(#{$blobSize} * 1.5);
+                    // width: calc(#{$blobSize} * 1.5);
+                // }
+            }
+        }
+    
+        #floatyMan{
+            height:1px;
+            position: relative;
+            animation: float ease-in-out 3s infinite;
             transform: scale(2);
-            content:"";
-
-            @include desktop{
-                transform: scale(3);
-            }
-        }
-
-        &:before{
-            clip-path: url(#blob1);            
-            z-index: -4;
-            background-color: $hotpink;
-            opacity: 0.9;
-            margin-top: calc(#{$blobSize} * 2);
-            
+            z-index: 2;
             @include desktop {
-                // width: calc(#{$blobSize} * 1.5);
-                // height: calc(#{$blobSize} * 1.5);
+
             }
-        }
-
-        &:after{
-            clip-path: url(#blob2);            
-            background-color: $pink;
-            opacity: 0.9;
-            margin-top: calc(#{$blobSize} * -2.5);
-            z-index: -5;
-
-            @include desktop {
-                // width: calc(#{$blobSize} * 1.5);
-                // height: calc(#{$blobSize} * 1.5);
+    
+            &:before, &:after{
+                display: flex;
+                position: relative;
+                background-repeat: no-repeat;
+                background-size: contain;
+                content:"";
             }
-        }
-
-        img{
-            height: #{$blobSize};
-            width: #{$blobSize};
-            display: flex;
-            position: relative;
-            z-index: -3;
-            // margin-top: calc(#{$blobSize} * -2);
-            transform: scale(0.7) translateY( calc(#{$blobSize} * -2));
-
-            @include desktop{
-                height: calc(#{$blobSize} * 1.5);
-                width: calc(#{$blobSize} * 1.5);
-            }
-        }
-    }
-
-    #floatyMan{
-        height:1px;
-        position: relative;
-        top:calc(35% - #{$blobSize});
-        left:0;
-        animation: float ease-in-out 3s infinite;
-
-        @include desktop {
-            top:calc(35% - 400px);
-        }
-
-        &:before, &:after{
-            display: flex;
-            position: relative;
-            background-repeat: no-repeat;
-            background-size: contain;
-            content:"";
-        }
-
-        &:before{
-            background-image: url("/img/man-before.png");
-            width: 100px;
-            height: 190PX;
-            z-index: 1;
-            margin-left: -4px;
-            transform: rotate(-5deg);            
-            
-            @include desktop {
+    
+            &:before{
+                background-image: url("/img/man-before.png");
                 width: 100px;
-                height: 380PX;
-                margin-left: -10px;
+                height: 190PX;
+                z-index: 1;
+                margin-left: -4px;
+                transform: rotate(-5deg);            
+                
+                @include desktop {
+                    width: 100px;
+                    height: 380PX;
+                    margin-left: -10px;
+                }
+            }
+    
+            &:after{
+                background-image: url("/img/man-after.png");
+                width: 100px;
+                height: 100px;
+                transform: translate(-150px, 100px);
+
+                @include desktop {
+                   transform: translate(-150px, 100px);
+                    width: 200px;
+                    height: 200px;
+                }
             }
         }
 
-        &:after{
-            background-image: url("/img/man-after.png");
-            width: 100px;
-            height: 100px;
-            margin-top: -75px;
-            margin-left: -30px;
+        .blobBox{
+            height: #{$blobBoxSize};
+            width: #{$blobBoxSize};
+            animation: float ease-in-out 3s infinite;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 0.5fr 1.5fr;
+            grid-template-areas: "blobImg" "blobTitle" "blobP";
             
-            @include desktop {
-                margin-top: -140px;
-                margin-left: -30px;
-                width: 200px;
-                height: 200px;
+            align-items: center;
+            justify-items: center;    
+            
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+
+            z-index: 5;
+
+            .blobImg{
+                grid-area: blobImg;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                img{
+                    height: 100px;
+                    width: 100px; 
+                }
+            }
+
+            .blobTitle{
+                color: $whiteback;
+                grid-area: blobTitle;
+                text-align: center;
+                width: 80%;
+                font-size: 24px;
+                font-weight: 600;
+                text-transform: uppercase;
+                // margin: 0 auto;
+            }
+
+            .blobP{
+                color:$whiteback;
+                grid-area: blobP;
+                font-size: 16px;
+                line-height: 1em;
+                text-align: center;
+                align-self: flex-start;
+                width: 80%;
+                // margin: 0 auto;
+            }
+        }
+
+        @keyframes clippy{
+            from{
+                clip-path: url(#blobItem1); 
+            }
+            to{
+                clip-path: url(#blobItem2); 
+
+            }
+        }
+
+        #blob-1 { 
+            grid-area: blob-1; 
+            background-image: url('/img/blob1.svg');
+            justify-self: flex-end;
+        }
+    
+        #blob-2 { 
+            grid-area: blob-2;
+            background-image: url('/img/blob2.svg');
+            justify-self: center;
+        }
+    
+        #blob-3 { 
+            grid-area: blob-3;
+            background-image: url('/img/blob3.svg');
+            justify-self: self-start;
+        }
+    
+        #blob-4 { 
+            grid-area: blob-4;
+            background-image: url('/img/blob4.svg');
+            justify-self: center;
+        }
+    
+        #blob-5 { 
+            grid-area: blob-5;
+            background-image: url('/img/blob5.svg');
+            justify-self: flex-end;
+        }
+    
+        .man { 
+            grid-area: man; 
+            display: flex;
+            justify-self: center;
+            align-items:center;
+        }
+    
+        .idea { 
+            grid-area: idea; 
+            align-items: center;
+        }
+
+        .filler{
+            background-repeat: no-repeat;
+            overflow: visible; 
+            height:100px;
+            display: flex;
+            justify-self: center;
+            align-self: center;
+
+            &:before, &:after{
+                background-repeat: no-repeat;
+                width: 100px;
+                height: 100px;
+                opacity: 0.5;
+                content:"";
+                transition: all 4800ms ease-in-out;
+
+            }
+    
+            &:before{
+            }
+    
+            &:after{
+            }
+
+            @for $i from 1 through 7 {
+                &-#{$i} {
+                    grid-area: filler-#{$i};
+
+                    &:before{
+                        background-image:url('/img/blobs/blob-' + random(13) + '.svg' );
+                    }
+            
+                    &:after{
+                        background-image:url('/img/blobs/blob-' + random(13) + '.svg' );
+                    }
+                }
             }
         }
     }
 }
-  
+
+
 /* ==========================================================================
   CONTACT SECTION
    ========================================================================== */
@@ -1131,7 +1338,6 @@ nav.mainNav{
     align-items: center;
     color: $whiteback;
     padding: 0 5vw 5vh ;
-    // background: $whiteback;
 
     h1 {
         text-align: center;
@@ -1165,8 +1371,6 @@ nav.mainNav{
                 flex-wrap: nowrap;
                 align-items: space-between;
                 justify-content: space-around;
-
-
             }
 
             .mauticform-label{
@@ -1185,7 +1389,6 @@ nav.mainNav{
                     width: 48%;
                     max-width: 500px;
                     height: 100%;
-
                 }
             }
             
@@ -1843,4 +2046,3 @@ $small: 480px;
         clear: both;
     }
 }
-

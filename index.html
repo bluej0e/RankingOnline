@@ -26,7 +26,6 @@
       <link rel="stylesheet" href="css/normalize.min.css" />
       <link rel="stylesheet" href="css/main.css" />
       
-      
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <!-- <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script> -->
       <script src="js/vendor/lazysizes.min.js" async=""></script>
@@ -264,12 +263,56 @@
       </div>
     </section>
 
-    <section id="process">
+    <!-- <section id="process">
       <h3>ETAPAS  DE TRABAJO</h3>
 
       <div id="floatyMan"> </div>
       <div id="blobSlob">
         <img src="/img/lampara.png" alt="Ideas"/> 
+      </div>
+    </section> -->
+
+    <section id="process">
+      <h3 class="h3">ETAPAS  DE TRABAJO</h3>
+      <div class="grid-container">
+        <div class="blobBox" id="blob-1">
+          <div class="blobImg" data-lang="reasons.one.i"></div>
+          <h4 class="blobTitle" data-lang="reasons.one.t"></h4>
+          <p class="blobP" data-lang="reasons.one.p"></p>
+        </div>
+        <div class="blobBox" id="blob-2">
+          <div class="blobImg" data-lang="reasons.two.i"></div>
+          <h4 class="blobTitle" data-lang="reasons.one.t"></h4>
+          <p class="blobP" data-lang="reasons.one.p"></p>
+        </div>
+        <div class="blobBox" id="blob-3">
+          <div class="blobImg" data-lang="reasons.three.i"></div>
+          <h4 class="blobTitle" data-lang="reasons.one.t"></h4>
+          <p class="blobP" data-lang="reasons.one.p"></p>
+        </div>
+        <div class="blobBox" id="blob-4">
+          <div class="blobImg" data-lang="reasons.four.i"></div>
+          <h4 class="blobTitle" data-lang="reasons.one.t"></h4>
+          <p class="blobP" data-lang="reasons.one.p"></p>
+        </div>
+        <div class="blobBox" id="blob-5">
+          <div class="blobImg" data-lang="reasons.five.i"></div>
+          <h4 class="blobTitle" data-lang="reasons.one.t"></h4>
+          <p class="blobP" data-lang="reasons.one.p"></p>
+        </div>
+        <div class="man" id="floatyMan"></div>
+        <div class="idea" id="blobSlob">
+          <img src="/img/lampara.png" alt="Ideas"/> 
+        </div>
+        <div class="filler filler-1"></div>
+        <div class="filler filler-2"></div>
+        <div class="filler filler-3"></div>
+        <div class="filler filler-4"></div>
+        <div class="filler filler-5"></div>
+        <div class="filler filler-6"></div>
+        <div class="filler filler-7"></div>
+        <div class="filler filler-8"></div>
+
       </div>
     </section>
 
@@ -300,7 +343,7 @@
   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;">
     <defs>
       <clipPath id="blob1">
-        <path d="M40.4,-61.2C55.2,-53.3,72,-46.9,71.5,-36.1C70.9,-25.3,53.1,-10.1,46.5,3.8C40,17.7,44.7,30.3,42,40.2C39.3,50.2,29.2,57.5,18.6,58.4C8,59.3,-3.1,53.7,-10.9,46.9C-18.6,40.1,-23.2,32,-34.1,25.9C-45.1,19.8,-62.6,15.7,-66.2,7.9C-69.9,0.1,-59.7,-11.3,-50.3,-19.3C-40.9,-27.2,-32.1,-31.9,-23.9,-42.7C-15.6,-53.6,-7.8,-70.7,2.5,-74.6C12.8,-78.4,25.6,-69.1,40.4,-61.2Z" transform="translate(100 100)" />
+        <path fill="#FF0066" d="M40.4,-61.2C55.2,-53.3,72,-46.9,71.5,-36.1C70.9,-25.3,53.1,-10.1,46.5,3.8C40,17.7,44.7,30.3,42,40.2C39.3,50.2,29.2,57.5,18.6,58.4C8,59.3,-3.1,53.7,-10.9,46.9C-18.6,40.1,-23.2,32,-34.1,25.9C-45.1,19.8,-62.6,15.7,-66.2,7.9C-69.9,0.1,-59.7,-11.3,-50.3,-19.3C-40.9,-27.2,-32.1,-31.9,-23.9,-42.7C-15.6,-53.6,-7.8,-70.7,2.5,-74.6C12.8,-78.4,25.6,-69.1,40.4,-61.2Z" transform="translate(100 100)" />
       </clipPath>
     </defs>
   </svg> 
@@ -308,10 +351,54 @@
   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;">
     <defs>
       <clipPath id="blob2">
-        <path d="M48.2,-71.4C60.4,-67.2,66.8,-50.3,64.9,-35.3C63,-20.2,52.7,-7.1,51.2,7.8C49.7,22.6,56.9,39,52.7,48C48.6,57,33.1,58.4,18.7,61.6C4.4,64.8,-8.8,69.8,-18.1,65.4C-27.4,61,-32.9,47.1,-38,35.9C-43,24.7,-47.7,16.1,-46.5,8.1C-45.4,0.2,-38.5,-7.1,-35.9,-17.9C-33.3,-28.6,-34.9,-42.7,-29.6,-50C-24.3,-57.3,-12.2,-57.9,2.9,-62.5C18,-67,36,-75.5,48.2,-71.4Z" transform="translate(100 100)" />
+        <path fill="#6E0270" d="M48.2,-71.4C60.4,-67.2,66.8,-50.3,64.9,-35.3C63,-20.2,52.7,-7.1,51.2,7.8C49.7,22.6,56.9,39,52.7,48C48.6,57,33.1,58.4,18.7,61.6C4.4,64.8,-8.8,69.8,-18.1,65.4C-27.4,61,-32.9,47.1,-38,35.9C-43,24.7,-47.7,16.1,-46.5,8.1C-45.4,0.2,-38.5,-7.1,-35.9,-17.9C-33.3,-28.6,-34.9,-42.7,-29.6,-50C-24.3,-57.3,-12.2,-57.9,2.9,-62.5C18,-67,36,-75.5,48.2,-71.4Z" transform="translate(100 100)" />
       </clipPath>
     </defs>
   </svg>
+<!-- 
+  <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;">
+    <defs>
+      <clipPath id="blobItem1">
+       <path d="M47.6,-75.6C60.2,-66,67.9,-50.3,72.3,-34.8C76.6,-19.3,77.6,-4,76.9,12.1C76.2,28.2,73.8,45,65.4,59C56.9,72.9,42.4,84,26.2,88.2C10.1,92.4,-7.8,89.8,-22.4,82.6C-36.9,75.4,-48.3,63.5,-57.7,50.9C-67.1,38.4,-74.6,25.1,-78.8,10C-83,-5,-83.8,-21.8,-77.8,-35.8C-71.8,-49.7,-59,-60.8,-44.9,-69.7C-30.8,-78.6,-15.4,-85.3,1.1,-87C17.5,-88.6,35,-85.2,47.6,-75.6Z" transform="translate(100 100)" />
+      </clipPath>
+    </defs>
+  </svg>
+  
+  <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;">
+    <defs>
+      <clipPath id="blobItem2">
+        <path d="M48.3,-74.4C62.4,-66.1,73.5,-52.4,78.1,-37.2C82.8,-21.9,81,-5.3,76.4,9.4C71.8,24,64.3,36.6,54.7,46.9C45.1,57.2,33.3,65.2,19.6,71.3C5.9,77.4,-9.6,81.6,-25.8,80.3C-42,79,-58.7,72.2,-68.7,60C-78.7,47.7,-81.9,30,-82.9,12.9C-83.8,-4.2,-82.6,-20.7,-77.3,-36.6C-72.1,-52.6,-62.9,-68,-49.3,-76.5C-35.8,-85,-17.9,-86.6,-0.4,-86C17.1,-85.4,34.2,-82.6,48.3,-74.4Z" transform="translate(100 100)" />
+      </clipPath>
+    </defs>
+  </svg>
+  
+  <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;">
+    <defs>
+      <clipPath id="blobItem3">
+        <path fill="#FF0066" d="M42.1,-65C54.2,-57.8,63.4,-45.5,70.3,-31.7C77.3,-18,81.9,-2.8,81.9,13.2C81.9,29.2,77.1,46,67,58.5C56.9,71,41.3,79.3,24.6,84.5C7.9,89.8,-9.9,92.1,-23.7,85.7C-37.4,79.3,-47.1,64.3,-56,50.5C-65,36.7,-73.1,24.2,-77.8,9.5C-82.5,-5.2,-83.7,-22,-77.3,-34.9C-70.8,-47.9,-56.6,-57,-42.5,-63.3C-28.3,-69.6,-14.2,-73.1,0.4,-73.7C15,-74.4,30,-72.2,42.1,-65Z" transform="translate(100 100)" />
+      </clipPath>
+    </defs>
+  </svg>
+
+  <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;">
+    <defs>
+      <clipPath id="blobItem4">
+        <path fill="#FF0066" d="M47.3,-73C60.3,-65.2,69.3,-50.5,74.9,-35.1C80.6,-19.8,82.9,-3.8,80.3,11.3C77.8,26.4,70.5,40.6,60.4,52.4C50.3,64.2,37.3,73.7,22.2,80.2C7.1,86.8,-10.3,90.4,-25.2,86C-40.2,81.6,-52.7,69.1,-61.4,55.3C-70.1,41.5,-74.9,26.5,-78.4,10.5C-81.8,-5.5,-83.9,-22.4,-79.5,-38.1C-75.1,-53.8,-64.1,-68.3,-49.8,-75.4C-35.5,-82.6,-17.7,-82.5,-0.3,-82C17.1,-81.6,34.2,-80.7,47.3,-73Z" transform="translate(100 100)" />
+      </clipPath>
+    </defs>
+  </svg>
+
+  <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;">
+    <defs>
+      <clipPath id="blobItem5">
+        <path fill="#FF0066" d="M46.1,-72.1C58.6,-63.6,67,-49,73.3,-33.9C79.6,-18.7,83.9,-3,81.1,11.2C78.3,25.3,68.4,38,57.5,49C46.7,60,34.9,69.4,20.6,76.4C6.3,83.4,-10.4,88.1,-26.8,85.8C-43.1,83.4,-59,74.1,-69,60.8C-79.1,47.4,-83.4,30,-85.5,12.6C-87.5,-4.9,-87.4,-22.4,-80.8,-37C-74.3,-51.6,-61.3,-63.3,-46.7,-71C-32.2,-78.6,-16.1,-82.1,0.3,-82.6C16.8,-83.1,33.5,-80.7,46.1,-72.1Z" transform="translate(100 100)" />
+      </clipPath>
+    </defs>      
+  </svg> -->
+  
+  
+  
+
 
   <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js" defer></script>
   <script src="https://kit.fontawesome.com/4b977b2858.js" crossorigin="anonymous"></script>
