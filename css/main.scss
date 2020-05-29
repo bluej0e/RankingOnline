@@ -1183,7 +1183,7 @@ nav.mainNav{
         .blobBox{
             height: #{$blobBoxSize};
             width: #{$blobBoxSize};
-            animation: float ease-in-out 3s infinite;
+            animation: float ease-in-out 5s infinite;
             display: grid;
             grid-template-columns: 1fr;
             grid-template-rows: 1fr 0.5fr 1.5fr;
@@ -1299,8 +1299,7 @@ nav.mainNav{
                 height: 100px;
                 opacity: 0.5;
                 content:"";
-                transition: all 19800ms ease-in-out;
-
+                transition: all 25000ms ease-in-out;
             }
     
             &:before{
@@ -1309,7 +1308,7 @@ nav.mainNav{
             &:after{
             }
 
-            @for $i from 1 through 7 {
+            @for $i from 1 through 8 {
                 &-#{$i} {
                     grid-area: filler-#{$i};
 

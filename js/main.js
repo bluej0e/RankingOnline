@@ -107,7 +107,8 @@ $(document).ready(function () {
 
 
 		$('head').append('<style>.filler-1::before{transform:'+randomTransform()+'} .filler-1::after{transform:'+randomTransform()+'} .filler-2::before{transform:'+randomTransform()+'} .filler-2::after{transform:'+randomTransform()+'} .filler-3::before{transform:'+randomTransform()+'} .filler-3::after{transform:'+randomTransform()+'} .filler-4::before{transform:'+randomTransform()+'} .filler-4::after{transform:'+randomTransform()+'} .filler-5::before{transform:'+randomTransform()+'} .filler-5::after{transform:'+randomTransform()+'} .filler-6::before{transform:'+randomTransform()+'} .filler-6::after{transform:'+randomTransform()+'} .filler-7::before{transform:'+randomTransform()+'} .filler-7::after{transform:'+randomTransform()+'} .filler-8::before{transform:'+randomTransform()+'} .filler-8::after{transform:'+randomTransform()+'}</style>');
-		setTimeout(randomBlobs, 20000);
+			
+		setTimeout(randomBlobs, 25000);
 	};
 
 	randomBlobs();
