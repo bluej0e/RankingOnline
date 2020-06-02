@@ -309,12 +309,12 @@ const langEn = {
   portfolio:{
     title: "Nuestros Proyectos",
     one: {
-      i: "<img src='/img/p/jungle_logo_black.png'  />",
+      i: "<img src='/img/p/jungle_logo.svg' />",
       t: "Jungle Coworking",
       p: ""
     },
     two: {
-      i: "<img src='/img/p/pelumark_logo.png' />",
+      i: "<img src='/img/p/pelumark_logo.svg' />",
       t: "PeluMark",
       p: ""
     },
@@ -324,12 +324,12 @@ const langEn = {
       p: ""
     },
     four: {
-      i: "<img src='/img/p/patinete_logo.png' />",
+      i: "<img src='/img/p/tdp_logo.svg' />",
       t: "Taller del Patinete",
       p: ""
     },    
     five: {
-      i: "<img src='/img/p/jump_logo.png' />",
+      i: "<img src='/img/p/jump_logo.svg' />",
       t: "The JUMP! Event",
       p: ""
     },
