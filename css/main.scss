@@ -1367,6 +1367,8 @@ nav.mainNav{
 
             mask-position: center center;
             mask-repeat: no-repeat;
+            -webkit-mask-position: center center;
+            -webkit-mask-repeat: no-repeat;
 
             img{
                 grid-area: imagen;
