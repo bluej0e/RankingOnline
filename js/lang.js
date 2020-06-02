@@ -135,6 +135,44 @@ const langEs = {
       t:"Algo mas que no se me ocurre ahora",
       p:"No hay mejor forma para captar la atención de tus clientes que con el contenido audiovisual, realizamos videos para explicar tus servicios, sintetizando la información con el objetivo."
     },
+  },
+  portfolio:{
+    title: "Nuestros Proyectos",
+    one: {
+      i: "<img src='/img/p/jungle_logo.svg' />",
+      t: "Jungle Coworking",
+      p: ""
+    },
+    two: {
+      i: "<img src='/img/p/pelumark_logo.svg' />",
+      t: "PeluMark",
+      p: ""
+    },
+    three: {
+      i: "<img src='/img/p/lang_logo.png' />",
+      t: "Language Immersion Inc.",
+      p: ""
+    },
+    four: {
+      i: "<img src='/img/p/tdp_logo.svg' />",
+      t: "Taller del Patinete",
+      p: ""
+    },    
+    five: {
+      i: "<img src='/img/p/jump_logo.svg' />",
+      t: "The JUMP! Event",
+      p: ""
+    },
+    six: {
+      i: "<img src='/img/p/matemati.svg' />",
+      t: "Mate Mati",
+      p: ""
+    },
+    seven: {
+      i: "<img src='/img/p/matemati.svg' />",
+      t: "Mate Mati",
+      p: ""
+    },
   }
 };
 
@@ -266,6 +304,44 @@ const langEn = {
     nine: {
       t:"Algo mas que no se me ocurre ahora",
       p:"No hay mejor forma para captar la atención de tus clientes que con el contenido audiovisual, realizamos videos para explicar tus servicios, sintetizando la información con el objetivo."
+    },
+  },
+  portfolio:{
+    title: "Nuestros Proyectos",
+    one: {
+      i: "<img src='/img/p/jungle_logo_black.png'  />",
+      t: "Jungle Coworking",
+      p: ""
+    },
+    two: {
+      i: "<img src='/img/p/pelumark_logo.png' />",
+      t: "PeluMark",
+      p: ""
+    },
+    three: {
+      i: "<img src='/img/p/lang_logo.png' />",
+      t: "Language Immersion Inc.",
+      p: ""
+    },
+    four: {
+      i: "<img src='/img/p/patinete_logo.png' />",
+      t: "Taller del Patinete",
+      p: ""
+    },    
+    five: {
+      i: "<img src='/img/p/jump_logo.png' />",
+      t: "The JUMP! Event",
+      p: ""
+    },
+    six: {
+      i: "<img src='/img/p/matemati.svg' />",
+      t: "Mate Mati",
+      p: ""
+    },
+    seven: {
+      i: "<img src='/img/p/matemati.svg' />",
+      t: "Mate Mati",
+      p: ""
     },
   }
 }

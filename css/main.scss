@@ -229,6 +229,8 @@ $buttshad: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
 $phi: 1.618;
 $maskSize: 104%;
+// $pinkgradient: linear-gradient(90deg, $pink 0%, $hotpink 100%);
+$pinkgradient: linear-gradient(125deg, rgba(110,2,112,1) 0%, rgba(216,0,119,1) 100%); 
 
 ////blob colors
 $colBlob1: #f74162;
@@ -236,7 +238,6 @@ $colBlob2: #af45ba;
 $colBlob3: #456de5;
 $colBlob4: #009793;
 $colBlob5: #ff7250;
-
 
 
 * {
@@ -544,7 +545,7 @@ nav.mainNav{
     z-index: 115;
     width: 100vw;
     position: fixed; 
-    top: 0px;
+    top: 5px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -951,12 +952,12 @@ nav.mainNav{
         justify-content: space-evenly;
         align-items:center;
         flex-wrap: wrap;
-        // padding: 50px 0;
+        padding-bottom: 50px;
         width: 100%;
 
         .boxoutline{
             width: 30%;
-            min-width: 350px;
+            min-width: 300px;
             margin: 20px 0;
             
             div{
@@ -987,10 +988,7 @@ nav.mainNav{
         align-content: space-evenly;
 
         #three {
-            padding: 0;
             width: 80vw;
-
-        
         }
     }
 }
@@ -1004,6 +1002,7 @@ nav.mainNav{
     flex-direction: column;
     width:100vw;
     overflow: hidden;
+    padding-top: 5vw;
 
     h3{
         transform: rotate(6deg) skewX(6deg);
@@ -1029,13 +1028,11 @@ nav.mainNav{
         }
     }
 
-   
-
     .grid-container {
         display: grid;
-        grid-template-columns:100vw;
+        grid-template-columns: calc(100vw - 10px) 10px;
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-        grid-template-areas: "blob-1" "blob-2" "blob-3" "blob-4" "blob-5";        
+        grid-template-areas: "blob-1 filler-1" "blob-2 filler-2" "blob-3 filler-3" "blob-4 filler-4" "blob-5 filler-5";        
         align-items: center;
         justify-items: center;
         overflow: visible;
@@ -1044,92 +1041,72 @@ nav.mainNav{
 
             @include for-size(tablet-landscape-up){
                 grid-template-columns: 1fr 1fr;
-                grid-template-areas: "blob-1 filler-1" "filler-2 blob-2" "blob-3 filler-3" "filler-4 blob-4" "blob-5 filler-5";
-
-                // .filler-1, .filler-2, .filler-3, .filler-4, .filler-5{
-                //     display: block;
-                // }
+                grid-template-areas: 
+                "blob-1 filler-1" 
+                "filler-2 blob-2" 
+                "blob-3 filler-3" 
+                "filler-4 blob-4" 
+                "blob-5 filler-5";
             }
             
             @include for-size(desktop-up){
                 grid-template-columns: 1fr 1fr 1fr;
-                grid-template-areas: "blob-1 filler-1 filler-2" "filler-3 blob-2 filler-4" "man filler-5 blob-3" "filler-6 blob-4 filler-7" "blob-5 filler-8 idea";
-
-                // .filler-1, .filler-2, .filler-3, .filler-4, .filler-5, .filler-6, .filler-7{
-                //     display: block;
-                // }
+                grid-template-rows: repeat(11, 1fr);
+                grid-template-areas: 
+                "blob-1 filler-1 ." 
+                "blob-1 filler-1 filler-2" 
+                "blob-1 blob-2 filler-2" 
+                "filler-3 blob-2 filler-4" 
+                "filler-3 blob-2 blob-3" 
+                "man filler-5 blob-3" 
+                "man blob-4 blob-3" 
+                "filler-6 blob-4 filler-7" 
+                "blob-5 blob-4 filler-7" 
+                "blob-5 filler-8 idea"
+                "blob-5 filler-8 idea";
             }
 
 
-    
         #blobSlob{
             animation: float ease-in-out 3s infinite;
-            align-self: flex-end;
             z-index: 2;
-            width: calc(#{$blobSize} + 30px);
-            height: #{$blobSize};
-    
-            @include desktop {
-                // top:calc(30% + 50px);
-            }
-    
-            &:before, &:after{
-                display: flex;
-                // position: relative;
-                background-repeat: no-repeat;
-                background-size: contain;
-                justify-content: center;
-                align-items: center;
-                width: calc(#{$blobSize} * 2);
-                height: calc(#{$blobSize} * 2);
-                // transform: scale(2);
-                content:"";
-    
-                @include desktop{
-                    // transform: scale(3);
-                }
-            }
-    
-            &:before{
-                clip-path: url(#blob1);            
-                z-index: 1;
-                background-color: $hotpink;
-                opacity: 0.9;
-                // transform: translateY(calc(#{$blobSize} * 3)) scale(3);
-                
-                @include desktop {
-                    // width: calc(#{$blobSize} * 1.5);
-                    // height: calc(#{$blobSize} * 1.5);
-                }
-            }
-    
-            &:after{
-                clip-path: url(#blob2);            
-                background-color: $pink;
-                opacity: 0.9;
-                // margin-top: calc(#{$blobSize} * -2.5);
-                z-index: 2;
-                // transform: translateY(calc(#{$blobSize} / -2 )) scale(3);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
 
+            // &:before, &:after{
+            //     display: flex;
+            //     position: relative;
+            //     background-repeat: no-repeat;
+            //     background-size: contain;
+            //     background-position: center;
+            //     width: calc(#{$blobSize} / 1 );
+            //     height: calc(#{$blobSize} / 1 );
+            //     content:"";
+            // }
     
-                // @include desktop {
-                    // width: calc(#{$blobSize} * 1.5);
-                    // height: calc(#{$blobSize} * 1.5);
-                // }
-            }
+            // &:before{
+            //     background-image: url('/img/blob1.svg');            
+            //     opacity: 0.9;
+            //     z-index: 1;
+            //     right: calc(#{$blobSize} / -1.35);
+            // }
+    
+            // &:after{
+            //     background-image: url('/img/blob2.svg');            
+            //     opacity: 0.9;
+            //     z-index: 2;
+            //     left: calc(#{$blobSize} / -1.35);
+            // }
     
             img{
-                height: #{$blobSize};
-                width: #{$blobSize};
-                // display: flex;
-                // position: relative;
-                z-index: -3;
-                // transform: scale(0.7) translateY( calc(#{$blobSize} * -2));
-    
-                // @include desktop{
-                    // height: calc(#{$blobSize} * 1.5);
-                    // width: calc(#{$blobSize} * 1.5);
-                // }
+                height: calc(#{$blobSize} / 2);
+                width: calc(#{$blobSize} / 2);
+                z-index: 3;
+                justify-self: flex-end;
+                align-items: flex-end;
             }
         }
     
@@ -1173,7 +1150,7 @@ nav.mainNav{
                 transform: translate(-150px, 100px);
 
                 @include desktop {
-                   transform: translate(-150px, 100px);
+                    transform: translate(-150px, 100px);
                     width: 200px;
                     height: 200px;
                 }
@@ -1233,32 +1210,31 @@ nav.mainNav{
             }
         }
 
-        @keyframes clippy{
-            from{
-                clip-path: url(#blobItem1); 
-            }
-            to{
-                clip-path: url(#blobItem2); 
-
-            }
-        }
-
         #blob-1 { 
             grid-area: blob-1; 
             background-image: url('/img/blob1.svg');
-            justify-self: flex-end;
+            justify-self: flex-start;
+
+            @include for-size(desktop-old-up){
+                justify-self: flex-end;
+            }
         }
     
         #blob-2 { 
             grid-area: blob-2;
             background-image: url('/img/blob2.svg');
             justify-self: center;
+
         }
     
         #blob-3 { 
             grid-area: blob-3;
             background-image: url('/img/blob3.svg');
-            justify-self: self-start;
+            justify-self: self-end;
+            
+            @include for-size(desktop-old-up){
+                justify-self: flex-start;
+            }
         }
     
         #blob-4 { 
@@ -1270,7 +1246,11 @@ nav.mainNav{
         #blob-5 { 
             grid-area: blob-5;
             background-image: url('/img/blob5.svg');
-            justify-self: flex-end;
+            justify-self: flex-start;
+           
+            @include for-size(desktop-old-up){
+                justify-self: flex-end;
+            }
         }
     
         .man { 
@@ -1297,16 +1277,16 @@ nav.mainNav{
                 background-repeat: no-repeat;
                 width: 100px;
                 height: 100px;
-                opacity: 0.5;
+                opacity: 0.25;
                 content:"";
                 transition: all 25000ms ease-in-out;
             }
     
-            &:before{
-            }
+            // &:before{
+            // }
     
-            &:after{
-            }
+            // &:after{
+            // }
 
             @for $i from 1 through 8 {
                 &-#{$i} {
@@ -1325,9 +1305,103 @@ nav.mainNav{
     }
 }
 
+/* ==========================================================================
+   PORTFOLIO SECTION
+   ========================================================================== */
+#portfolio{
+    background-color: $white;
+    width: 100vw;
+    padding-bottom: 10vw;
+    margin-top: -10vw;
+
+    h1 {
+        width: 100%;
+        text-align: center;
+        font-size: 3.5em;
+        // margin: 2em auto;
+        z-index: 2;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        font-weight: 800;
+        text-shadow: 3px 3px $hotpink;
+        @include stroke-width(2px);
+        @include stroke-color($pink);
+        color: transparent;
+        margin-top:calc(10vw + 30px);
+        margin-bottom: 30px;
+    }
+
+    .item-container{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+
+        @include for-size(desktop-old-up){
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .portfolio-item{
+            width: calc(#{$blobSize} * 1);
+            height: calc(#{$blobSize} * 1);
+            display: grid;
+            grid-template-columns: 100%;
+            // grid-template-rows: 60% 1fr 0.5fr;
+            // grid-template-areas: "imagen" "titulo" "texto";
+            // width: calc(#{$blobSize} / 1.5);
+            // height: calc((#{$blobSize} / 1.5) * 1.618);
+            // margin: calc(#{$blobSize} / 20 );
+            // background-color: $white;
+            align-items: center;
+            justify-content: center;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            // background-blend-mode: luminosity;
+            text-align: center;
+            background-image: $pinkgradient;
+
+            transition: all 0.618s ease-in-out;
+
+            mask-position: center center;
+            mask-repeat: no-repeat;
+
+            img{
+                grid-area: imagen;
+                margin: 0 auto;
+                width: 65%;
+            }
+
+            h4{
+                grid-area: titulo;
+                font-size: 1.618em;
+                color: $white;
+                background-color: $black;
+                padding: 15px 30px;
+                font-weight: 600;
+            }
+
+            p{
+                grid-area: texto;
+            }
+
+            &:hover{
+                background-color: $hotpink;
+
+
+                img{
+                    fill: $black;
+                }
+            }
+
+        }    
+    }
+}
 
 /* ==========================================================================
-  CONTACT SECTION
+   CONTACT SECTION
    ========================================================================== */
 #contacto {
     min-height: 100vh;
@@ -1570,7 +1644,6 @@ nav.mainNav{
     content: " *";
     display: inline;
 }
-
 
 /***** MAUTIC FORM END *****/
 
