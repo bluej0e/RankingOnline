@@ -205,8 +205,6 @@ $bxshadow-small: box-shadow(800);
 	}
 }
 
-
-
 $pink:#6E0270;
 $hotpink:#D80077;
 $lightpink:#FF97FB;
@@ -1031,40 +1029,20 @@ nav.mainNav{
     .grid-container {
         display: grid;
         grid-template-columns: calc(100vw - 10px) 10px;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-        grid-template-areas: "blob-1 filler-1" "blob-2 filler-2" "blob-3 filler-3" "blob-4 filler-4" "blob-5 filler-5";        
+        grid-template-rows: repeat(5, 1fr);
+        grid-template-areas: 
+            "blob-1 filler-1" 
+            "blob-2 filler-2" 
+            "blob-3 filler-3" 
+            "blob-4 filler-4" 
+            "blob-5 filler-5";        
         align-items: center;
         justify-items: center;
         overflow: visible;
         margin-top:3vw;
         width: 100%;
 
-            @include for-size(tablet-landscape-up){
-                grid-template-columns: 1fr 1fr;
-                grid-template-areas: 
-                "blob-1 filler-1" 
-                "filler-2 blob-2" 
-                "blob-3 filler-3" 
-                "filler-4 blob-4" 
-                "blob-5 filler-5";
-            }
-            
-            @include for-size(desktop-up){
-                grid-template-columns: 1fr 1fr 1fr;
-                grid-template-rows: repeat(11, 1fr);
-                grid-template-areas: 
-                "blob-1 filler-1 ." 
-                "blob-1 filler-1 filler-2" 
-                "blob-1 blob-2 filler-2" 
-                "filler-3 blob-2 filler-4" 
-                "filler-3 blob-2 blob-3" 
-                "man filler-5 blob-3" 
-                "man blob-4 blob-3" 
-                "filler-6 blob-4 filler-7" 
-                "blob-5 blob-4 filler-7" 
-                "blob-5 filler-8 idea"
-                "blob-5 filler-8 idea";
-            }
+     
 
 
         #blobSlob{
@@ -1213,10 +1191,13 @@ nav.mainNav{
         #blob-1 { 
             grid-area: blob-1; 
             background-image: url('/img/blob1.svg');
-            justify-self: flex-start;
+            // justify-self: flex-start;
 
+            @include for-size(tablet-portrait-up){
+                justify-self: flex-start;
+            }
             @include for-size(desktop-old-up){
-                justify-self: flex-end;
+                justify-self: center;
             }
         }
     
@@ -1225,6 +1206,9 @@ nav.mainNav{
             background-image: url('/img/blob2.svg');
             justify-self: center;
 
+            @include for-size(tablet-portrait-up){
+                justify-self: flex-start;
+            }
         }
     
         #blob-3 { 
@@ -1232,8 +1216,12 @@ nav.mainNav{
             background-image: url('/img/blob3.svg');
             justify-self: self-end;
             
+            @include for-size(tablet-portrait-up){
+                justify-self: center;
+            }
+            
             @include for-size(desktop-old-up){
-                justify-self: flex-start;
+                justify-self: flex-end;
             }
         }
     
@@ -1248,7 +1236,7 @@ nav.mainNav{
             background-image: url('/img/blob5.svg');
             justify-self: flex-start;
            
-            @include for-size(desktop-old-up){
+            @include for-size(tablet-portrait-up){
                 justify-self: flex-end;
             }
         }
@@ -1302,6 +1290,48 @@ nav.mainNav{
                 }
             }
         }
+    
+        @include for-size(tablet-portrait-up){
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: repeat(5, 1fr);
+            grid-template-areas: 
+                "blob-1 filler-1" 
+                "blob-1 filler-1" 
+                "blob-1 blob-2" 
+                "filler-2 blob-2" 
+                "blob-3 blob-2" 
+                "blob-3 filler-3" 
+                "blob-3 blob-4" 
+                "filler-4 blob-4" 
+                "blob-5 blob-4"
+                "blob-5 filler-5"
+                "blob-5 .";
+
+            .filler-8, .filler-7, .filler-6, #floatyMan, #blobSlob, #blobSlob img{
+                display: none;
+            }
+        }
+        
+        @include for-size(desktop-up){
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: repeat(11, 1fr);
+            grid-template-areas: 
+                "blob-1 filler-1 filler-2" 
+                "blob-1 filler-1 filler-2" 
+                "blob-1 blob-2 filler-4" 
+                "filler-3 blob-2 filler-4" 
+                "man blob-2 blob-3" 
+                "man filler-5 blob-3" 
+                "man blob-4 blob-3" 
+                "filler-6 blob-4 filler-7" 
+                "blob-5 blob-4 filler-7" 
+                "blob-5 filler-8 idea"
+                "blob-5 filler-8 idea";
+
+            .filler-8, .filler-7, .filler-6, #floatyMan, #blobSlob, #blobSlob img{
+                display: flex;
+            }
+        }
     }
 }
 
@@ -1337,6 +1367,7 @@ nav.mainNav{
         flex-wrap: wrap;
         justify-content: space-evenly;
         align-items: center;
+        
 
         @include for-size(desktop-old-up){
             max-width: 1300px;
@@ -1348,8 +1379,8 @@ nav.mainNav{
             height: calc(#{$blobSize} * 1);
             display: grid;
             grid-template-columns: 100%;
-            // grid-template-rows: 60% 1fr 0.5fr;
-            // grid-template-areas: "imagen" "titulo" "texto";
+            grid-template-rows: 98% 1fr 0.5fr;
+            grid-template-areas: "imagen" "titulo" "texto";
             // width: calc(#{$blobSize} / 1.5);
             // height: calc((#{$blobSize} / 1.5) * 1.618);
             // margin: calc(#{$blobSize} / 20 );
@@ -1359,9 +1390,10 @@ nav.mainNav{
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
-            // background-blend-mode: luminosity;
             text-align: center;
             background-image: $pinkgradient;
+            z-index: 2;
+            padding: calc(#{$blobSize} / 5);
 
             transition: all 0.618s ease-in-out;
 
@@ -1373,28 +1405,60 @@ nav.mainNav{
             img{
                 grid-area: imagen;
                 margin: 0 auto;
-                width: 65%;
+                width: 90%;
+                transition: all 0.618s ease-in-out;
+
             }
 
             h4{
                 grid-area: titulo;
                 font-size: 1.618em;
                 color: $white;
-                background-color: $black;
-                padding: 15px 30px;
+                padding: 15px 0;
                 font-weight: 600;
+                text-align: center;
+                margin: 0 auto;
+                // display: none;
+                // width: 100%;
+                opacity: 0;
+                transition: all 1.618s ease-in-out;
+                cursor: default;
+
             }
 
-            p{
-                grid-area: texto;
+            .holdy{
+                display:flex;
+                flex-direction:row;
+                margin: 0 auto;
+                // display: none;
+                align-items: center;
+                transition: all 1.618s ease-in-out;
+                opacity: 0;
+                font-size: 0.8em;
+                color: $white;
+
+                a{
+                    grid-area: texto;
+                    cursor: pointer;
+                    margin: 0 5px;
+                    text-decoration: none;
+                    color: $white;
+                }
             }
 
             &:hover{
                 background-color: $hotpink;
-
-
+                transform: scale(1.3);
+                z-index: 5;
+                grid-template-rows: 50% 1fr 1fr;
+                // grid-template-areas: "imagen" "titulo" "texto";
+           
                 img{
-                    fill: $black;
+                    width: 70%;
+                }
+
+                h4, .holdy{
+                    opacity: 1;
                 }
             }
 

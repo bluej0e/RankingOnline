@@ -138,41 +138,6 @@ const langEs = {
   },
   portfolio:{
     title: "Nuestros Proyectos",
-    one: {
-      i: "<img src='/img/p/jungle_logo.svg' />",
-      t: "Jungle Coworking",
-      p: ""
-    },
-    two: {
-      i: "<img src='/img/p/pelumark_logo.svg' />",
-      t: "PeluMark",
-      p: ""
-    },
-    three: {
-      i: "<img src='/img/p/lang_logo.png' />",
-      t: "Language Immersion Inc.",
-      p: ""
-    },
-    four: {
-      i: "<img src='/img/p/tdp_logo.svg' />",
-      t: "Taller del Patinete",
-      p: ""
-    },    
-    five: {
-      i: "<img src='/img/p/jump_logo.svg' />",
-      t: "The JUMP! Event",
-      p: ""
-    },
-    six: {
-      i: "<img src='/img/p/matemati.svg' />",
-      t: "Mate Mati",
-      p: ""
-    },
-    seven: {
-      i: "<img src='/img/p/matemati.svg' />",
-      t: "Mate Mati",
-      p: ""
-    },
   }
 };
 
@@ -307,42 +272,7 @@ const langEn = {
     },
   },
   portfolio:{
-    title: "Nuestros Proyectos",
-    one: {
-      i: "<img src='/img/p/jungle_logo.svg' />",
-      t: "Jungle Coworking",
-      p: ""
-    },
-    two: {
-      i: "<img src='/img/p/pelumark_logo.svg' />",
-      t: "PeluMark",
-      p: ""
-    },
-    three: {
-      i: "<img src='/img/p/lang_logo.png' />",
-      t: "Language Immersion Inc.",
-      p: ""
-    },
-    four: {
-      i: "<img src='/img/p/tdp_logo.svg' />",
-      t: "Taller del Patinete",
-      p: ""
-    },    
-    five: {
-      i: "<img src='/img/p/jump_logo.svg' />",
-      t: "The JUMP! Event",
-      p: ""
-    },
-    six: {
-      i: "<img src='/img/p/matemati.svg' />",
-      t: "Mate Mati",
-      p: ""
-    },
-    seven: {
-      i: "<img src='/img/p/matemati.svg' />",
-      t: "Mate Mati",
-      p: ""
-    },
+    title: "Our Projects",
   }
 }
 
