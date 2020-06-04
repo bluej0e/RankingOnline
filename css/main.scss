@@ -227,16 +227,30 @@ $buttshad: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
 $phi: 1.618;
 $maskSize: 104%;
-// $pinkgradient: linear-gradient(90deg, $pink 0%, $hotpink 100%);
-$pinkgradient: linear-gradient(125deg, rgba(110,2,112,1) 0%, rgba(216,0,119,1) 100%); 
-
-////blob colors
 $colBlob1: #f74162;
 $colBlob2: #af45ba;
 $colBlob3: #456de5;
 $colBlob4: #009793;
 $colBlob5: #ff7250;
+// $pinkgradient: linear-gradient(90deg, $pink 0%, $hotpink 100%);
+$pinkgradient: linear-gradient(125deg, rgba(110,2,112,1) 0%, rgba(216,0,119,1) 100%); 
+$ga1: 125deg;
+$ga2: 305deg;
 
+$grad1: linear-gradient($ga1, $colBlob1, $colBlob5);
+$grad2: linear-gradient($ga1, #f857a6, #ff5858);
+$grad3: linear-gradient($ga1, #5f2c82, #49a09d); 
+$grad4: linear-gradient($ga1, #134e5e, #71b280); 
+$grad5: linear-gradient($ga1, #4776e6, #8e54e9); 
+$grad6: linear-gradient($ga1, #4cb8c4, #3cd3ad); 
+$grad7: linear-gradient($ga1, #aa076b, #61045f); 
+$grad1b: linear-gradient($ga2, $colBlob1, $colBlob5);
+$grad2b: linear-gradient($ga2, #f857a6, #ff5858);
+$grad3b: linear-gradient($ga2, #5f2c82, #49a09d); 
+$grad4b: linear-gradient($ga2, #134e5e, #71b280); 
+$grad5b: linear-gradient($ga2, #4776e6, #8e54e9); 
+$grad6b: linear-gradient($ga2, #4cb8c4, #3cd3ad); 
+$grad7b: linear-gradient($ga2, #aa076b, #61045f); 
 
 * {
     font: 16px/26px 'Raleway', sans-serif;
@@ -1343,6 +1357,10 @@ nav.mainNav{
     width: 100vw;
     padding-bottom: 10vw;
     margin-top: -10vw;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
 
     h1 {
         width: 100%;
@@ -1367,11 +1385,15 @@ nav.mainNav{
         flex-wrap: wrap;
         justify-content: space-evenly;
         align-items: center;
-        
 
         @include for-size(desktop-old-up){
             max-width: 1300px;
             margin: 0 auto;
+        }
+
+        #backGroundFill{
+            opacity: 0;
+            transition: all 0.618s ease-in-out;
         }
 
         .portfolio-item{
@@ -1379,35 +1401,23 @@ nav.mainNav{
             height: calc(#{$blobSize} * 1);
             display: grid;
             grid-template-columns: 100%;
-            grid-template-rows: 98% 1fr 0.5fr;
+            grid-template-rows: 98% 1fr 1fr;
             grid-template-areas: "imagen" "titulo" "texto";
-            // width: calc(#{$blobSize} / 1.5);
-            // height: calc((#{$blobSize} / 1.5) * 1.618);
-            // margin: calc(#{$blobSize} / 20 );
-            // background-color: $white;
             align-items: center;
             justify-content: center;
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
             text-align: center;
-            background-image: $pinkgradient;
             z-index: 2;
             padding: calc(#{$blobSize} / 5);
-
             transition: all 0.618s ease-in-out;
-
-            mask-position: center center;
-            mask-repeat: no-repeat;
-            -webkit-mask-position: center center;
-            -webkit-mask-repeat: no-repeat;
 
             img{
                 grid-area: imagen;
                 margin: 0 auto;
                 width: 90%;
                 transition: all 0.618s ease-in-out;
-
             }
 
             h4{
@@ -1421,18 +1431,16 @@ nav.mainNav{
                 // display: none;
                 // width: 100%;
                 opacity: 0;
-                transition: all 1.618s ease-in-out;
-                cursor: default;
-
+                transition: all 0.618s ease-in-out;
+                cursor: default
             }
 
             .holdy{
                 display:flex;
                 flex-direction:row;
                 margin: 0 auto;
-                // display: none;
                 align-items: center;
-                transition: all 1.618s ease-in-out;
+                transition: all 0.618s ease-in-out;
                 opacity: 0;
                 font-size: 0.8em;
                 color: $white;
@@ -1447,22 +1455,170 @@ nav.mainNav{
             }
 
             &:hover{
-                background-color: $hotpink;
-                transform: scale(1.3);
                 z-index: 5;
-                grid-template-rows: 50% 1fr 1fr;
-                // grid-template-areas: "imagen" "titulo" "texto";
            
                 img{
-                    width: 70%;
+                    width: 100%;
                 }
 
                 h4, .holdy{
                     opacity: 1;
                 }
+            }   
+           
+        } 
+
+        #jungle{
+            -webkit-mask: url('/img/blob3.svg');
+            mask: url('/img/blob3.svg');
+            background: $grad1;
+            mask-position: center center;
+            mask-repeat: no-repeat;
+            -webkit-mask-position: center center;
+            -webkit-mask-repeat: no-repeat;
+
+            &:hover{
+                -webkit-mask: none;
+                mask: none;
+                background: transparent;
             }
 
-        }    
+            &:hover ~ #backGroundFill{
+                    background: $grad1;
+                    opacity: 1;
+            }
+        }
+        #pelumark{
+            -webkit-mask: url('/img/blob2.svg');
+            mask: url('/img/blob2.svg');
+            background: $grad6;
+            mask-position: center center;
+            mask-repeat: no-repeat;
+            -webkit-mask-position: center center;
+            -webkit-mask-repeat: no-repeat;
+
+            &:hover{
+                -webkit-mask: none;
+                mask: none;
+                background: transparent;
+            }
+
+            &:hover ~ #backGroundFill{
+                    background: $grad6;
+                    opacity: 1;
+            }
+        }
+        #languageinc{
+            -webkit-mask: url('/img/blob1.svg');
+            mask: url('/img/blob1.svg');
+            background: $grad3;
+            mask-position: center center;
+            mask-repeat: no-repeat;
+            -webkit-mask-position: center center;
+            -webkit-mask-repeat: no-repeat;
+
+            &:hover{
+                -webkit-mask: none;
+                mask: none;
+                background: transparent;
+            }
+
+            &:hover ~ #backGroundFill{
+                    background: $grad3;
+                    opacity: 1;
+            }
+        }
+        #taller{
+            -webkit-mask: url('/img/blob4.svg');
+            mask: url('/img/blob4.svg');
+            background: $grad4;
+            mask-position: center center;
+            mask-repeat: no-repeat;
+            -webkit-mask-position: center center;
+            -webkit-mask-repeat: no-repeat;
+
+            &:hover{
+                -webkit-mask: none;
+                mask: none;
+                background: transparent;
+            }
+
+            &:hover ~ #backGroundFill{
+                    background: $grad4;
+                    opacity: 1;
+            }
+        }
+        #jump{
+            -webkit-mask: url('/img/blob5.svg');
+            mask: url('/img/blob5.svg');
+            background: $grad5;
+            mask-position: center center;
+            mask-repeat: no-repeat;
+            -webkit-mask-position: center center;
+            -webkit-mask-repeat: no-repeat;
+
+            &:hover{
+                -webkit-mask: none;
+                mask: none;
+                background: transparent;
+            }
+
+            &:hover ~ #backGroundFill{
+                    background: $grad5;
+                    opacity: 1;
+            }
+        }
+        #matemati{
+            -webkit-mask: url('/img/blob3.svg');
+            mask: url('/img/blob3.svg');
+            background: $grad2;
+            mask-position: center center;
+            mask-repeat: no-repeat;
+            -webkit-mask-position: center center;
+            -webkit-mask-repeat: no-repeat;
+
+            &:hover{
+                -webkit-mask: none;
+                mask: none;
+                background: transparent;
+            }
+
+            &:hover ~ #backGroundFill{
+                    background: $grad2;
+                    opacity: 1;
+            }
+        }
+        #waldorf{
+            -webkit-mask: url('/img/blob2.svg');
+            mask: url('/img/blob2.svg');
+            background: $grad7;
+            mask-position: center center;
+            mask-repeat: no-repeat;
+            -webkit-mask-position: center center;
+            -webkit-mask-repeat: no-repeat;
+
+            &:hover{
+                -webkit-mask: none;
+                mask: none;
+                background: transparent;
+            }
+
+            &:hover ~ #backGroundFill{
+                    background: $grad7;
+                    opacity: 1;
+            }
+        }
+
+        #backGroundFill{
+            position: fixed;
+            top:0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            background-color: transparent;
+            z-index: 1;
+        }
     }
 }
 
