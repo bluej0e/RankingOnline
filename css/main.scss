@@ -1380,9 +1380,16 @@ nav.mainNav{
         margin-top:calc(10vw + 30px);
         margin-bottom: 30px;
 
-        text-shadow: 3px 3px $hotpink;
-        @include stroke-width(2px);
-        @include stroke-color($pink);
+
+        @include stroke-width(0px);
+        @include stroke-color(rgba($color: #fff, $alpha: 0.75));
+        color:rgba($color: #fff, $alpha: 0.75);  
+        mix-blend-mode: difference;
+
+
+        // text-shadow: 3px 3px $hotpink;
+        // @include stroke-width(2px);
+        // @include stroke-color($pink);
 
         @include for-size(desktop-old-up){
             color:rgba($color: #fff, $alpha: 0.75);  
@@ -1427,6 +1434,8 @@ nav.mainNav{
             width: 25vw;
             min-width: 300px;
             min-height: 300px;
+            max-width: 400px;
+            max-height: 400px;
             display: grid;
             grid-template-columns: 100%;
             grid-template-rows: 99% 1fr 1fr;
@@ -1440,6 +1449,7 @@ nav.mainNav{
             z-index: 2;
             padding: calc(25vw / 10);
             transition: all 0.618s ease-in-out;
+            margin: 1em;
 
             img{
                 grid-area: imagen;
@@ -1481,19 +1491,19 @@ nav.mainNav{
                     color: $white;
                 }
             }
-
-            &:hover{
-                z-index: 5;
-                grid-template-rows: 90% 1fr 1fr;
+ 
+            // &:hover{
+            //     z-index: 5;
+            //     grid-template-rows: 90% 1fr 1fr;
            
-                img{
-                    width: 100%;
-                }
+            //     img{
+            //         width: 100%;
+            //     }
 
-                h4, .holdy{
-                    opacity: 1;
-                }
-            }           
+            //     h4, .holdy{
+            //         opacity: 1;
+            //     }
+            // }
         } 
 
         #jungle{
@@ -1647,6 +1657,145 @@ nav.mainNav{
             transition: opacity 0.618s ease;
             opacity: 0;
         }
+        #jungle.hover-on{
+            z-index: 5;
+            grid-template-rows: 80% 1fr 1fr;
+            -webkit-mask: none;
+            mask: none;
+            background: transparent;
+            
+            img{
+                width: 100%;
+            }
+            
+            h4, .holdy{
+                opacity: 1;
+            }
+            & ~ #backGroundFill{
+                background: $grad1;
+                opacity: 1;
+            }
+        }
+        #pelumark.hover-on{
+            z-index: 5;
+            grid-template-rows: 80% 1fr 1fr;
+            -webkit-mask: none;
+            mask: none;
+            background: transparent;
+            
+            img{
+                width: 100%;
+            }
+            
+            h4, .holdy{
+                opacity: 1;
+            }
+            
+            & ~ #backGroundFill{
+                background: $grad6;
+                opacity: 1;
+            }
+        }
+        #languageinc.hover-on{
+            z-index: 5;
+            grid-template-rows: 80% 1fr 1fr;
+            -webkit-mask: none;
+            mask: none;
+            background: transparent;
+            
+            img{
+                width: 100%;
+            }
+            
+            h4, .holdy{
+                opacity: 1;
+            }
+            & ~ #backGroundFill{
+                background: $grad3;
+                opacity: 1;
+            }
+        }
+        #taller.hover-on{
+            z-index: 5;
+            grid-template-rows: 80% 1fr 1fr;
+            -webkit-mask: none;
+            mask: none;
+            background: transparent;
+            
+            img{
+                width: 100%;
+            }
+            
+            h4, .holdy{
+                opacity: 1;
+            }
+            & ~ #backGroundFill{
+                background: $grad4;
+                opacity: 1;
+            }
+        }
+        #jump.hover-on{
+            z-index: 5;
+            grid-template-rows: 90% 1fr 1fr;
+            -webkit-mask: none;
+            mask: none;
+            background: transparent;
+            
+            img{
+                width: 100%;
+            }
+            
+            h4, .holdy{
+                opacity: 1;
+            }
+            & ~ #backGroundFill{
+                background: $grad5;
+                opacity: 1;
+            }
+        }
+        #matemati.hover-on{
+            z-index: 5;
+            grid-template-rows: 80% 1fr 1fr;
+            -webkit-mask: none;
+            mask: none;
+            background: transparent;
+            
+            img{
+                width: 100%;
+            }
+            
+            h4, .holdy{
+                opacity: 1;
+            }
+            & ~ #backGroundFill{
+                background: $grad2;
+                opacity: 1;
+            }
+        }
+        #waldorf.hover-on{
+            z-index: 5;
+            grid-template-rows: 80% 1fr 1fr;
+            -webkit-mask: none;
+            mask: none;
+            background: transparent;
+            
+            img{
+                width: 100%;
+            }
+            
+            h4, .holdy{
+                opacity: 1;
+            }
+            & ~ #backGroundFill{
+                background: $grad7;
+                opacity: 1;
+            }
+        }
+        
+        @include for-size(phone-only){
+            margin-bottom: 50px;
+        }
+        // }
     }
 }
 

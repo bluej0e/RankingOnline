@@ -90,12 +90,11 @@ $(document).ready(function () {
 		speed: .25
 	});
 
-
-	// const interval = setInterval(function() {
-	// 	$('head').append('<style>.filler-1::before{transform:'+randomTransform()+'} .filler-1::after{transform:'+randomTransform()+'} .filler-2::before{transform:'+randomTransform()+'} .filler-2::after{transform:'+randomTransform()+'} .filler-3::before{transform:'+randomTransform()+'} .filler-3::after{transform:'+randomTransform()+'} .filler-4::before{transform:'+randomTransform()+'} .filler-4::after{transform:'+randomTransform()+'} .filler-5::before{transform:'+randomTransform()+'}. filler-5::after{transform:'+randomTransform()+'} .filler-6::before{transform:'+randomTransform()+'} .filler-6::after{transform:'+randomTransform()+'} .filler-7::before{transform:'+randomTransform()+'} .filler-7::after{transform:'+randomTransform()+'} .filler-8::before{transform:'+randomTransform()+'} .filler-8::after{transform:'+randomTransform()+'}</style>');
-	//   }, 5000);
-	 
-	//  clearInterval(interval); 
+	
+	$('.portfolio-item').on('click mouseover', function(){
+		$('.portfolio-item.hover-on').removeClass('hover-on');
+		$(this).addClass('hover-on');
+	});
 
 	function randomBlobs(){
 		// $(".filler").each(function( i ) {
@@ -123,7 +122,6 @@ $(document).ready(function () {
 		var s = ((Math.floor(Math.random() * 360) / 100) + 1).toFixed(2);
 		var i = (Math.floor(Math.random() * 13) + 1 );
 
-		// return "translate(" + n + "px," + x + "px) rotate(" + r + "deg) scale(" + s + "); background-image:url('/img/blobs/blob-" + i + ".svg' );";
 		return "translate(" + n + "px," + x + "px) rotate(" + r + "deg) scale(" + s + ");";
 	}	  
 
