@@ -233,18 +233,18 @@ $colBlob3: #456de5;
 $colBlob4: #009793;
 $colBlob5: #ff7250;
 // $pinkgradient: linear-gradient(90deg, $pink 0%, $hotpink 100%);
-$pinkgradient: linear-gradient(125deg, rgba(110,2,112,1) 0%, rgba(216,0,119,1) 100%); 
+$pinkgradient: -webkit-linear-gradient(125deg, rgba(110,2,112,1) 0%, rgba(216,0,119,1) 100%); 
 $ga1: 125deg;
 $ga2: 305deg;
 
-$grad0: linear-gradient($ga1, $whiteback, $white);
-$grad1: linear-gradient($ga1, $colBlob1, $colBlob5);
-$grad2: linear-gradient($ga1, #f857a6, #ff5858);
-$grad3: linear-gradient($ga1, #5f2c82, #49a09d); 
-$grad4: linear-gradient($ga1, #134e5e, #71b280); 
-$grad5: linear-gradient($ga1, #4776e6, #8e54e9); 
-$grad6: linear-gradient($ga1, #4cb8c4, #3cd3ad); 
-$grad7: linear-gradient($ga1, #aa076b, #61045f); 
+$grad0: -webkit-linear-gradient($ga1, $whiteback, $white);
+$grad1: -webkit-linear-gradient($ga1, $colBlob1, $colBlob5);
+$grad2: -webkit-linear-gradient($ga1, #f857a6, #ff5858);
+$grad3: -webkit-linear-gradient($ga1, #5f2c82, #49a09d); 
+$grad4: -webkit-linear-gradient($ga1, #134e5e, #71b280); 
+$grad5: -webkit-linear-gradient($ga1, #4776e6, #8e54e9); 
+$grad6: -webkit-linear-gradient($ga1, #4cb8c4, #3cd3ad); 
+$grad7: -webkit-linear-gradient($ga1, #aa076b, #61045f); 
 // $grad1b: linear-gradient($ga2, $colBlob1, $colBlob5);
 // $grad2b: linear-gradient($ga2, #f857a6, #ff5858);
 // $grad3b: linear-gradient($ga2, #5f2c82, #49a09d); 
@@ -1374,7 +1374,7 @@ nav.mainNav{
         line-height: 1em;
         z-index: 2;
         letter-spacing: 0.1em;
-
+        cursor: default;
         text-transform: uppercase;
         font-weight: 800;
         margin-top:calc(10vw + 30px);
@@ -1421,7 +1421,7 @@ nav.mainNav{
         flex-wrap: wrap;
         justify-content: space-evenly;
         align-items: center;
-
+    
         @include for-size(desktop-old-up){
             max-width: 1300px;
             margin: 0 auto;
@@ -1448,8 +1448,9 @@ nav.mainNav{
             text-align: center;
             z-index: 2;
             padding: calc(25vw / 10);
-            transition: all 0.618s ease-in-out;
             margin: 1em;
+            transition: all 0.618s ease;
+
 
             img{
                 grid-area: imagen;
@@ -1520,11 +1521,6 @@ nav.mainNav{
                 mask: none;
                 background: transparent;
             }
-
-            &:hover ~ #backGroundFill{
-                background: $grad1;
-                opacity: 1;
-            }
         }
         #pelumark{
             -webkit-mask: url('/img/blob2.svg');
@@ -1539,11 +1535,6 @@ nav.mainNav{
                 -webkit-mask: none;
                 mask: none;
                 background: transparent;
-            }
-
-            &:hover ~ #backGroundFill{
-                background: $grad6;
-                opacity: 1;
             }
         }
         #languageinc{
@@ -1560,11 +1551,6 @@ nav.mainNav{
                 mask: none;
                 background: transparent;
             }
-
-            &:hover ~ #backGroundFill{
-                background: $grad3;
-                opacity: 1;
-            }
         }
         #taller{
             -webkit-mask: url('/img/blob4.svg');
@@ -1579,11 +1565,6 @@ nav.mainNav{
                 -webkit-mask: none;
                 mask: none;
                 background: transparent;
-            }
-
-            &:hover ~ #backGroundFill{
-                background: $grad4;
-                opacity: 1;
             }
         }
         #jump{
@@ -1600,11 +1581,6 @@ nav.mainNav{
                 mask: none;
                 background: transparent;
             }
-
-            &:hover ~ #backGroundFill{
-                background: $grad5;
-                opacity: 1;
-            }
         }
         #matemati{
             -webkit-mask: url('/img/blob2.svg');
@@ -1619,11 +1595,6 @@ nav.mainNav{
                 -webkit-mask: none;
                 mask: none;
                 background: transparent;
-            }
-
-            &:hover ~ #backGroundFill{
-                background: $grad2;
-                opacity: 1;
             }
         }
         #waldorf{
@@ -1640,11 +1611,6 @@ nav.mainNav{
                 mask: none;
                 background: transparent;
             }
-
-            &:hover ~ #backGroundFill{
-                background: $grad7;
-                opacity: 1;
-            }
         }
         #backGroundFill{
             position: fixed;
@@ -1654,8 +1620,7 @@ nav.mainNav{
             height: 100%;
             margin: 0;
             z-index: 1;
-            transition: opacity 0.618s ease;
-            opacity: 0;
+            transition: background-color 0.618s ease;
         }
         #jungle.hover-on{
             z-index: 5;
@@ -1669,10 +1634,6 @@ nav.mainNav{
             }
             
             h4, .holdy{
-                opacity: 1;
-            }
-            & ~ #backGroundFill{
-                background: $grad1;
                 opacity: 1;
             }
         }
@@ -1690,11 +1651,6 @@ nav.mainNav{
             h4, .holdy{
                 opacity: 1;
             }
-            
-            & ~ #backGroundFill{
-                background: $grad6;
-                opacity: 1;
-            }
         }
         #languageinc.hover-on{
             z-index: 5;
@@ -1708,10 +1664,6 @@ nav.mainNav{
             }
             
             h4, .holdy{
-                opacity: 1;
-            }
-            & ~ #backGroundFill{
-                background: $grad3;
                 opacity: 1;
             }
         }
@@ -1729,10 +1681,6 @@ nav.mainNav{
             h4, .holdy{
                 opacity: 1;
             }
-            & ~ #backGroundFill{
-                background: $grad4;
-                opacity: 1;
-            }
         }
         #jump.hover-on{
             z-index: 5;
@@ -1746,10 +1694,6 @@ nav.mainNav{
             }
             
             h4, .holdy{
-                opacity: 1;
-            }
-            & ~ #backGroundFill{
-                background: $grad5;
                 opacity: 1;
             }
         }
@@ -1767,10 +1711,6 @@ nav.mainNav{
             h4, .holdy{
                 opacity: 1;
             }
-            & ~ #backGroundFill{
-                background: $grad2;
-                opacity: 1;
-            }
         }
         #waldorf.hover-on{
             z-index: 5;
@@ -1786,16 +1726,11 @@ nav.mainNav{
             h4, .holdy{
                 opacity: 1;
             }
-            & ~ #backGroundFill{
-                background: $grad7;
-                opacity: 1;
-            }
         }
         
         @include for-size(phone-only){
             margin-bottom: 50px;
         }
-        // }
     }
 }
 
