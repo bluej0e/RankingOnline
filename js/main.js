@@ -92,15 +92,6 @@ $(document).ready(function () {
 
 	
 	$('.portfolio-item').on('click mouseover', function(){
-		// const backColors = {
-		// 	jungle:"linear-gradient(125deg, #f74162, #ff7250)",
-		// 	pelumark:"linear-gradient(125deg, #4cb8c4, #3cd3ad)",
-		// 	languageinc:"linear-gradient(125deg, #5f2c82, #49a09d)",
-		// 	taller:"linear-gradient(125deg, #134e5e, #71b280)",
-		// 	jump:"linear-gradient(125deg, #4776e6, #8e54e9)",
-		// 	matemati:"linear-gradient(125deg, #f857a6, #ff5858)",
-		// 	waldorf:"linear-gradient(125deg, #aa076b, #61045f)",
-		// };
 		const backColors2 = {
 			jungle:"#f74162",
 			pelumark:"#3cd3ad",

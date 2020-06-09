@@ -1379,39 +1379,14 @@ nav.mainNav{
         font-weight: 800;
         margin-top:calc(10vw + 30px);
         margin-bottom: 30px;
-
-
-        @include stroke-width(0px);
-        @include stroke-color(rgba($color: #fff, $alpha: 0.75));
-        color:rgba($color: #fff, $alpha: 0.75);  
+        color:rgba($color: #fff, $alpha: 0.9);  
         mix-blend-mode: difference;
-
-
-        // text-shadow: 3px 3px $hotpink;
-        // @include stroke-width(2px);
-        // @include stroke-color($pink);
+        text-shadow: none;
 
         @include for-size(desktop-old-up){
-            color:rgba($color: #fff, $alpha: 0.75);  
             font-size: 5vw;
             letter-spacing: -5px;
-            mix-blend-mode: difference;
             transform: scale(1.2);
-
-            text-shadow: none;
-            // text-shadow: 
-            // 10px 4vw rgba($color: #fff, $alpha: 0.9),
-            // 20px 8vw rgba($color: #fff, $alpha: 0.8),
-            // 30px 12vw rgba($color: #fff, $alpha: 0.7),
-            // 40px 16vw rgba($color: #fff, $alpha: 0.6),
-            // 50px 20vw rgba($color: #fff, $alpha: 0.5),
-            // 60px 24vw rgba($color: #fff, $alpha: 0.4),
-            // 70px 28vw rgba($color: #fff, $alpha: 0.3),
-            // 80px 32vw rgba($color: #fff, $alpha: 0.2),
-            // 90px 36vw rgba($color: #fff, $alpha: 0.1),
-            // 100px 40vw rgba($color: #fff, $alpha: 0.05);
-            @include stroke-width(0px);
-            @include stroke-color(rgba($color: #fff, $alpha: 0.75));
         }
     }
 
@@ -1428,8 +1403,6 @@ nav.mainNav{
         }
 
         .portfolio-item{
-            // width: #{$blobSize};
-            // height: #{$blobSize};
             height: 25vw;
             width: 25vw;
             min-width: 300px;
@@ -1449,7 +1422,7 @@ nav.mainNav{
             z-index: 2;
             padding: calc(25vw / 10);
             margin: 1em;
-            transition: all 0.618s ease;
+            transition: a 0.618s ease-in-out;
 
 
             img{
@@ -1492,19 +1465,6 @@ nav.mainNav{
                     color: $white;
                 }
             }
- 
-            // &:hover{
-            //     z-index: 5;
-            //     grid-template-rows: 90% 1fr 1fr;
-           
-            //     img{
-            //         width: 100%;
-            //     }
-
-            //     h4, .holdy{
-            //         opacity: 1;
-            //     }
-            // }
         } 
 
         #jungle{
@@ -1620,7 +1580,7 @@ nav.mainNav{
             height: 100%;
             margin: 0;
             z-index: 1;
-            transition: background-color 0.618s ease;
+            transition: background-color 0.618s ease-in-out;
         }
         #jungle.hover-on{
             z-index: 5;
