@@ -91,47 +91,47 @@ const langEs = {
   reasons:{
     title: "<span>9</span> Razones para elegir Ranking Online",
     one:{
-      i: "<img src='/img/i/accessory.svg' />",
+      i: "<img class='lazyload' alt='' data-src='/img/i/accessory.svg' />",
       t:"Fiabilidad",
       p:"No hay mejor forma para captar la atención de tus clientes que con el contenido audiovisual, realizamos videos para explicar tus servicios, sintetizando la información con el objetivo."
     },
     two:{
-      i: "<img src='/img/i/handshake.svg' />",
+      i: "<img class='lazyload' alt='' data-src='/img/i/handshake.svg' />",
       t:"Te Escuchamos",
       p:"No hay mejor forma para captar la atención de tus clientes que con el contenido audiovisual, realizamos videos para explicar tus servicios, sintetizando la información con el objetivo."
     }, 
     three:{
-      i: "<img src='/img/i/rocket-launch.svg' />",
+      i: "<img class='lazyload' alt='' data-src='/img/i/rocket-launch.svg' />",
       t:"3, 2, 1... Despegamos!",
       p:"No hay mejor forma para captar la atención de tus clientes que con el contenido audiovisual, realizamos videos para explicar tus servicios, sintetizando la información con el objetivo."
     },
     four:{
-      i: "<img src='/img/i/maps-and-flags.svg' />",
+      i: "<img class='lazyload' alt='' data-src='/img/i/maps-and-flags.svg' />",
       t:"Calidad Garantizada",
       p:"No hay mejor forma para captar la atención de tus clientes que con el contenido audiovisual, realizamos videos para explicar tus servicios, sintetizando la información con el objetivo."
     },
     five:{
-      i: "<img src='/img/i/invention.svg' />",
+      i: "<img class='lazyload' alt='' data-src='/img/i/invention.svg' />",
       t:"Ideas Innovadoras",
       p:"No hay mejor forma para captar la atención de tus clientes que con el contenido audiovisual, realizamos videos para explicar tus servicios, sintetizando la información con el objetivo."
     },
     six:{
-      i: "<img src='/img/i/banking.svg' />",
+      i: "<img class='lazyload' alt='' data-src='/img/i/banking.svg' />",
       t:"Presupuestos a tu cartera",
       p:"No hay mejor forma para captar la atención de tus clientes que con el contenido audiovisual, realizamos videos para explicar tus servicios, sintetizando la información con el objetivo."
     },
     seven:{
-      i: "<img src='/img/i/salvation.svg' />",
+      i: "<img class='lazyload' alt='' data-src='/img/i/salvation.svg' />",
       t:"Disparamos en el cnetro",
       p:"No hay mejor forma para captar la atención de tus clientes que con el contenido audiovisual, realizamos videos para explicar tus servicios, sintetizando la información con el objetivo."
     },
     eight:{
-      i: "<img src='/img/i/bars-graphic.svg' />",
+      i: "<img class='lazyload' alt='' data-src='/img/i/bars-graphic.svg' />",
       t:"Crecimiento Continue",
       p:"No hay mejor forma para captar la atención de tus clientes que con el contenido audiovisual, realizamos videos para explicar tus servicios, sintetizando la información con el objetivo."
     },
     nine: {
-      i: "<img src='/img/i/door-key.svg' />",
+      i: "<img class='lazyload' alt='' data-src='/img/i/door-key.svg' />",
       t:"Algo mas que no se me ocurre ahora",
       p:"No hay mejor forma para captar la atención de tus clientes que con el contenido audiovisual, realizamos videos para explicar tus servicios, sintetizando la información con el objetivo."
     },

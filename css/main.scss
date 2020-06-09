@@ -237,6 +237,7 @@ $pinkgradient: linear-gradient(125deg, rgba(110,2,112,1) 0%, rgba(216,0,119,1) 1
 $ga1: 125deg;
 $ga2: 305deg;
 
+$grad0: linear-gradient($ga1, $whiteback, $white);
 $grad1: linear-gradient($ga1, $colBlob1, $colBlob5);
 $grad2: linear-gradient($ga1, #f857a6, #ff5858);
 $grad3: linear-gradient($ga1, #5f2c82, #49a09d); 
@@ -244,13 +245,13 @@ $grad4: linear-gradient($ga1, #134e5e, #71b280);
 $grad5: linear-gradient($ga1, #4776e6, #8e54e9); 
 $grad6: linear-gradient($ga1, #4cb8c4, #3cd3ad); 
 $grad7: linear-gradient($ga1, #aa076b, #61045f); 
-$grad1b: linear-gradient($ga2, $colBlob1, $colBlob5);
-$grad2b: linear-gradient($ga2, #f857a6, #ff5858);
-$grad3b: linear-gradient($ga2, #5f2c82, #49a09d); 
-$grad4b: linear-gradient($ga2, #134e5e, #71b280); 
-$grad5b: linear-gradient($ga2, #4776e6, #8e54e9); 
-$grad6b: linear-gradient($ga2, #4cb8c4, #3cd3ad); 
-$grad7b: linear-gradient($ga2, #aa076b, #61045f); 
+// $grad1b: linear-gradient($ga2, $colBlob1, $colBlob5);
+// $grad2b: linear-gradient($ga2, #f857a6, #ff5858);
+// $grad3b: linear-gradient($ga2, #5f2c82, #49a09d); 
+// $grad4b: linear-gradient($ga2, #134e5e, #71b280); 
+// $grad5b: linear-gradient($ga2, #4776e6, #8e54e9); 
+// $grad6b: linear-gradient($ga2, #4cb8c4, #3cd3ad); 
+// $grad7b: linear-gradient($ga2, #aa076b, #61045f); 
 
 * {
     font: 16px/26px 'Raleway', sans-serif;
@@ -669,7 +670,7 @@ nav.mainNav{
             a{
                 text-decoration: none;
                 color: $whiteback;
-                cursor: default;
+                cursor: pointer;
                 font-size: 2em;
                 font-weight: 900;
             }
@@ -1230,13 +1231,16 @@ nav.mainNav{
             background-image: url('/img/blob3.svg');
             justify-self: self-end;
             
-            @include for-size(tablet-portrait-up){
-                justify-self: center;
-            }
-            
+
             @include for-size(desktop-old-up){
                 justify-self: flex-end;
             }
+
+            @include for-size(tablet-portrait-up){
+                justify-self: flex-start;
+            }
+            
+          
         }
     
         #blob-4 { 
@@ -1360,23 +1364,48 @@ nav.mainNav{
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+    overflow-x: hidden;
 
-
-    h1 {
+    h1{
+        color:transparent;  
         width: 100%;
         text-align: center;
-        font-size: 3.5em;
-        // margin: 2em auto;
+        font-size: 2.5em;
+        line-height: 1em;
         z-index: 2;
         letter-spacing: 0.1em;
+
         text-transform: uppercase;
         font-weight: 800;
+        margin-top:calc(10vw + 30px);
+        margin-bottom: 30px;
+
         text-shadow: 3px 3px $hotpink;
         @include stroke-width(2px);
         @include stroke-color($pink);
-        color: transparent;
-        margin-top:calc(10vw + 30px);
-        margin-bottom: 30px;
+
+        @include for-size(desktop-old-up){
+            color:rgba($color: #fff, $alpha: 0.75);  
+            font-size: 5vw;
+            letter-spacing: -5px;
+            mix-blend-mode: difference;
+            transform: scale(1.2);
+
+            text-shadow: none;
+            // text-shadow: 
+            // 10px 4vw rgba($color: #fff, $alpha: 0.9),
+            // 20px 8vw rgba($color: #fff, $alpha: 0.8),
+            // 30px 12vw rgba($color: #fff, $alpha: 0.7),
+            // 40px 16vw rgba($color: #fff, $alpha: 0.6),
+            // 50px 20vw rgba($color: #fff, $alpha: 0.5),
+            // 60px 24vw rgba($color: #fff, $alpha: 0.4),
+            // 70px 28vw rgba($color: #fff, $alpha: 0.3),
+            // 80px 32vw rgba($color: #fff, $alpha: 0.2),
+            // 90px 36vw rgba($color: #fff, $alpha: 0.1),
+            // 100px 40vw rgba($color: #fff, $alpha: 0.05);
+            @include stroke-width(0px);
+            @include stroke-color(rgba($color: #fff, $alpha: 0.75));
+        }
     }
 
     .item-container{
@@ -1391,17 +1420,16 @@ nav.mainNav{
             margin: 0 auto;
         }
 
-        #backGroundFill{
-            opacity: 0;
-            transition: all 0.618s ease-in-out;
-        }
-
         .portfolio-item{
-            width: calc(#{$blobSize} * 1);
-            height: calc(#{$blobSize} * 1);
+            // width: #{$blobSize};
+            // height: #{$blobSize};
+            height: 25vw;
+            width: 25vw;
+            min-width: 300px;
+            min-height: 300px;
             display: grid;
             grid-template-columns: 100%;
-            grid-template-rows: 98% 1fr 1fr;
+            grid-template-rows: 99% 1fr 1fr;
             grid-template-areas: "imagen" "titulo" "texto";
             align-items: center;
             justify-content: center;
@@ -1410,13 +1438,13 @@ nav.mainNav{
             background-repeat: no-repeat;
             text-align: center;
             z-index: 2;
-            padding: calc(#{$blobSize} / 5);
+            padding: calc(25vw / 10);
             transition: all 0.618s ease-in-out;
 
             img{
                 grid-area: imagen;
                 margin: 0 auto;
-                width: 90%;
+                width: 80%;
                 transition: all 0.618s ease-in-out;
             }
 
@@ -1442,7 +1470,7 @@ nav.mainNav{
                 align-items: center;
                 transition: all 0.618s ease-in-out;
                 opacity: 0;
-                font-size: 0.8em;
+                // font-size: 0.8em;
                 color: $white;
 
                 a{
@@ -1456,6 +1484,7 @@ nav.mainNav{
 
             &:hover{
                 z-index: 5;
+                grid-template-rows: 90% 1fr 1fr;
            
                 img{
                     width: 100%;
@@ -1464,8 +1493,7 @@ nav.mainNav{
                 h4, .holdy{
                     opacity: 1;
                 }
-            }   
-           
+            }           
         } 
 
         #jungle{
@@ -1484,8 +1512,8 @@ nav.mainNav{
             }
 
             &:hover ~ #backGroundFill{
-                    background: $grad1;
-                    opacity: 1;
+                background: $grad1;
+                opacity: 1;
             }
         }
         #pelumark{
@@ -1504,8 +1532,8 @@ nav.mainNav{
             }
 
             &:hover ~ #backGroundFill{
-                    background: $grad6;
-                    opacity: 1;
+                background: $grad6;
+                opacity: 1;
             }
         }
         #languageinc{
@@ -1524,8 +1552,8 @@ nav.mainNav{
             }
 
             &:hover ~ #backGroundFill{
-                    background: $grad3;
-                    opacity: 1;
+                background: $grad3;
+                opacity: 1;
             }
         }
         #taller{
@@ -1544,8 +1572,8 @@ nav.mainNav{
             }
 
             &:hover ~ #backGroundFill{
-                    background: $grad4;
-                    opacity: 1;
+                background: $grad4;
+                opacity: 1;
             }
         }
         #jump{
@@ -1564,13 +1592,13 @@ nav.mainNav{
             }
 
             &:hover ~ #backGroundFill{
-                    background: $grad5;
-                    opacity: 1;
+                background: $grad5;
+                opacity: 1;
             }
         }
         #matemati{
-            -webkit-mask: url('/img/blob3.svg');
-            mask: url('/img/blob3.svg');
+            -webkit-mask: url('/img/blob2.svg');
+            mask: url('/img/blob2.svg');
             background: $grad2;
             mask-position: center center;
             mask-repeat: no-repeat;
@@ -1584,13 +1612,13 @@ nav.mainNav{
             }
 
             &:hover ~ #backGroundFill{
-                    background: $grad2;
-                    opacity: 1;
+                background: $grad2;
+                opacity: 1;
             }
         }
         #waldorf{
-            -webkit-mask: url('/img/blob2.svg');
-            mask: url('/img/blob2.svg');
+            -webkit-mask: url('/img/blob3.svg');
+            mask: url('/img/blob3.svg');
             background: $grad7;
             mask-position: center center;
             mask-repeat: no-repeat;
@@ -1604,11 +1632,10 @@ nav.mainNav{
             }
 
             &:hover ~ #backGroundFill{
-                    background: $grad7;
-                    opacity: 1;
+                background: $grad7;
+                opacity: 1;
             }
         }
-
         #backGroundFill{
             position: fixed;
             top:0;
@@ -1616,8 +1643,9 @@ nav.mainNav{
             width: 100%;
             height: 100%;
             margin: 0;
-            background-color: transparent;
             z-index: 1;
+            transition: opacity 0.618s ease;
+            opacity: 0;
         }
     }
 }
