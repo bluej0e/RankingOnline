@@ -245,13 +245,7 @@ $grad4: -webkit-linear-gradient($ga1, #134e5e, #71b280);
 $grad5: -webkit-linear-gradient($ga1, #4776e6, #8e54e9); 
 $grad6: -webkit-linear-gradient($ga1, #4cb8c4, #3cd3ad); 
 $grad7: -webkit-linear-gradient($ga1, #aa076b, #61045f); 
-// $grad1b: linear-gradient($ga2, $colBlob1, $colBlob5);
-// $grad2b: linear-gradient($ga2, #f857a6, #ff5858);
-// $grad3b: linear-gradient($ga2, #5f2c82, #49a09d); 
-// $grad4b: linear-gradient($ga2, #134e5e, #71b280); 
-// $grad5b: linear-gradient($ga2, #4776e6, #8e54e9); 
-// $grad6b: linear-gradient($ga2, #4cb8c4, #3cd3ad); 
-// $grad7b: linear-gradient($ga2, #aa076b, #61045f); 
+
 
 * {
     font: 16px/26px 'Raleway', sans-serif;
@@ -426,11 +420,6 @@ button:hover {
  
 }
 
-
-/* ==========================================================================
-   MAIN NAV
-   ========================================================================== */
-
 .main-container{
     display: flex;
     flex-direction: column;
@@ -553,7 +542,10 @@ header {
         }
     }   
 }
-   
+ 
+/* ==========================================================================
+   MAIN NAV
+   ========================================================================== */
 nav.mainNav{
     z-index: 115;
     width: 100vw;
